@@ -1,0 +1,42 @@
+- name: Create necessary directories
+  file: path={{item}} state=directory mode=0755
+  with_items:
+    - "{{ tempdir }}/filled"
+    - "{{ tempdir }}/filled/ssl"
+    - "{{ tempdir }}/filled/metadata"
+    - "{{ tempdir }}/filled/nginx"
+    - "{{ tempdir }}/filled/resources/js"
+
+- name: Template config.js file
+  template: src={{ tempdir }}/config.js dest={{ tempdir }}/filled/resources/js/config.js
+
+- name: Copy ssl certificate
+  copy: src={{ conf_root }}/certs/{{ host }}/{{ apro_ssl_cert }} dest={{ tempdir }}/filled/ssl/{{ apro_ssl_cert }}
+
+- name: Copy ssl key
+  copy: src={{ conf_root }}/certs/{{ host }}/{{ apro_ssl_key }} dest={{ tempdir }}/filled/ssl/{{ apro_ssl_key }}
+
+- name: Copy ca certificate
+  copy: src={{ conf_root }}/certs/{{ apro_ca_cert }} dest={{ tempdir }}/filled/ssl/{{ apro_ca_cert }}
+
+- name: Copy service-sp-metadata.xml
+  copy: src={{ confdir }}/metadata/service-sp-metadata.xml dest={{ tempdir }}/filled/metadata/
+
+- name: Copy service-idp-metadata.xml
+  copy: src={{ confdir }}/metadata/service-idp-metadata.xml dest={{ tempdir }}/filled/metadata/
+
+- name: Copy core SP metadata
+  copy: src={{ conf_root }}/certs/{{ shibgen_core_sp_id }}/sp-metadata.xml dest={{ tempdir }}/filled/metadata/sp-metadata.xml
+
+- name: Copy core IDP metadata
+  copy: src={{ conf_root }}/certs/{{ shibgen_core_idp_id }}/idp-metadata.xml dest={{ tempdir }}/filled/metadata/idp-metadata.xml
+
+- name: Copy disruption message
+  copy: src={{ confdir }}/disruption_message.json dest={{ tempdir }}/filled
+
+- name: Template nginx conf
+  template: src={{ confdir }}/nginx/nginx-static.conf.template dest={{ tempdir }}/filled/nginx/nginx-static.conf
+
+- name: Create filled template tar
+  local_action: shell tar -C {{ tempdir }}/filled/ -zvcf {{ tempdir }}/filled_templates.tgz .
+  delegate_to: localhost

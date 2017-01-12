@@ -1,0 +1,22 @@
+{
+  "testword": "EN_kala",
+  "valinta__olet_tunnistautumassa_palveluun": "You are identifying yourself to the service",
+  "valinta__return-link": "Back to service",
+  "valinta__suomifi-tunnistaminen-roadmap": "Suomi.fi identification is a shared identification service for public administration e-services. It will make identification secure and easy. You can use the identification method of your preference.",
+  "valinta__toisten_maiden_tunnistautumistavat": "Use the identification service of an other EU Member State",
+  "valinta__vaihtoehto__aktia": "Aktia",
+  "valinta__vaihtoehto__alandsbanken": "Ålandsbanken",
+  "valinta__vaihtoehto__danskebank": "Danske Bank",
+  "valinta__vaihtoehto__handelsbanken": "Handelsbanken",
+  "valinta__vaihtoehto__katso_otp": "Katso OTP",
+  "valinta__vaihtoehto__katso_pwd": "Katso PWD",
+  "valinta__vaihtoehto__mobiilivarmenne": "Mobile certificate",
+  "valinta__vaihtoehto__nordea": "Nordea",
+  "valinta__vaihtoehto__oma_saastopankki": "Oma Säästöpankki",
+  "valinta__vaihtoehto__osuuspankki": "OP Bank Group ",
+  "valinta__vaihtoehto__otsokko": "Select identification method",
+  "valinta__vaihtoehto__pop_pankki": "POP Pankki",
+  "valinta__vaihtoehto__saastopankki": "Säästöpankki",
+  "valinta__vaihtoehto__spankki": "S-pankki",
+  "valinta__vaihtoehto__varmennekortti": "Certificate card"
+}
