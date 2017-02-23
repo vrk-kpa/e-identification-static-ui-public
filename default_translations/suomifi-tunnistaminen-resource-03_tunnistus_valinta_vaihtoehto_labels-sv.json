@@ -1,0 +1,22 @@
+{
+  "testword": "SV_kala",
+  "valinta__olet_tunnistautumassa_palveluun": "Du skall identifiera dig i tjänsten",
+  "valinta__return-link": "Återvänd till tjänsten",
+  "valinta__suomifi-tunnistaminen-roadmap": "Suomi.fi-identifiering är den gemensamma identifieringstjänsten för den offentliga förvaltningens e-tjänster. Det är enkelt och tryggt att identifiera sig. Du väljer själv vilken identifieringsmetod du vill använda.",
+  "valinta__toisten_maiden_tunnistautumistavat": "Använd identifieringstjänsten för ett annat EU-land",
+  "valinta__vaihtoehto__aktia": "Aktia",
+  "valinta__vaihtoehto__alandsbanken": "Ålandsbanken",
+  "valinta__vaihtoehto__danskebank": "Danske Bank",
+  "valinta__vaihtoehto__handelsbanken": "Handelsbanken",
+  "valinta__vaihtoehto__katso_otp": "Katso OTP",
+  "valinta__vaihtoehto__katso_pwd": "Katso PWD",
+  "valinta__vaihtoehto__mobiilivarmenne": "Mobilcertifikat",
+  "valinta__vaihtoehto__nordea": "Nordea",
+  "valinta__vaihtoehto__oma_saastopankki": "Oma Säästöpankki",
+  "valinta__vaihtoehto__osuuspankki": "Andelsbanken",
+  "valinta__vaihtoehto__otsokko": "Välj identifieringssätt",
+  "valinta__vaihtoehto__pop_pankki": "POP Banken",
+  "valinta__vaihtoehto__saastopankki": "Sparbanken",
+  "valinta__vaihtoehto__spankki": "S-Banken",
+  "valinta__vaihtoehto__varmennekortti": "Certifikatkort"
+}

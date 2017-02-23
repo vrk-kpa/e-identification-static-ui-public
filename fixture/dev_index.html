@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tunnistautuminen-sivut</title>
+</head>
+<body>
+<H1>Valitse sivu</H1>
+<h2>Kääntämättömien sivujen lokaalit versiot</h2>
+<ul>
+    <li><a href="/pages/discovery-page/index.html?entityId=shibbometadata.json&return=%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1&target=%2Fsp-secured%3Ftid%3Dbqecr6emq25ofal3u8id84choa%26pid%3D1d6469fb14adf1a8045b19c96a605995900e3872a9a8bcd4b60074912178a509%26tag%3D160216130854d0&authMethdReq=HST;MOBIILI;TUPAS;KATSOOTP;KATSOPWD;TESTI">Discovery</a></li>
+    <li><a href="/pages/feedback/index.html">Palaute</a></li>
+    <li><a href="/pages/feedbackResponse/index.html">Palaute vastaus</a></li>
+    <li><a href="/pages/info/index.html">Info</a></li>
+    <li><a href="/pages/privacystatement/index.html">Yksityisyys</a></li>
+    <li><a href="/pages/timeout/index.html">Aikakatkaisu</a></li>
+    <li><a href="/pages/404/index.html">404</a></li>
+    <li><a href="/pages/500/index.html">500</a></li>
+</ul>
+<h2>Käännetyt sivut</h2>
+<h3>Valitse kieli</h3>
+<button onclick="Cookies.remove('E-Identification-Lang', {path: '/' }); location.reload();">Tyhjennä kielikeksi</button>
+<button onclick="Cookies.remove('E-Identification-Lang', {path: '/' }); Cookies.set('E-Identification-Lang', 'fi', {path: '/' });location.reload();">FI</button>
+<button onclick="Cookies.remove('E-Identification-Lang', {path: '/' }); Cookies.set('E-Identification-Lang', 'sv', {path: '/' });location.reload();">SV</button>
+<button onclick="Cookies.remove('E-Identification-Lang', {path: '/' }); Cookies.set('E-Identification-Lang', 'en', {path: '/' });location.reload();">EN</button>
+<dl id="localisation_test">
+    <dt><b>testword static translation</b></dt><dd data-i18n="testword">this text should not be here</dd>
+    <dt><b>testword on-spot <button onclick="$('#adhoc').text(idpLocalisation.translate('testword'));">Translate</button></b></dt>
+    <dd id="adhoc">this text should not be here after click</dd>
+</dl>
+
+
+<ul>
+    <li>Discovery default timeout
+        <ul>
+            <li><a href="/sivut/discovery-page/?entityId=shibbometadata.json&return=%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1&target=%2Fsp-secured%3Ftid%3Dbqecr6emq25ofal3u8id84choa%26pid%3D1d6469fb14adf1a8045b19c96a605995900e3872a9a8bcd4b60074912178a509%26tag%3D160216130854d0&authMethdReq=HST;MOBIILI;TUPAS;KATSOOTP;KATSOPWD;TESTI">Discovery HST;MOBIILI;TUPAS;KATSOOTP;KATSOPWD;TESTI</a></li>
+        </ul>
+    </li>
+    <li>Discovery 3s timeout, tunnistusvälinekohtaisesti
+        <ul>
+            <li><a href="/sivut/discovery-page/?entityId=shibbometadata.json&return=%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1&target=%2Fsp-secured%3Ftid%3Dbqecr6emq25ofal3u8id84choa%26pid%3D1d6469fb14adf1a8045b19c96a605995900e3872a9a8bcd4b60074912178a509%26tag%3D160216130854d0&authMethdReq=MOBIILI&timeout=3">Discovery mobiilivarmenne</a></li>
+            <li><a href="/sivut/discovery-page/?entityId=shibbometadata.json&return=%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1&target=%2Fsp-secured%3Ftid%3Dbqecr6emq25ofal3u8id84choa%26pid%3D1d6469fb14adf1a8045b19c96a605995900e3872a9a8bcd4b60074912178a509%26tag%3D160216130854d0&authMethdReq=TUPAS&timeout=3">Discovery TUPAS</a></li>
+            <li><a href="/sivut/discovery-page/?entityId=shibbometadata.json&return=%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1&target=%2Fsp-secured%3Ftid%3Dbqecr6emq25ofal3u8id84choa%26pid%3D1d6469fb14adf1a8045b19c96a605995900e3872a9a8bcd4b60074912178a509%26tag%3D160216130854d0&authMethdReq=HST&timeout=3">Discovery iHST</a></li>
+            <li><a href="/sivut/discovery-page/?entityId=shibbometadata.json&return=%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1&target=%2Fsp-secured%3Ftid%3Dbqecr6emq25ofal3u8id84choa%26pid%3D1d6469fb14adf1a8045b19c96a605995900e3872a9a8bcd4b60074912178a509%26tag%3D160216130854d0&authMethdReq=KATSOOTP">Discovery KATSO OTP</a></li>
+            <li><a href="/sivut/discovery-page/?entityId=shibbometadata.json&return=%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1&target=%2Fsp-secured%3Ftid%3Dbqecr6emq25ofal3u8id84choa%26pid%3D1d6469fb14adf1a8045b19c96a605995900e3872a9a8bcd4b60074912178a509%26tag%3D160216130854d0&authMethdReq=KATSOPWD">Discovery KATSO PWD</a></li>
+            <li><a href="/sivut/discovery-page/?entityId=shibbometadata.json&return=%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1&target=%2Fsp-secured%3Ftid%3Dbqecr6emq25ofal3u8id84choa%26pid%3D1d6469fb14adf1a8045b19c96a605995900e3872a9a8bcd4b60074912178a509%26tag%3D160216130854d0&authMethdReq=TESTI">Discovery TESTI</a></li>
+        </ul>
+    </li>
+    <li><a href="/sivut/info/tietoapalvelusta/">Tietoa palvelusta</a></li>
+    <li><a href="/sivut/info/tietosuojaseloste/">Tietosuojaseloste</a></li>
+    <li><a href="/sivut/info/palaute/">Palaute</a></li>
+    <li><a href="/sivut/info/palaute/kiitos/">Kiitos Palautteesta</a></li>
+    <li><a href="/sivut/404/">Virhe 404 - sivua ei löytynyt</a></li>
+    <li><a href="/sivut/500/">Virhe 500 - jotain meni pieleen</a></li>
+    <li><a href="/sivut/timeout/?conversation=e1s1">Timeout - session vanhentunut</a></li>
+</ul>
+<h2>Sivut joista pitää tulla 404</h2>
+<ul>
+    <li><a href="/sivut">/sivut/</a></li>
+    <li><a href="/sivut/info/">/sivut/info/</a></li>
+    <li><a href="/sivut/infoasdf/">/sivut/infoasdf/</a></li>
+    <li><a href="/sivut/asdfa">/sivut/asdfa/</a></li>
+</ul>
+    <script src="/resources/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="/resources/js/vendor/js.cookie.js"></script>
+    <script src="/resources/js/vendor/i18next.min.js"></script>
+    <script src="/resources/js/vendor/jquery-i18next.js"></script>
+    <script src="/resources/js/vendor/i18nextXHRBackend.min.js"></script>
+    <script src="/resources/js/vendor/domready.js"></script>
+    <script src="/resources/js/plugins.js"></script>
+    <script src="/resources/js/main.js"></script>
+    <script src="/resources/js/idp_localisation.js"></script>
+    <script>
+    domready(function () {
+        var language = idpLocalisation.getLanguage();
+        $(".language-selection > li > a[lang=" + language + "]").attr("class", "selected");
+        idpLocalisation.localise(language, '#localisation_test', '/static/localisation',
+        'suomifi-tunnistaminen-resource-idp_uloskirjautuminen_labels');
+    });
+    </script>
+<footer>
+    This is just a static HTML page for some local visual checking
+</footer>
+</body>
+</html>

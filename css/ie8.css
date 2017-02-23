@@ -1,0 +1,26 @@
+  #footer-logo {
+	background: url(../img/footer-logo.png) 0 0 no-repeat; 
+	display: inline-block;
+	width:60px;
+	height: 52px;
+  }
+  #footer-logo img {
+	display: none;
+	}
+	
+ .site-logo {
+	background: url(../img/logo_fi.png) 0 0 no-repeat; 
+	display: inline-block;
+	width: 12.5rem;
+	margin-top: 10px!important;
+	}
+  .site-logo  img {
+	display: none!important;
+	}
+	
+.top-row {
+	background: #f2f2f2;
+	border-bottom: 4px solid #d9d9d9!important;
+	margin-left: -100%;
+    margin-right: -100%;
+}
