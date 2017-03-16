@@ -15,6 +15,8 @@ import DiscoveryPage from './discoveryPage/Main.js';
 import TietoapalvelustaPage from './tietoapalvelustaPage/TietoapalvelustaPage.js';
 import TietosuojaselostePageMain from './tietosuojaselostePage/TietosuojaselostePageMain.js';
 import FeedbackPage from './feedbackPage/FeedbackPage.js';
+import FeedbackForm from './feedbackPage/FeedbackForm.js';
+import ErrorFeedbackForm from './feedbackPage/ErrorFeedbackForm.js';
 import ThanksPage from './feedbackPage/ThanksPage.js';
 import NotFoundPage from './notFoundPage/NotFoundPage.js';
 import InternalErrorPage from './internalErrorPage/InternalErrorPage.js';
@@ -24,6 +26,7 @@ const serverLangCookieName = 'E-Identification-Lang';
 const fallbackLanguage = 'fi';
 const translationResources = {
     '/sivut/info/palaute/': '22_tunnistus_palaute_labels',
+    '/sivut/info/virhepalaute/': '23_tunnistus_virhepalaute_labels',
     '/sivut/info/palaute/kiitos/': '24_tunnistus_palaute_kiitos_labels',
     '/sivut/discovery-page/': '03_tunnistus_valinta_vaihtoehto_labels',
     '/sivut/404/': '06_tunnistus_virhesivu_labels',
@@ -168,13 +171,15 @@ let routes = (
             <Redirect from="timeout/index.html" to="timeout/" />
             <Route path="discovery-page/" component={DiscoveryPage} />
             <Redirect from="info" to="/sivut/404/" />
-            <Route path="info/">
+            <Route path="info/" component={FeedbackPage}>
                 <Redirect from="palaute/index.html" to="palaute/" />
+                <Redirect from="virhepalaute/index.html" to="virhepalaute/" />
                 <Redirect from="palaute/kiitos/index.html" to="palaute/kiitos/" />
                 <Redirect from="tietoapalvelusta/index.html" to="tietoapalvelusta/" />
                 <Redirect from="tietosuojaseloste/index.html" to="tietosuojaseloste/" />
-                <Route path="palaute/" component={FeedbackPage} />
-                <Route path="palaute/kiitos" component={ThanksPage} />
+                <Route path="palaute/" component={FeedbackForm} />
+                <Route path="virhepalaute/" component={ErrorFeedbackForm} />
+                <Route path="palaute/kiitos/" component={ThanksPage} />
                 <Route path="tietoapalvelusta/" component={TietoapalvelustaPage} />
                 <Route path="tietosuojaseloste/" component={TietosuojaselostePageMain} />
             </Route>

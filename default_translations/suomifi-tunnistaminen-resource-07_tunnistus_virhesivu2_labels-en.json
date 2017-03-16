@@ -3,5 +3,6 @@
   "virhesivu2__otsikko": "Something just went wrong",
   "virhesivu2__palalutelinkki": "Please use the form provided to send us feedback.",
   "virhesivu2__palautepyynto": "If the problem persists, please send us feedback so that we can investigate and fix a possible recurring fault.",
-  "virhesivu2__sisainen_virhe": "An error occurred during the identification process, and your identification was interrupted. However, your information is secure, and other people cannot access it by mistake."
+  "virhesivu2__sisainen_virhe": "An error occurred during the identification process, and your identification was interrupted. However, your information is secure, and other people cannot access it by mistake.",
+  "virhesivu2__virhekoodi": "Error code"
 }

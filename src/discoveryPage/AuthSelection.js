@@ -98,6 +98,12 @@ let authMethodConfig = {
         'id': 'mpass',
         'loc_id': 'Google (MPASS)',
         'loginContext': 'LoginMPASS'
+    },
+    eidastest: {
+        'img_src': '/resources/images/eu-logo.jpg',
+        'id': 'eidas',
+        'loc_id': 'eIDAS Test',
+        'loginContext': 'LoginEIDAS1'
     }
 };
 
@@ -117,7 +123,8 @@ let authMethods = {
     KATSOOTP: [authMethodConfig.katsootp],
     KATSOPWD: [authMethodConfig.katsopwd],
     MPASS1:    [authMethodConfig.mpass],
-    TESTI: [authMethodConfig.fakevetuma]
+    TESTI: [authMethodConfig.fakevetuma],
+    EIDAS1: [authMethodConfig.eidastest],
 };
 let authMethodOrder = ['HST',
                        'MOBIILI',
@@ -125,7 +132,8 @@ let authMethodOrder = ['HST',
                        'KATSOOTP',
                        'KATSOPWD',
                        'MPASS1',
-                       'TESTI'];
+                       'TESTI',
+                       'EIDAS1'];
 /**
  * Process the authMethods for SignInOptionList
  */

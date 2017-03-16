@@ -1,5 +1,6 @@
 FROM nginx:1.9
 
+COPY conf/templates /data00/templates/store
 COPY conf/ansible /data00/templates/store/ansible
 COPY dist/pages /usr/share/nginx/html/pages
 COPY dist/sivut /usr/share/nginx/html/sivut

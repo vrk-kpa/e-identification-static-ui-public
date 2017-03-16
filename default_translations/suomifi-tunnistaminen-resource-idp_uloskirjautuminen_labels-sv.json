@@ -1,9 +1,11 @@
 {
   "footer__palaute": "Anmäl fel eller skicka respons",
+  "footer__anna_palautetta": "Skicka respons",
   "footer__tietoa_tunnistautumisesta": "Information om Suomi.fi-identifiering",
   "footer__tietosuojaseloste": "Registerbeskrivning ",
   "footer__tunnistuspalvelusta_vastaa": "För tjänsten Suomi.fi-identifiering ansvarar",
   "footer__vaestorekisterikeskus": "Befolkningsregistercentralen",
+  "footer__virhepalaute": "Anmäl fel",
   "footer__vrk_url": "http://vrk.fi/sv",
   "header__logo": "/resources/img/logo_sv.svg",
   "header__pienenna_tekstikokoa": "Gör texten mindre",

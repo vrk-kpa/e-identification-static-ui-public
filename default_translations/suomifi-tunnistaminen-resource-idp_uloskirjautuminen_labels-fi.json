@@ -1,9 +1,11 @@
 {
   "footer__palaute": "Ilmoita virheestä tai anna palautetta",
+  "footer__anna_palautetta": "Anna palautetta",
   "footer__tietoa_tunnistautumisesta": "Tietoa Suomi.fi-tunnistamisesta",
   "footer__tietosuojaseloste": "Henkilötietolain mukainen tietosuojaseloste",
   "footer__tunnistuspalvelusta_vastaa": "Suomi.fi-tunnistamisesta vastaa",
   "footer__vaestorekisterikeskus": "Väestörekisterikeskus",
+  "footer__virhepalaute": "Ilmoita virheestä",
   "footer__vrk_url": "http://vrk.fi/fi",
   "header__logo": "/resources/img/logo_fi.svg",
   "header__pienenna_tekstikokoa": "Pienennä tekstikokoa",

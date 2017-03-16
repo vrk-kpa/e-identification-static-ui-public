@@ -32,7 +32,7 @@
   copy: src={{ confdir }}/disruption_message.json dest={{ tempdir }}/filled
 
 - name: Template nginx conf
-  template: src={{ confdir }}/nginx/nginx-static.conf.template dest={{ tempdir }}/filled/nginx/nginx-static.conf
+  template: src={{ tempdir }}/nginx-static.conf.template dest={{ tempdir }}/filled/nginx/nginx-static.conf
 
 - name: Create filled template tar
   local_action: shell tar -C {{ tempdir }}/filled/ -zvcf {{ tempdir }}/filled_templates.tgz .

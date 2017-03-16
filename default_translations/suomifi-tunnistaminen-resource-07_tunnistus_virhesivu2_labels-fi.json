@@ -1,7 +1,8 @@
 {
   "testword": "FI_kala",
   "virhesivu2__otsikko": "Jokin meni nyt pieleen",
-  "virhesivu2__palalutelinkki": "Lähetä palautetta lomakkeella.",
+  "virhesivu2__palalutelinkki": "Ilmoita virheestä lomakkeella.",
   "virhesivu2__palautepyynto": "Mikäli ongelma toistuu, lähetä meille siitä palautetta, jotta voimme selvittää ja korjata mahdollisesti toistuvan vian.",
-  "virhesivu2__sisainen_virhe": "Tunnistautumisessa tapahtui virhe ja tunnistautuminen keskeytyi. Tietosi eivät kuitenkaan ole vaarantuneet, eivätkä ne voi päätyä vahingossa muiden tietoon."
+  "virhesivu2__sisainen_virhe": "Tunnistautumisessa tapahtui virhe ja tunnistautuminen keskeytyi. Tietosi eivät kuitenkaan ole vaarantuneet, eivätkä ne voi päätyä vahingossa muiden tietoon.",
+  "virhesivu2__virhekoodi": "Virhekoodi"
 }

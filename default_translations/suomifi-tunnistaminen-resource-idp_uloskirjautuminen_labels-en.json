@@ -1,9 +1,11 @@
 {
   "footer__palaute": "Report an error or give feedback",
+  "footer__anna_palautetta": "Give feedback",
   "footer__tietoa_tunnistautumisesta": "Information about Suomi.fi-identification",
   "footer__tietosuojaseloste": "Description of file in compliance with the Personal Data Act",
   "footer__tunnistuspalvelusta_vastaa": "Suomi.fi identification is the responsibility of the",
   "footer__vaestorekisterikeskus": "Population Register Centre",
+  "footer__virhepalaute": "Report an error",
   "footer__vrk_url": "http://vrk.fi/en",
   "header__logo": "/resources/img/tunnistaminen_logo_en.svg",
   "header__pienenna_tekstikokoa": "Zoom out",

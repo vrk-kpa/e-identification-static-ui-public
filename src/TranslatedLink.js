@@ -22,7 +22,7 @@ var TranslatedLink = React.createClass({
     },
     render: function() {
         return (
-            <a id={this.props.id} data-i18n={this.props.id} className={this.props.className} target={this.props.target} href={this.getLinkUrl()}>{i18n.t(this.props.content_i18n_id)}</a>
+            <a id={this.props.id} data-i18n={this.props.content_i18n_id} className={this.props.className} target={this.props.target} href={this.getLinkUrl()}>{i18n.t(this.props.content_i18n_id)}</a>
         );
     }
 });

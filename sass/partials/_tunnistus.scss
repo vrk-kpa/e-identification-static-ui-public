@@ -169,6 +169,10 @@
 			}
 			
 			
+			@media (max-width: $breakpoint-1) {
+				display: block!important;
+			}
+			
 			
 			
 		}
@@ -181,6 +185,12 @@
 .sign-in-option-list {
 		display: flex;
 		flex-wrap: wrap;
+		
+		@media (max-width: $breakpoint-1) {
+				display: block!important;
+			}
+			
+			
 		a {
 			padding: 15px 0!important;
 			border-left: 4px solid $color-gray-4!important;
