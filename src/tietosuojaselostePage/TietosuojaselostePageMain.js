@@ -3,6 +3,10 @@ import React from 'react';
 import Translated from '../Translated.js';
 import TranslatedLink from '../TranslatedLink.js';
 
+const listStyleNone = {
+    listStyle: 'none'
+};
+
 class TietosuojaselostePageMain extends React.Component {
     render() {
         return (
@@ -20,19 +24,20 @@ class TietosuojaselostePageMain extends React.Component {
                             <Translated tag="h3" id="tietosuojaseloste__1_rekisterin_nimi">1. Rekisterin nimi</Translated>
                             <Translated tag="p" id="tietosuojaseloste__suomifi_tunnistamisen_tapahtumatietorekisteri">Suomi.fi-tunnistamisen tapahtumatietorekisteri</Translated>
                             <Translated tag="h3" id="tietosuojaseloste__2_rekisterinpitaja">2. Rekisterinpitäjä</Translated>
-                            <p>
-                              <Translated tag="span" id="tietosuojaseloste__vaestorekisterikeskus">Väestörekisterikeskus</Translated><br></br>
-                              <Translated tag="span" id="tietosuojaseloste__vrk_katuosoite">Lintulahdenkuja 4, 00531 Helsinki</Translated><br></br>
-                              <Translated tag="span" id="tietosuojaseloste__vrk_puhelin_nro">puh. 0295 535 001</Translated><br></br>
-                              <Translated tag="span" id="tietosuojaseloste__vrk_kirjaamo_sahkoposti">kirjaamo(a)vrk.fi</Translated><br></br>
-                              <TranslatedLink id="tietosuojaseloste__vrk_www_sivu" link_i18n_id="tietosuojaseloste__vrk_www_sivu_url" content_i18n_id="tietosuojaseloste__vrk_www_sivu">www.vrk.fi</TranslatedLink>
-                            </p>
-                            <Translated tag="h3" id="tietosuojaseloste__3_yhteyshenkilo_rekisteria_koskevissa_asioissa">3. Yhteyshenkilö rekisteriä koskevissa asioissa</Translated>
-                            <p>
-                              <Translated tag="span" id="tietosuojaseloste__jarjestelmapaallikko_nimi">Järjestelmäpäällikkö Petteri Kivimäki</Translated><br></br>
-                              <Translated tag="span" id="tietosuojaseloste__jarjestelmapaallikko_puhelin_nro">puh. 0295 535 027</Translated><br></br>
-                              <Translated tag="span" id="tietosuojaseloste__jarjestelmapaallikko_sahkoposti">petteri.kivimaki(a)vrk.fi</Translated>
-                            </p>
+                            <ul style={listStyleNone}>
+                              <Translated tag="li" id="tietosuojaseloste__vaestorekisterikeskus" />
+                              <Translated tag="li" id="tietosuojaseloste__vrk_katuosoite" />
+                              <Translated tag="li" id="tietosuojaseloste__vrk_puhelin_nro" />
+                              <Translated tag="li" id="tietosuojaseloste__vrk_kirjaamo_sahkoposti" />
+                              <li><TranslatedLink id="tietosuojaseloste__vrk_www_sivu" link_i18n_id="tietosuojaseloste__vrk_www_sivu_url" content_i18n_id="tietosuojaseloste__vrk_www_sivu" /></li>
+                            </ul>
+                            <Translated tag="h3" id="tietosuojaseloste__3_yhteyshenkilo_rekisteria_koskevissa_asioissa" />
+                            <ul style={listStyleNone}>
+                              <Translated tag="li" id="tietosuojaseloste__yhteyshenkilo__titteli" />
+                              <Translated tag="li" id="tietosuojaseloste__yhteyshenkilo__nimi" />
+                              <Translated tag="li" id="tietosuojaseloste__yhteyshenkilo__sahkoposti" />
+                              <Translated tag="li" id="tietosuojaseloste__yhteyshenkilo__osoite" />
+                            </ul>
                             <Translated tag="h3" id="tietosuojaseloste__4_Henkilotietojen_kasittelyn_tarkoitus">4. Henkilötietojen käsittelyn tarkoitus</Translated>
                             <Translated tag="p" id="tietosuojaseloste__rekisteri_on_suomifi_tunnistamisen_tapahtumatietorekisteri_">Rekisteri on Suomi.fi-tunnistamisen tapahtumatietorekisteri. </Translated>
                             <Translated tag="p" id="tietosuojaseloste__rekisterin_tallennettuja_tietoja_kaytetaan_suomifi_tunnistamisen_kayton_seuraantaan_ja_valvontaan_virhetilanteiden_selvittamiseen_seka_mahdollisten_vaarinkaytosten_ja_tietosuojaloukkausten_selvittamiseen__rekisterin_tallennettuja_tapahtumatietoja_kaytetaan_myos_tilastointitarpeisiin">Rekisteriin tallennettuja tietoja käytetään Suomi.fi-tunnistamisen käytön seurantaan ja valvontaan, virhetilanteiden selvittämiseen sekä mahdollisten väärinkäytösten ja tietosuojaloukkausten selvittämiseen. Rekisteriin tallennettuja tapahtumatietoja käytetään myös tilastointitarpeisiin.</Translated>

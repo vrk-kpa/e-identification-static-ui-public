@@ -74,5 +74,9 @@
   "tietosuojaseloste__vrk_kirjaamo_sahkoposti": "kirjaamo(a)vrk.fi",
   "tietosuojaseloste__vrk_puhelin_nro": "tel. +358 (0)295 535 001",
   "tietosuojaseloste__vrk_www_sivu": "www.vrk.fi/en",
-  "tietosuojaseloste__vrk_www_sivu_url": "http://vrk.fi/en"
+  "tietosuojaseloste__vrk_www_sivu_url": "http://vrk.fi/en",
+  "tietosuojaseloste__yhteyshenkilo__nimi": "Teemu Tukiainen",
+  "tietosuojaseloste__yhteyshenkilo__osoite": "Väestörekisterikeskus, PL 123, 00531 Helsinki",
+  "tietosuojaseloste__yhteyshenkilo__sahkoposti": "kirjaamo(a)vrk.fi",
+  "tietosuojaseloste__yhteyshenkilo__titteli": "Senior Analyst"
 }

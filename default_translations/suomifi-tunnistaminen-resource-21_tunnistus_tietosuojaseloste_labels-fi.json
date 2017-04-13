@@ -74,5 +74,9 @@
   "tietosuojaseloste__vrk_kirjaamo_sahkoposti": "kirjaamo(a)vrk.fi",
   "tietosuojaseloste__vrk_puhelin_nro": "puh. 0295 535 001",
   "tietosuojaseloste__vrk_www_sivu": "www.vrk.fi",
-  "tietosuojaseloste__vrk_www_sivu_url": "http://www.vrk.fi/fi"
+  "tietosuojaseloste__vrk_www_sivu_url": "http://www.vrk.fi/fi",
+  "tietosuojaseloste__yhteyshenkilo__nimi": "Teemu Tukiainen",
+  "tietosuojaseloste__yhteyshenkilo__osoite": "Väestörekisterikeskus, PL 123, 00531 Helsinki",
+  "tietosuojaseloste__yhteyshenkilo__sahkoposti": "kirjaamo(a)vrk.fi",
+  "tietosuojaseloste__yhteyshenkilo__titteli": "Erikoissuunnittelija"
 }

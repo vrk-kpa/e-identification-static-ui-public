@@ -10,7 +10,7 @@ import ReactTestUtils from 'react-addons-test-utils';
 import TranslatedLink from '../../src/TranslatedLink.js';
 
 describe('TranslatedLink', function() {
-    describe('TranslatedLink should work when all ok', function() {
+    describe('TranslatedLink should work when all ok, ', function() {
         let sandbox;
         let translate
         beforeEach(function() {
@@ -41,7 +41,7 @@ describe('TranslatedLink', function() {
             );
 
             let result = renderer.getRenderOutput();
-            expect(result.props["data-i18n"]).to.equal('testId');
+            expect(result.props["data-i18n"]).to.equal('testContentId');
         });
 
         it('should get translated link', function() {

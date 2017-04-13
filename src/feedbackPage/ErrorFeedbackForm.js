@@ -28,13 +28,13 @@ var ErrorFeedbackForm = React.createClass({
             errorCode: '',
             errorTime: this.displayDate(date),
             errorDescription: '',
-            errorRepeats: false,
+            errorRepeats: 'virhe_ei_toistu',
             email: ''
         };
     },
     displayDate: function(date) {
         // Finnish format
-        return date.getDate() + '.' + date.getMonth() + 1 + '.' + date.getFullYear() + ' ' + padLeft(date.getHours(), 2) + ':' + padLeft(date.getMinutes(), 2);
+        return date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear() + ' ' + padLeft(date.getHours(), 2) + ':' + padLeft(date.getMinutes(), 2);
     },
     handleServiceChange: function(e) {
         this.setState({
@@ -256,7 +256,7 @@ var ErrorFeedbackForm = React.createClass({
                                 </li>
                                 <li>
                                     <label htmlFor="radio-repeat-2">
-                                        <input type="radio" name="radio-group-repeat" id="radio-repeat-2" value="virhetoistuu" onChange={this.handleErrorRepeatsChange}/>
+                                        <input type="radio" name="radio-group-repeat" id="radio-repeat-2" value="virhe_toistuu" onChange={this.handleErrorRepeatsChange}/>
                                         <Translated tag="span" className="cb-marker" id="virhepalaute__lomake__kyllä">Kyllä</Translated>
                                     </label>
                                 </li>
