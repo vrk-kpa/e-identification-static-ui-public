@@ -165,6 +165,7 @@ gulp.task('dev:js', function () {
 
     var vendor = gulp.src([
             './js/disruption_data/*',
+            './js/scs/*',
             './js/vendor/*'
         ], {base: "."})
         .pipe(gulp.dest(filePath.devPath + '/' + filePath.resourcesDir));

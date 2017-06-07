@@ -33,6 +33,10 @@
   "hst__tunnistaudu_varmennekortilla": "Identify yourself with a personal ID card",
   "hst__tunnistautuminen_mahdollista": "You can identify yourself with a personal ID card containing a chip granted by the police. In addition to the certificate card you will need a card reader and software. Read more on the certificate card on the Population Register Centre's ",
   "hst__vanhentunut": "Make sure that the card is still valid.",
+  "hst__on_vanhentunut": "Certificate is not valid",
+  "hst__palautelinkki": "Please use the form provided to send us feedback.",
+  "hst__palautepyynto": "If the problem persists, please send us feedback so that we can investigate and fix a possible recurring fault.",
+  "hst__sisainen_virhe": "An error occurred during the identification process, and your identification was interrupted. However, your information is secure, and other people cannot access it by mistake.",
   "hst__virhe": "Error",
   "hst__voit_testata": "You can test the provision of an electronic signature in the Population Register Centre's",
   "testword": "EN_kala"

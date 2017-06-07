@@ -33,6 +33,10 @@
   "hst__tunnistaudu_varmennekortilla": "Identifiera dig med identitetskort",
   "hst__tunnistautuminen_mahdollista": "Du kan identifiera dig med chipsförsett identitetskort, som beviljats av polisen. Förutom certifikatkortet behöver du en kortläsare och kortläsarprogramvara. Ytterligare uppgifter om certifikatkortet hittar du på Befolkningsregistercentralens",
   "hst__vanhentunut": "Kontollera att certifikatet är i kraft.",
+  "hst__on_vanhentunut": "Certifikatet är inte i kraft.",
+  "hst__palautelinkki": "Skicka respons med blanketten.",
+  "hst__palautepyynto": "Om problemet upprepas, skicka respons på den till oss så att vi kan utreda och åtgärda det eventuellt upprepade felet.",
+  "hst__sisainen_virhe": "Det skedde ett fel vid identifieringen och identifieringen avbröts. Dina uppgifter har dock inte äventyrats, och utomstående kan inte få tag i dem.",
   "hst__virhe": "Fel",
   "hst__voit_testata": "Du kan testa kortet på Befolkningsregistercentralens",
   "testword": "SV_kala"

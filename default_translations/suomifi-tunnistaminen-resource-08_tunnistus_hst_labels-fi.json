@@ -33,6 +33,10 @@
   "hst__tunnistaudu_varmennekortilla": "Tunnistaudu varmennekortilla",
   "hst__tunnistautuminen_mahdollista": "Tunnistautuminen on mahdollista poliisin myöntämällä sirullisella henkilökortilla, jossa on Väestörekisterikeskuksen kansalaisvarmenne. Varmennekortin lisäksi tarvitset kortinlukijalaitteen ja -ohjelmiston. Lisätietoja varmennekortista löydät Väestörekisterikeskuksen",
   "hst__vanhentunut": "Tarkista, että kortti ei ole vanhentunut.",
+  "hst__on_vanhentunut": "Varmennekortti on vanhentunut.",
+  "hst__palautelinkki": "Ilmoita virheestä lomakkeella.",
+  "hst__palautepyynto": "Mikäli ongelma toistuu, lähetä meille siitä palautetta, jotta voimme selvittää ja korjata mahdollisesti toistuvan vian.",
+  "hst__sisainen_virhe": "Tunnistautumisessa tapahtui virhe ja tunnistautuminen keskeytyi. Tietosi eivät kuitenkaan ole vaarantuneet, eivätkä ne voi päätyä vahingossa muiden tietoon.",
   "hst__virhe": "Virhe",
   "hst__voit_testata": "Voit testata kortin toimivuuden Väestörekisterikeskuksen",
   "testword": "FI_kala"
