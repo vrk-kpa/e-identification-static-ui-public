@@ -64,7 +64,7 @@ let IDPLink = React.createClass({
         return url;
     },
     getClass() {
-        return 'go-back' + this.props.visible ? '' : ' visuallyhidden';
+        return 'go-back' + (this.props.visible ? '' : ' visuallyhidden');
     },
     render() {
         return (

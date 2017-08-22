@@ -1,9 +1,10 @@
 {
+  "footer__anna_palautetta": "Anna palautetta",
   "footer__linkki_avautuu_uuteen_ikkunaan": "Linkki avautuu uuteen ikkunaan",
   "footer__palaute": "Ilmoita virheestä tai anna palautetta",
-  "footer__anna_palautetta": "Anna palautetta",
+  "footer__takaisin_ylös": "Takaisin ylös",
   "footer__tietoa_tunnistautumisesta": "Tietoa Suomi.fi-tunnistamisesta",
-  "footer__tietosuojaseloste": "Henkilötietolain mukainen tietosuojaseloste",
+  "footer__tietosuojaseloste": "Tietosuojaseloste",
   "footer__tunnistuspalvelusta_vastaa": "Suomi.fi-tunnistamisesta vastaa",
   "footer__vaestorekisterikeskus": "Väestörekisterikeskus",
   "footer__virhepalaute": "Ilmoita virheestä",

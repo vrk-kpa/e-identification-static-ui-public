@@ -46,7 +46,7 @@ var Disruption = React.createClass({
             if (localised) {
                 return (
                     <div id="disruption"  className="box alert-box">
-                        <div id="service-error-date" className="date text-small">{localised.date}</div>
+                        <div id="service-error-date" className="date">{localised.date}</div>
                         <p id="service-error-text">{localised.message}</p>
                     </div>
                 );
@@ -61,4 +61,3 @@ var Disruption = React.createClass({
 });
 
 export default Disruption;
-

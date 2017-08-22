@@ -1,18 +1,8 @@
-@mixin vertical-align {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-
-@mixin word-wrap() {
-	word-wrap: break-word;
-	word-break: break-word;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	hyphens: auto;
+@mixin box-shadow($values...) {
+  -webkit-box-shadow: $values;
+  -moz-box-shadow: $values;
+  -o-box-shadow: $values;
+  box-shadow: $values;
 }
 
 @mixin clearfix {
@@ -31,19 +21,31 @@
   display: flex;
 }
 
+@mixin flex-wrap($value) {
+  -webkit-flex-wrap: $value;
+  -ms-flex-wrap: $value;
+  flex-wrap: $value;
+}
+
 @mixin flex($values) {
   -webkit-box-flex: $values;
-  -moz-box-flex:  $values;
-  -webkit-flex:  $values;
-  -ms-flex:  $values;
+  -moz-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
   flex:  $values;
 }
 
-@mixin order($val) {
-  -webkit-box-ordinal-group: $val;  
-  -moz-box-ordinal-group: $val;     
-  -ms-flex-order: $val;     
-  -webkit-order: $val;  
-  order: $val;
+/* The star hack for lte IE7 makes sure the element has layout
+   and makes it inline as inline-block doesn't work for elements
+   that aren't naturally inline type */
+@mixin inline-block() {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
 }
 
+@mixin linear-gradient($from, $to) {
+  background: -webkit-linear-gradient(top, $from, $to);
+  background: -moz-linear-gradient(top, $from, $to);
+  background: linear-gradient(to bottom, $from, $to);
+}

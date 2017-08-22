@@ -1,9 +1,10 @@
 {
+  "footer__anna_palautetta": "Skicka respons",
   "footer__linkki_avautuu_uuteen_ikkunaan": "Länken öppnas i ett nytt fönster",
   "footer__palaute": "Anmäl fel eller skicka respons",
-  "footer__anna_palautetta": "Skicka respons",
+  "footer__takaisin_ylös": "Tillbaka upp",
   "footer__tietoa_tunnistautumisesta": "Information om Suomi.fi-identifiering",
-  "footer__tietosuojaseloste": "Dataskyddsbeskrivning i enlighet med personuppgiftslagen",
+  "footer__tietosuojaseloste": "Dataskyddsbeskrivning",
   "footer__tunnistuspalvelusta_vastaa": "För tjänsten Suomi.fi-identifiering ansvarar",
   "footer__vaestorekisterikeskus": "Befolkningsregistercentralen",
   "footer__virhepalaute": "Anmäl fel",

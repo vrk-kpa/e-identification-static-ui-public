@@ -124,13 +124,14 @@ let DiscoveryPage = React.createClass({
                 <div className="main">
                     <div className="container">
                         <div className="row">
-                            <div className="col-xs-12 service-top">
-                                <Translated tag="p" id="valinta__olet_tunnistautumassa_palveluun" />
-                                <ThirdPartySP tag="li" id="displayName" className="text-big" metadataDisplayName={theMetadataDisplayName} />
+                            <div className="col-xs-12 identification-info">
+                                <Translated tag="span" id="valinta__olet_tunnistautumassa_palveluun" />
+                                <ThirdPartySP tag="h2" id="displayName" metadataDisplayName={theMetadataDisplayName} />
+                                <Disruption />
+                                <Translated tag="h3" id="valinta__vaihtoehto__otsokko" />
                             </div>
                         </div>
                         <div className="row">
-                            <Disruption />
                             <IDPLink status="timeout" visible={false}>
                                 <TimeOut millisecs={this.getTimeout()} />
                             </IDPLink>
@@ -141,10 +142,9 @@ let DiscoveryPage = React.createClass({
                                 </IDPLink>
                             </div>
                             <div className="row">
-                                <br />
                                 <div className="col-xs-12 col-md-8">
-                                    <div className="text">
-                                        <Translated tag="p" id="valinta__suomifi-tunnistaminen-roadmap" />
+                                    <div className="sign-in-info">
+                                        <Translated tag="p" id="valinta__suomifi-tunnistaminen-roadmap" className="small" />
                                     </div>
                                 </div>
                             </div>

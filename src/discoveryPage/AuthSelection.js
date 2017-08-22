@@ -1,5 +1,4 @@
 import React from 'react';
-import Translated from '../Translated.js';
 import SignInOptionList from './SignInOptionList.js';
 
 let authMethodConfig = {
@@ -122,9 +121,9 @@ let authMethods = {
                authMethodConfig.omasaastopankki],
     KATSOOTP: [authMethodConfig.katsootp],
     KATSOPWD: [authMethodConfig.katsopwd],
-    MPASS1:    [authMethodConfig.mpass],
-    TESTI: [authMethodConfig.fakevetuma],
-    EIDAS1: [authMethodConfig.eidastest],
+    MPASS1:   [authMethodConfig.mpass],
+    TESTI:    [authMethodConfig.fakevetuma],
+    EIDAS1:   [authMethodConfig.eidastest],
 };
 let authMethodOrder = ['HST',
                        'MOBIILI',
@@ -156,7 +155,6 @@ var AuthSelection = React.createClass({
         return (
         <div className="row">
             <div className="col-xs-12">
-                <Translated tag="p" id="valinta__vaihtoehto__otsokko" className="text-notice" />
                 <SignInOptionList allowedMethods={ this.getAllowedMethods() } />
             </div>
         </div>

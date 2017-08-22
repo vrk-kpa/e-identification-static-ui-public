@@ -1,0 +1,146 @@
+.attribute-release-page {
+
+  .identification-details {
+    border: 1px solid $color-harmaa-60;
+    margin: 16px 0;
+
+    table {
+      margin: 16px 0;
+
+      td.strong {
+        padding-right: 30px;
+        min-width: 180px;
+      }
+    }
+
+    button {
+      margin-right: 20px;
+    }
+  }
+
+  .sign-in-info {
+    @include rem(margin, 32px 0);
+
+    p {
+      @include rem(margin, 0 0 16px 57px);
+    }
+
+    &:before {
+      display: block;
+      position: absolute;
+      content: ' ';
+      background: url('/resources/img/vrk_logo.svg') no-repeat;
+      background-size: contain;
+      height: 32px;
+      width: 42px;
+      margin-top: 3px;
+    }
+  }
+}
+
+.idp-logout-page {
+
+  .logout-details {
+    border: 1px solid $color-harmaa-60;
+    margin: 16px 0;
+
+    table {
+      margin: 16px 0;
+
+      td.strong {
+        padding-right: 30px;
+        min-width: 180px;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-2) {
+  .attribute-release-page {
+
+    .identification-details {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border: 0;
+
+      table {
+        @include rem(font-size, 16px);
+
+        td.strong {
+          min-width: 150px;
+        }
+      }
+
+      button {
+        margin-right: 15px;
+      }
+    }
+
+    .sign-in-info {
+      p + p {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .idp-logout-page {
+
+    .logout-details {
+      margin: 0;
+
+      table {
+        @include rem(font-size, 16px);
+
+        td.strong {
+          min-width: 150px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-1) {
+  .attribute-release-page {
+
+    .identification-details {
+
+      button, .button-cancel {
+        @include rem(font-size, 15px);
+        display: block;
+        width: 100%;
+        margin: 16px 0 0 0;
+        text-align: center;
+      }
+
+      table {
+        td.strong {
+          margin: 0;
+        }
+
+        td {
+          display: block;
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+
+  .idp-logout-page {
+
+    .logout-details {
+      padding: 0 15px;
+
+      table {
+        td.strong {
+          margin: 0;
+        }
+
+        td {
+          display: block;
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+}

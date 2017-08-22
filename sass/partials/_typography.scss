@@ -1,221 +1,207 @@
-
-/** Perus fonttityylit **/
-
-html.text-size-3,
-html {
-	font-family: SourceSansProRegular, "Helvetica Neue", Arial, helvetica, sans-serif, clean;
-	line-height: 1.5;
-	color: $color-basic-text;
-	-webkit-font-smoothing: antialiased;
+html, body {
+  font-family: SourceSansProRegular, "Helvetica Neue", Arial, sans-serif;
+  font-size: $base-font-size;
+  line-height: 1.5;
+  color: $color-musta;
+  -webkit-font-smoothing: antialiased;
 }
 
-  body {
-    line-height: 1.5;
-	@include rem(font-size, 18px)
-  }
-
-html.text-size-1 {
-	@include rem(font-size, $base-font-size - 4px)
+body {
+  @include rem(font-size, 18px);
 }
 
-html.text-size-2 {
-	@include rem(font-size, $base-font-size - 2px)
-}
-
-html.text-size-4 {
-	@include rem(font-size, $base-font-size + 2px)
-}
-
-html.text-size-5 {
-	@include rem(font-size, $base-font-size + 6px)
-}
-
-.text {
-	max-width: 45em;
-}
-
-.centered .text,
-.text.text-center {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-a {
-	color: $link-color;
-	cursor: pointer;
-	text-decoration: underline;
-}
-
-a:hover {
-	color: $color-bright-azure;
-	text-decoration: none;
-}
-
-#main a:not(.button):focus {
-	background: $color-bright-azure-lightest;
-	color: $color-bright-azure-dark;
-}
-
-a:visited {
-	color: $color-deep-orchid-dark;
-}
-
-/** Otsikot **/
-
-.visual-h1,
-.visual-h2,
-.visual-h3,
-.visual-h4,
-.visual-h3,
-.visual-h4,
-.heading,
-h1,h2,h3,h4,h5,h6{
-	font-family: RobotoBold, Arial, helvetica, sans-serif, clean;
-	font-weight: 400;
-	@include rem(line-height, 1.2em);
-	@include rem(margin-bottom, 0.45454545em);
-	@include rem(margin-top, 1em);
-	color: $color-gray-1;
-	font-variant: normal;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-variant-ligatures: none;
-	&.capital-heading {
-		text-transform: uppercase;
-		font-family: RobotoBold, Arial, helvetica, sans-serif, clean;
-		line-height: 1;
-	}
-}
-
-.visual-h1,
 h1 {
-	@include rem(font-size, 30px);
-	@include rem(margin-top, 0.45454545em);
-	@include rem(margin-bottom, 1em);
-	line-height: 80%;
-	@media (min-width: $breakpoint-3) {
-		@include rem(font-size, 40px);
-	}
+  font-family: SourceSansProSemibold, SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 40px);
+  @include rem(line-height, 52px);
+
+  @media (max-width: $breakpoint-2) {
+    @include rem(font-size, 32px);
+    @include rem(line-height, 40px);
+  }
 }
 
-.visual-h2,
 h2 {
-	@include rem(font-size, 24px);
-	@media (min-width: $breakpoint-3) {
-		& {
-			@include rem(font-size, 32px);
-		}
-	}
+  font-family: SourceSansProLight, SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 40px);
+  @include rem(line-height, 52px);
+
+  @media (max-width: $breakpoint-2) {
+    @include rem(font-size, 28px);
+    @include rem(line-height, 38px);
+  }
 }
 
-.number-big {
-	@extend .heading;
-	@extend .text-big;
-}
-
-.visual-h3,
-.bordered-lead,
-.lead,
 h3 {
-	@include rem(font-size, 20px);
+  font-family: SourceSansProSemibold, SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 26px);
+  @include rem(line-height, 34px);
 }
 
-.visual-h4,
 h4 {
-	@include rem(font-size, 18px);
+  font-family: SourceSansProSemibold, SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 20px);
+  @include rem(line-height, 26px);
 }
 
-.text-plus-1 {
-	@include rem(font-size, 110%);
-}
-
-.text-plus-2 {
-	@include rem(font-size, 120%);
-}
-
-.text-plus-3 {
-	@include rem(font-size, 130%);
-}
-
-.text-plus-4 {
-	@include rem(font-size, 140%);
-}
-
-.text-plus-5 {
-	@include rem(font-size, 150%);
-}
-
-.text-big {
-	@include rem(font-size, 200%);
-}
-
-.visual-h5,
 h5 {
-	@include rem(font-size, 16px);
+  font-family: SourceSansProSemibold, SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 18px);
+  @include rem(line-height, 24px);
 }
 
-.text-small {
-	@include rem(font-size, 16px);
-}
-
-.visual-h6,
-.text-smaller,
 h6 {
-	@include rem(font-size, 14px);
+  font-family: SourceSansProSemibold, SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 16px);
+  @include rem(line-height, 20px);
 }
 
-.text-light {
-	color: $color-gray-4;
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 2.5em;
+  margin-bottom: 0.5em;
+
+  @media (max-width: $breakpoint-1) {
+    word-break: break-word;
+  }
 }
 
-h1 + .time-stamp {
-	display: block;
-    margin-top: -2em;
+h4, h5, h6 {
+  margin-bottom: 1.25em;
 }
 
 p {
-	margin: 0.2em 0 0.8em 0;
+  font-family: SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 18px);
+  @include rem(line-height, 27px);
+  @include rem(margin-top, 9px);
+  @include rem(margin-bottom, 18px);
+
+  @media (max-width: $breakpoint-2) {
+    @include rem(font-size, 16px);
+    @include rem(line-height, 24px);
+    @include rem(margin-top, 8px);
+    @include rem(margin-bottom, 16px);
+  }
+
+  @media (max-width: $breakpoint-1) {
+    word-break: break-word;
+  }
 }
 
-.bold,
+p.small {
+  font-family: SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 16px);
+  @include rem(line-height, 24px);
+}
+
+p.large {
+  font-family: SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 20px);
+  @include rem(line-height, 30px);
+}
+
+.ingress {
+  font-family: SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 22px);
+  @include rem(line-height, 30px);
+}
+
+.ingress.large {
+  font-family: SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 24px);
+  @include rem(line-height, 32px);
+}
+
 .strong {
-	font-weight: 600;
+  font-family: SourceSansProSemibold, SourceSansProRegular, 'Helvetica Neue', Arial;
 }
 
 .italic {
-	font-style: italic;
+  font-style: italic;
 }
 
-.text-centered {
-	text-align: center;
+a {
+  color: $color-jarvi;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: $color-jarvi-70;
+    text-decoration: underline;
+    outline: 0;
+    text-shadow: 0 0 2px 0 $color-valkea;
+  }
+
+  &:visited {
+    color: $color-jarvi;
+  }
+
+  &:active {
+    color: $color-jarvi-k10;
+    text-decoration: none;
+  }
 }
 
-.indent {
-	border-left: 4px solid $color-gray-8;
-	padding: 0.5em 1em;
+span.padded {
+  &:before, &:after {
+    content: ' ';
+  }
 }
 
 .bulleted-list,
 .numbered-list {
-	margin-left: 1em;
-    list-style-position: outside;
-	margin-top: 0.45454545em;
-	margin-bottom: 1em;
-}
+  @include rem(font-size, 18px);
+  margin: 1em;
+  padding-left: 1em;
+  list-style-position: outside;
 
-.bulleted-list li,
-.numbered-list li {
-	margin-bottom: 0.2em;
+  li {
+    @include rem(margin, 10px 0);
+  }
+
+  ul {
+    margin: 0 0.5em;
+
+    li {
+      margin: 0;
+    }
+  }
 }
 
 .bulleted-list{
-	list-style-type: disc;
-	ul {
-		margin-left: 2em;
-	}
+  list-style-type: disc;
 }
 
 .numbered-list{
-	list-style-type: decimal;
+  list-style-type: decimal;
 }
 
+@media (max-width: $breakpoint-2) {
+  .bulleted-list,
+  .numbered-list {
+    @include rem(font-size, 16px);
+    padding-left: 0.5em;
+  }
+}
+
+input, textarea {
+  font-family: SourceSansProRegular, 'Helvetica Neue', Arial;
+}
+
+.break-words {
+  ms-word-break: break-all;
+  -ms-word-wrap: break-all;
+  -webkit-word-break: break-word;
+  -webkit-word-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+// This forces IE11 to break long lines (e.g. urls)
+.force-break-words {
+    display: inline-block;
+    word-break: break-all;
+}

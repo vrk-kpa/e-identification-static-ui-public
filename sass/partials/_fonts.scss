@@ -1,15 +1,14 @@
 @font-face {
-    font-family: 'RobotoBold';
-    src: url('#{$base_path}/font/RobotoBold.eot');
-    src: url('#{$base_path}/font/RobotoBold.eot') format('embedded-opentype'),
-         url('#{$base_path}/font/RobotoBold.woff2') format('woff2'),
-         url('#{$base_path}/font/RobotoBold.woff') format('woff'),
-         url('#{$base_path}/font/RobotoBold.ttf') format('truetype'),
-         url('#{$base_path}/font/RobotoBold.svg#RobotoBold') format('svg');
+    font-family: 'SourceSansProLight';
+    src: url('#{$base_path}/font/SourceSansProLight.eot');
+    src: url('#{$base_path}/font/SourceSansProLight.eot') format('embedded-opentype'),
+         url('#{$base_path}/font/SourceSansProLight.woff2') format('woff2'),
+         url('#{$base_path}/font/SourceSansProLight.woff') format('woff'),
+         url('#{$base_path}/font/SourceSansProLight.ttf') format('truetype'),
+         url('#{$base_path}/font/SourceSansProLight.svg#SourceSansProLight') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
-
 
 @font-face {
     font-family: 'SourceSansProRegular';
@@ -23,9 +22,37 @@
 	font-style: normal;
 }
 
-
-body {
-  font-family: SourceSansProRegular, 'Helvetica Neue', Arial;
-  -webkit-font-smoothing: antialiased;
+@font-face {
+    font-family: 'SourceSansProSemibold';
+    src: url('#{$base_path}/font/SourceSansProSemibold.eot');
+    src: url('#{$base_path}/font/SourceSansProSemibold.eot') format('embedded-opentype'),
+         url('#{$base_path}/font/SourceSansProSemibold.woff2') format('woff2'),
+         url('#{$base_path}/font/SourceSansProSemibold.woff') format('woff'),
+         url('#{$base_path}/font/SourceSansProSemibold.ttf') format('truetype'),
+         url('#{$base_path}/font/SourceSansProSemibold.svg#SourceSansProSemibold') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
+@font-face {
+    font-family: 'SourceSansProBold';
+    src: url('#{$base_path}/font/SourceSansProBold.eot');
+    src: url('#{$base_path}/font/SourceSansProBold.eot') format('embedded-opentype'),
+         url('#{$base_path}/font/SourceSansProBold.woff2') format('woff2'),
+         url('#{$base_path}/font/SourceSansProBold.woff') format('woff'),
+         url('#{$base_path}/font/SourceSansProBold.ttf') format('truetype'),
+         url('#{$base_path}/font/SourceSansProBold.svg#SourceSansProBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../font/icomoon.eot?jw1mk9');
+	src:url('../font/icomoon.eot?#iefixjw1mk9') format('embedded-opentype'),
+		url('../font/icomoon.woff?jw1mk9') format('woff'),
+		url('../font/icomoon.ttf?jw1mk9') format('truetype'),
+		url('../font/icomoon.svg?jw1mk9#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

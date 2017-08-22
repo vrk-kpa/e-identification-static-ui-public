@@ -1,0 +1,172 @@
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button,
+.button {
+  cursor: pointer;
+  font-family: SourceSansProSemibold;
+  @include rem(line-height, 20px);
+  @include rem(font-size, 15px);
+  color: $color-valkea;
+  font-weight: 400;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba($color-kaamos-k50, 0.5);
+  display: inline-block;
+  background: $color-jarvi;
+  @include linear-gradient($color-jarvi, $color-jarvi-k10);
+  box-shadow: none;
+  border: 0;
+  border-radius: 2px;
+  margin: 0;
+  @include rem(padding, 10px 20px);
+
+  &:visited {
+    color: $color-valkea;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background: $color-jarvi-90;
+    @include linear-gradient($color-jarvi-90, $color-jarvi);
+  }
+
+  &:focus {
+    @include box-shadow(0 0 4px 0 $color-jarvi-50, 0 0 0 1px $color-jarvi, inset 0 0 0 2px $color-valkea);
+    outline: 0;
+  }
+
+  &:active {
+    @include box-shadow(0 0 4px 0 $color-jarvi-k30 inset);
+    outline: 0;
+  }
+
+  &[disabled] {
+    background:  $color-harmaa-60;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: $breakpoint-2) {
+    & {
+      @include rem(font-size, 12px);
+      padding: 8px 16px;
+    }
+  }
+}
+
+.button-secondary {
+  @extend .button;
+  background: transparent;
+  border: 1px solid $color-jarvi;
+  font-family: SourceSansProRegular;
+  color: $color-jarvi;
+  text-shadow: none;
+  @include rem(line-height, 18px);
+
+  &:visited {
+    color: $color-jarvi;
+  }
+
+  &:hover {
+    background: $color-harmaa-10;
+  }
+
+  &:focus {
+    background: $color-valkea;
+    @include box-shadow(0 0 4px 0 $color-jarvi-50, inset 0 0 0 2px $color-valkea, inset 0 0 0 3px $color-jarvi);
+    outline: 0;
+  }
+
+  &:active {
+    @include box-shadow(0 0 4px 0 $color-harmaa inset);
+    outline: 0;
+  }
+
+  &[disabled] {
+    background: $color-harmaa-10;
+    color: $color-harmaa;
+    border: 1px solid $color-harmaa-60;
+    cursor: not-allowed;
+  }
+}
+
+.button-cancel {
+  @extend .button;
+  color: $color-jarvi;
+  font-family: SourceSansProSemibold;
+  text-shadow: none;
+  background: none;
+  @include rem(padding, 10px, 20px);
+
+  &:visited {
+    color: $color-jarvi;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-jarvi-90;
+    background: transparent;
+    text-decoration: underline;
+    @include box-shadow(0 0 4px 0 $color-jarvi-50, 0 0 0 1px $color-jarvi, inset 0 0 0 2px $color-valkea);
+  }
+
+  &:active {
+    background: transparent;
+    color: $color-jarvi-k10;
+    @include box-shadow(none);
+  }
+}
+
+a.button,
+a.button-secondary,
+a.cancel-button {
+  display: inline-block;
+
+  &:after {
+    display: none !important;
+  }
+}
+
+.button-loader {
+  @include inline-block;
+  position: relative;
+  width: 8em;
+  height: 8em;
+  @include rem(margin-right, 10px);
+  font-size: 2px;
+  vertical-align: sub;
+  text-indent: -9999em;
+  border-top: 2em solid $color-jarvi-90;
+  border-right: 2em solid $color-jarvi-90;
+  border-bottom: 2em solid $color-jarvi-90;
+  border-left: 2em solid $color-jarvi-k10;
+  border-radius: 50%;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

@@ -10,7 +10,7 @@ var FeedbackPage = React.createClass({
         lang: React.PropTypes.string.isRequired
     },
     handleSubmit(formdata) {
-        this.postFeedback(formdata);
+      this.postFeedback(formdata);
     },
     postFeedback(formdata) {
         var xhttp = new XMLHttpRequest();

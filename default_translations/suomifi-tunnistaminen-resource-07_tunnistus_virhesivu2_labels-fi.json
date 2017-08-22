@@ -1,8 +1,12 @@
 {
   "testword": "FI_kala",
+  "virhesivu2__ohje1": "Tyhjennä selaimen välimuisti ja tunnistaudu sen jälkeen uudelleen.",
+  "virhesivu2__ohje2": "Tunnistaudu uudelleen käyttämällä toista selainta.",
+  "virhesivu2__ohje3": "Mikäli olet jo kokeillut yllä mainittuja toimia ja ongelma toistuu, voit lähettää meille virheilmoituksen, jotta voimme selvittää ja korjata mahdollisesti toistuvan vian.",
   "virhesivu2__otsikko": "Jokin meni nyt pieleen",
-  "virhesivu2__palalutelinkki": "Ilmoita virheestä lomakkeella.",
+  "virhesivu2__palalutelinkki": "Ilmoita virheestä",
   "virhesivu2__palautepyynto": "Mikäli ongelma toistuu, lähetä meille siitä palautetta, jotta voimme selvittää ja korjata mahdollisesti toistuvan vian.",
+  "virhesivu2__ratkaisu": "Ratkaistaksesi tilanne kokeile seuraavia toimia",
   "virhesivu2__sisainen_virhe": "Tunnistautumisessa tapahtui virhe ja tunnistautuminen keskeytyi. Tietosi eivät kuitenkaan ole vaarantuneet, eivätkä ne voi päätyä vahingossa muiden tietoon.",
   "virhesivu2__virhekoodi": "Virhekoodi"
 }

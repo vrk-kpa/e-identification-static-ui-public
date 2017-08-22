@@ -1,0 +1,59 @@
+.feedback-page, .error-feedback-page {
+  .feedback-form-wrapper {
+    @extend .box;
+    border: 1px solid $color-harmaa-60;
+    padding: 30px;
+
+    .indented {
+      margin-left: 45px;
+
+      .form-label {
+        margin-top: 0;
+      }
+    }
+
+    h3 {
+      word-break: break-word;
+    }
+
+    p.feedback-info {
+      margin-top: 32px;
+    }
+  }
+
+  @media (max-width: $breakpoint-2) {
+    .feedback-form-wrapper {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border: 0;
+
+      .indented {
+        margin-left: 30px;
+
+        input {
+          max-width: 400px;
+        }
+      }
+
+      h3 {
+        @include rem(font-size, 20px);
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-1) {
+    button {
+      width: 100%;
+      @include rem (font-size, 15px);
+    }
+  }
+}
+
+.error-feedback-page {
+
+  .indented input {
+    width: 100%;
+    max-width: 415px;
+  }
+}

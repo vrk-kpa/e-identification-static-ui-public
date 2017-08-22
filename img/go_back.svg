@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="10px" viewBox="0 0 20 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43 (38999) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="valtuuden-kohdennus-ja-yrityshaku-ohjeilla" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="valtuuden-tyyppi-valittu" transform="translate(-29.000000, -163.000000)" fill="#0C70BE">
+            <g id="Group" transform="translate(29.000000, 163.000000)">
+                <polygon id="Fill-420" points="1 6 20 6 20 4 1 4"></polygon>
+                <polyline id="Fill-421" transform="translate(3.000000, 5.000000) scale(-1, 1) translate(-3.000000, -5.000000) " points="1.38604803 10 0 8.49798173 3.22790394 5 0 1.50201827 1.38604803 -1.77635684e-15 6 5 1.38604803 10"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

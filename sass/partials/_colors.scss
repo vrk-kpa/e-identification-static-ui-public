@@ -1,70 +1,107 @@
-$color-dark-gray:				#2c2c2c;
-$color-light-gray:			#ececec;
-$color-gray-1:				#0f1317;
-$color-gray-2:				#2a2e32;
-$color-gray-3:				#464a4d;
-$color-gray-4:				#616568;
-$color-gray-5:				#7d8184;
-$color-gray-6:				#989c9f;
-$color-gray-7:				#b3b7ba;
-$color-gray-8:				#ced2d5;
-$color-gray-9:				#e9edf0;
+// Grayscale
+$color-valkea: #FFFFFF;
 
-$color-entrepreneur:				#0061af;
-	$color-entrepreneur-darkest:	#002646;
-	$color-entrepreneur-darker:		#003a69;
-	$color-entrepreneur-dark:		#004d8c;
-	$color-entrepreneur-light:		#3380bf;
-	$color-entrepreneur-lighter:	#3380bf;
-	$color-entrepreneur-lightest:	#ccdfef;
-	
-$color-bright-azure:				#0d92ff;
-	$color-bright-azure-darkest:	#053a66; 
-	$color-bright-azure-darker:		#075799;
-	$color-bright-azure-dark:		#0a77d1;
-	$color-bright-azure-light:		#3da7ff;
-	$color-bright-azure-lighter:	#86c8ff;
-	$color-bright-azure-lightest:	#cee9ff;
+$color-musta: #282828;
 
-$color-persimmon:					#f25d0d;
-	$color-persimmon-darkest:		#602505;
-	$color-persimmon-darker:		#913707;
-	$color-persimmon-dark:			#c14a0a;
-	$color-persimmon-light:			#f47d3d;
-	$color-persimmon-lighter:		#f8ae86;
-	$color-persimmon-lightest:		#fcdece;
+$color-harmaa: #A5ACB0;
+  $color-harmaa-5: #FAFAFA;
+  $color-harmaa-10: #F6F6F7;
+  $color-harmaa-20: #EDEEEF;
+  $color-harmaa-60: #C9CDCF;
+  $color-harmaa-k20: #84898C;
+  $color-harmaa-k40: #636769;
 
-$color-deep-orchid:					#a155aa;
-	$color-deep-orchid-darkest:		#402244;
-	$color-deep-orchid-darker:		#603366;
-	$color-deep-orchid-dark:		#804488;
-	$color-deep-orchid-light:		#b377bb;
-	$color-deep-orchid-lighter:		#d0aad4;
-	$color-deep-orchid-lightest:	#ecddee;
+// Traffic lights
+$color-vihrea: #00B38A;
+$color-keltainen: #F4AA00;
+$color-punainen: #C13832;
 
-$color-red:					#e5291c;
-	$color-red-darkest:		#5b100b;
-	$color-red-darker:		#891810;
-	$color-red-dark:		#b72016;
-	$color-red-light:		#ea5349;
-	$color-red-lighter:		#f2948d;
-	$color-red-lightest:	#f9d4d1;
+// Brand
+$color-suomi: #003479;
+  $color-suomi-50: #8099BC;
+  $color-suomi-70: #4D71A1;
+  $color-suomi-90: #1A4886;
+  $color-suomi-k10: #002E6C;
+  $color-suomi-k30: #002454;
+  $color-suomi-k50: #00193C;
 
-$color-official:				#178809;
-	$color-official-darkest:	#093603;
-	$color-official-darker:		#0d5105;
-	$color-official-dark:		#126c07;
-	$color-official-light:		#459f3a;
-	$color-official-lighter:	#8bc384;
-	$color-official-lightest:	#d0e7cd;
-	
-$color-citizen:					#e02271;
-	$color-citizen-darkest:		#590d2d;
-	$color-citizen-darker:		#861443;
-	$color-citizen-dark:		#b31b5a;
-	$color-citizen-light:		#e64e8d;
-	$color-citizen-lighter:		#ef90b8;
-	$color-citizen-lightest:	#f8d2e2;
+// Supplementary
+$color-kaamos: #002E5F;
+  $color-kaamos-50: #8096AF;
+  $color-kaamos-70: #4D6D8F;
+  $color-kaamos-90: #1A436F;
+  $color-kaamos-k10: #002955;
+  $color-kaamos-k30: #002042;
+  $color-kaamos-k50: #00162F;
 
-$color-basic-text:	#333333;
-$link-color:	#0a58cc;
+$color-jarvi: #2A6EBB;
+  $color-jarvi-50: #94B6DD;
+  $color-jarvi-70: #6A99CF;
+  $color-jarvi-90: #3F7CC1;
+  $color-jarvi-k10: #2562A7;
+  $color-jarvi-k30: #1D4D83;
+  $color-jarvi-k50: #14365D;
+
+$color-taivas: #34B6E4;
+  $color-taivas-50: #99DAF1;
+  $color-taivas-70: #71CCEC;
+  $color-taivas-90: #48BDE6;
+  $color-taivas-k10: #2EA3CC;
+  $color-taivas-k30: #247FA0;
+  $color-taivas-k50: #195A71;
+
+$color-revontuli: #60CDCB;
+  $color-revontuli-50: #AFE6E5;
+  $color-revontuli-70: #90DCDA;
+  $color-revontuli-90: #70D2D0;
+  $color-revontuli-k10: #56B8B6;
+  $color-revontuli-k30: #438F8E;
+  $color-revontuli-k50: #2F6665;
+
+$color-havumetsa: #007770;
+  $color-havumetsa-50: #80BBB7;
+  $color-havumetsa-70: #4DA09B;
+  $color-havumetsa-90: #1A847E;
+  $color-havumetsa-k10: #006A64;
+  $color-havumetsa-k50: #003B37;
+  $color-havumetsa-k30: #00534E;
+
+$color-koivu: #B9CF96;
+  $color-koivu-50: #DCE7CA;
+  $color-koivu-70: #CEDDB5;
+  $color-koivu-90: #C0D3A0;
+  $color-koivu-k10: #A6B986;
+  $color-koivu-k30: #819169;
+  $color-koivu-k50: #5C674A;
+
+$color-lakka: #EA7125;
+  $color-lakka-50: #F4B892;
+  $color-lakka-70: #F09B66;
+  $color-lakka-90: #EC7F3B;
+  $color-lakka-k10: #D26521;
+  $color-lakka-k30: #A44F19;
+  $color-lakka-k50: #743812;
+
+$color-mustikka: #8B2346;
+  $color-mustikka-50: #C591A2;
+  $color-mustikka-70: #AE657D;
+  $color-mustikka-90: #963958;
+  $color-mustikka-k10: #7C1F3E;
+  $color-mustikka-k30: #611831;
+  $color-mustikka-k50: #451122;
+
+$color-marjapuuro: #E30450;
+  $color-marjapuuro-50: #F181A7;
+  $color-marjapuuro-70: #EB4F84;
+  $color-marjapuuro-90: #E51D61;
+  $color-marjapuuro-k10: #CB0347;
+  $color-marjapuuro-k30: #9F0238;
+  $color-marjapuuro-k50: #710127;
+
+$color-kanerva: #9F60B5;
+  $color-kanerva-50: #CFAFDA;
+  $color-kanerva-70: #BB90CB;
+  $color-kanerva-90: #A870BC;
+  $color-kanerva-k10: #8E56A2;
+  $color-kanerva-k30: #6F437F;
+  $color-kanerva-k50: #4F2F5A;

@@ -1,5 +1,5 @@
-$chevron-circle-up:	"\f139";
-$chevron-circle-down: "\f13a";
+//$chevron-circle-up:	"\f139";
+//$chevron-circle-down: "\f13a";
 $chevron-up: "\f077";
 $chevron-down: "\f078";
 $angle-left: "\f104";
@@ -12,32 +12,61 @@ $plus: "\f067";
 $minus: "\f068";
 $icon-info:	"\f129";
 $icon-menu:	"\f0c9";
-$icon-lock: "\f023";
-$icon-home: "\f015";
+$icon-lock: "\e021";
+//$icon-lock2: "\e615";
+$icon-home: "\e800";
 $icon-check: "\f00c";
 $icon-search: "\f002";
-$icon-ext-link: "\f08e";
+$icon-ext-link: "\f08f";
 $icon-tags: "\f02c";
-$icon-tag: "\e085";
+$icon-tag: "\f02c";
 $icon-cross: "\e117";
 $icon-books: "\e61e";
 $icon-profile: "\e620";
 $icon-box: "\e079";
 $icon-package: "\f0c4";
 $icon-sign-in: "\f090";
-$icon-sign-out: "\f08b";
+$icon-sign-out: "\f08c";
 $icon-env: "\f0e0";
-$icon-heart: "\e024";
-$icon-bookmark: "\f07b";
+$icon-heart: "\e900";
+//$icon-bookmark: "\f07b";
+$icon-times-circle: "\f057";
+$icon-calendar: "\f073";
+$icon-arrow-right: "\f105";
+$icon-arrow-down: "\f107";
+$icon-arrow-up: "\f106";
+$icon-mypage: "\f007";
+$icon-fax: "\f1ad";
+$icon-comment-full: "\f075";
+$icon-comment-hollow: "\f0e5";
+$icon-service: "\e906";
+$icon-e-service: "\e905";
+$icon-sphere: "\e902";
+$icon-exclamation: "\f12a";
+$icon-sleep: "\e046";
+$icon-location: "\e604";
+$icon-time: "\e014";
+$icon-attachment: "\e001";
+$icon-reverse: "\e915";
+$icon-bicycle: "\e52f";
+$icon-walking: "\e536";
+$icon-subway: "\e56f";
+$icon-tram: "\e571";
+$icon-car: "\f1b9";
+$icon-bus: "\f207";
+$icon-train: "\f238";
+$icon-subway2: "\f239";
+$icon-boat: "\e532";
+
 
 .icon {
-	@include inline-block;
-	/* smoother for Chrome */
-	-webkit-transform: translate3d(0, 0, 0);
-	-moz-transform: translate3d(0, 0, 0);
-	-o-transform: translate3d(0, 0, 0);
-	-ms-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
+  @include inline-block;
+  /* smoother for Chrome */
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .icon:before {
@@ -47,83 +76,79 @@ $icon-bookmark: "\f07b";
 }
 
 button.icon {
-	background: transparent;
+  background: transparent;
 }
 
 /*********/
 
-.icon-info{
-	&:before{
-		content: $icon-info;
-	}
+.icon-info {
+  &:before {
+    content: $icon-info;
+  }
 }
 
-.icon-lock{
-	&:before{
-		content: $icon-lock;
-	}
+.icon-lock {
+  &:before {
+    content: $icon-lock;
+  }
 }
 
-.icon-home{
-	&:before{
-		content: $icon-home;
-	}
+.icon-home {
+  &:before {
+    content: $icon-home;
+  }
 }
 
-.icon-search{
-	&:before{
-		content: $icon-search;
-	}
+.icon-search {
+  &:before {
+    content: $icon-search;
+  }
 }
 
-.icon-menu{
-	&:before{
-		content: $icon-menu;
-	}
+.icon-menu {
+  &:before {
+    content: $icon-menu;
+  }
 }
 
-.icon-guides{
-	&:before{
-		content: $icon-books;
-	}
+.icon-guides {
+  &:before {
+    content: $icon-books;
+  }
 }
 
-.icon-my-page{
-	&:before{
-		content: $icon-profile;
-	}
+.icon-my-page {
+  &:before {
+    content: $icon-profile;
+  }
 }
 
-.icon-services{
-	&:before{
-		content: $icon-package;
-	}
+.icon-services {
+  &:before {
+    content: $icon-package;
+  }
 }
 
-.icon-sign-in{
-	&:before{
-		content: $icon-sign-in;
-	}
+.icon-sign-in {
+  &:before {
+    content: $icon-sign-in;
+  }
 }
 
-
-.icon-sign-out{
-	&:before{
-		content: $icon-sign-out;
-	}
+.icon-sign-out {
+  &:before {
+    content: $icon-sign-out;
+  }
 }
 
-.icon-msg{
-	&:before{
-		content: $icon-env;
-	}
+.icon-msg {
+  &:before {
+    content: $icon-env;
+  }
 }
 
-.icon-fav{
-	&:before{
-		content: $icon-heart;
-	}
+.icon-fav {
+  &:before {
+    content: $icon-heart;
+  }
 }
-
-
-

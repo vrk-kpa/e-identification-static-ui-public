@@ -1,0 +1,80 @@
+.mobile-idp-page {
+  h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .mobile-identification-info {
+    border: 1px solid $color-harmaa-60;
+    margin-bottom: 32px;
+
+    .numbered-list {
+      padding-left: 0;
+
+      li {
+        font-family: SourceSansProSemibold, SourceSansProRegular, 'Helvetica Neue', Arial;
+      }
+    }
+
+    button {
+      margin: 7px 10px 20px 18px;
+      float: left;
+      max-width: 152px;
+      word-break: break-all;
+    }
+
+    .mobile-help {
+      margin-left: 180px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-2) {
+  .mobile-idp-page {
+
+    .mobile-identification-info {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border: 0;
+
+      button {
+        max-width: 107px;
+      }
+
+      .mobile-help {
+        margin-left: 135px;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-1) {
+  .mobile-idp-page {
+
+    .mobile-identification-info {
+
+      .numbered-list {
+        margin: 18px 0;
+        list-style-position: inside;
+
+        input {
+          display: block;
+          width: 100%;
+          max-width: 100%
+        }
+      }
+
+      button {
+        @include rem(font-size, 15px);
+        float: none;
+        max-width: 100%;
+        width: 100%;
+        margin: 0 0 16px 0;
+      }
+
+      .mobile-help {
+        margin-left: 0;
+      }
+    }
+  }
+}

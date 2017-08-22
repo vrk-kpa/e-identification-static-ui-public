@@ -12,7 +12,7 @@ import TranslatedLink from '../../src/TranslatedLink.js';
 describe('TranslatedLink', function() {
     describe('TranslatedLink should work when all ok, ', function() {
         let sandbox;
-        let translate
+        let translate;
         beforeEach(function() {
             sandbox = sinonSandbox.create();
             translate = sandbox.stub(i18n, 't');
@@ -62,7 +62,6 @@ describe('TranslatedLink', function() {
 
             let result = renderer.getRenderOutput();
             expect(result.props.children).to.equal('testContentTranslation');
-            console.log(JSON.stringify(result));
         });
     });
     describe('TranslatedLink fallback', function() {

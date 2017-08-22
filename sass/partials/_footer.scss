@@ -1,41 +1,172 @@
+#page-footer {
+  max-width: 100%;
+  background: $color-valkea;
+  border-top: 1px solid $color-harmaa-60;
 
-#page-footer{
-  background: $color-dark-gray;
-  color: $color-gray-7;
-  @include rem(font-size, 12px);
-  margin-top: 30px;
-  > .container {
-    padding: 20px 20px 0 20px;
-  }
-  #footer-logo {
-    margin-bottom: 20px;
-  }
-  ul {
-    list-style: none;
-    li {
-      @include rem(font-size, 13px);
-      color: $color-gray-7;
-      margin-right: 4px;
-      margin-bottom: 4px;
-	  a {
-		text-decoration: none;
-	  }
+  .go-up {
+    display: none;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    top: -16px;
+    margin: 0 auto;
+    margin-bottom: -32px;
+    background:  url('/resources/img/go_up.png') $color-valkea center no-repeat;
+    border-radius: 50%;
+    border: 1px solid $color-harmaa-60;
+    font-size: 0;
+    text-indent: -9999px;
+    z-index: 99;
+
+    &:hover {
+      background: url('/resources/img/go_up.png') $color-harmaa-10 center no-repeat;
+      @include box-shadow(0 0 4px 0 $color-jarvi-50);
     }
-  }
-  a{
-	color: $color-gray-9;
-	
-	&:hover,&:focus {
-		color: $color-gray-7;
-		text-decoration: underline;
-	}
+
+    &:focus {
+      @include box-shadow(0 0 4px 0 $color-jarvi-50, 0 0 0 1px $color-jarvi, inset 0 0 0 2px $color-valkea);
+      outline: 0;
+    }
   }
 }
 
-@media (min-width: $breakpoint-5) {
-	#page-footer {
-		li {
-			float: left;
-		}
-	}
+@media (orientation: portrait) and (max-width: $breakpoint-2) {
+  #page-footer {
+    .go-up {
+      display: block;
+    }
+  }
+}
+
+#footer-content {
+  width: 100%;
+  padding: 0;
+
+  .site-logo {
+    display: block;
+    float: left;
+    max-width: 45%;
+    width: auto;
+    margin: 0;
+    padding: 40px 0;
+    line-height: 0;
+
+    img {
+      @include rem(height, 55px);
+      width: auto;
+      max-width: none !important; // for IE11
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    float: right;
+    padding: 40px 0;
+    margin-left: 20px;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-right: 40px;
+      white-space: nowrap;
+
+      li {
+        width: 100%;
+        line-height: 0;
+        @include rem(margin-bottom, 13px);
+
+        a {
+          @include rem(font-size, 16px);
+          @include rem(line-height, 18px);
+          text-decoration: none;
+          color: $color-musta;
+
+          &:hover, &:focus {
+            color: $color-harmaa-k40;
+            text-decoration: underline;
+          }
+
+          &:active {
+            color: $color-musta;
+          }
+
+          &:after {
+            margin-left: 1em;
+          }
+        }
+      }
+    }
+    .footer-links-feedback {
+      margin-right: 10px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-3) {
+  #footer-content {
+    padding: 0 32px;
+
+    .site-logo {
+      float: none;
+      max-width: 100%;
+    }
+
+    .footer-links {
+      float: none;
+      padding-top: 0;
+      justify-content: space-between;
+      min-width: 100%;
+      margin-left: 0;
+
+      ul {
+        display: block;
+        width: 50%;
+      }
+
+      .footer-links-info {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $breakpoint-2) {
+  #footer-content {
+    padding: 0 16px;
+
+    .site-logo {
+      padding: 30px 0 20px 0;
+      text-align: center;
+
+      img {
+        @include rem(height, 32px);
+      }
+    }
+
+    .footer-links {
+      display: block;
+      padding-bottom: 20px;
+
+      ul {
+        width: 100%;
+        text-align: center;
+        white-space: normal;
+        word-wrap: break-word;
+
+        li {
+          display: inline-block;
+
+          a {
+            @include rem(font-size, 16px);
+            @include rem(line-height, 18px);
+          }
+        }
+      }
+
+      .footer-links-feedback {
+        margin-left: 0;
+      }
+    }
+  }
 }

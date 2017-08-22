@@ -21,8 +21,8 @@ var SignInOptionList = React.createClass({
         let allowedMethods = this.props.allowedMethods;
         return (
             <ul id="sign-in-option-list" className="sign-in-option-list">
-                 {allowedMethods.map(function(result) {
-                      return <li key={result.id}><AuthMethod methodConfig={result}/></li>;
+                {allowedMethods.map(function(result) {
+                    return <li key={result.id}><AuthMethod methodConfig={result}/></li>;
                 })}
             </ul>
         );

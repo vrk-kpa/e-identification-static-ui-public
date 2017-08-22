@@ -1,17 +1,25 @@
 import React from 'react';
 
 import Translated from '../Translated.js';
+import TranslatedTitle from '../TranslatedTitle.js';
 
 var FeedbackForm = React.createClass({
     propTypes: {
         onFormSubmit: React.PropTypes.func.isRequired
     },
+    componentDidMount: function() {
+        document.title = TranslatedTitle.getTitle('palaute__otsikko');
+    },
     getInitialState: function() {
         return {
-            isValid: true,
+            isValid: {
+                message: true,
+                email: true
+            },
             message: '',
-            name: '',
-            email: ''
+            responseRequest: 'anonymous',
+            email: '',
+            loading: false
         };
     },
     handleMessageChange: function(e) {
@@ -24,60 +32,110 @@ var FeedbackForm = React.createClass({
             name: e.target.value
         });
     },
+    handleResponseRequest: function(e) {
+        this.setState({
+            responseRequest: e.target.value
+        });
+    },
     handleEmailChange: function(e) {
         this.setState({
             email: e.target.value
         });
     },
-    hasValidContent: function() {
-        return !!this.state.message.trim();
+    toggleLoading: function(callback) {
+        function noop() {};
+        callback = callback || noop;
+        this.setState({
+            loading: !this.state.loading
+        }, callback);
+    },
+    hasValidContent: function(callback) {
+        const testEmailRegex = new RegExp(/^[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i);
+        let revalidation = {
+            message: true,
+            email: true
+        };
+
+        if (!this.state.message.trim()) {
+            revalidation.message = false;
+        }
+        if (this.state.responseRequest === 'respond' && !this.state.email.match(testEmailRegex)) {
+            revalidation.email = false;
+        }
+        this.setState({
+            isValid: revalidation
+        }, () => {
+            if (!this.state.isValid.message) {
+                this.refs.messageValidationError.scrollIntoView();
+            } else if (!this.state.isValid.email) {
+                this.refs.emailValidationError.scrollIntoView();
+            }
+            callback(this.state.isValid.message && this.state.isValid.email);
+        });
     },
     handleSubmit: function(e) {
         e.preventDefault();
-        if (this.hasValidContent()) {
-            let message = this.state.message.trim();
-            let name = this.state.name.trim();
-            let email = this.state.email.trim();
-            this.props.onFormSubmit({
-                form: 'feedback',
-                content: {
-                    message: message,
-                    name: name,
-                    email: email
+        this.toggleLoading(() => {
+            this.hasValidContent((validContent) => {
+                if (validContent) {
+                    this.props.onFormSubmit({
+                      form: 'feedback',
+                      content: {
+                        message: this.state.message.trim(),
+                        email: this.state.email.trim()
+                      }
+                    });
+                } else {
+                    this.toggleLoading();
                 }
             });
-            this.setState(this.getInitialState());
-        } else {
-            this.setState({isValid: false});
-        }
+        });
     },
     render: function() {
         return (
-        <div>
-            <div id="input-alert" className="box alert-box" style={{display: this.state.isValid ? 'none' : ''}}>
-                <Translated tag="p" id="palaute__virhe__viesti_puuttuu">Tarkista, että olet kirjoittanut palauteviestin</Translated>
-            </div>
-            <div className="col-xs-12 col-md-8">
+            <div className="col-xs-12 col-md-8 feedback-page">
                 <Translated tag="h2" id="palaute__otsikko">Palaute</Translated>
-                <Translated tag="p" id="palaute__p1">Tällä lomakkeella voit lähettää palautetta Suomi.fi-tunnistamisesta. Palaute käsitellään Kansalaisneuvonnassa, joka neuvoo julkishallinnon sähköisten palvelujen käytössä ja niihin tunnistautumisessa.</Translated>
+                <div className="feedback-form-wrapper">
+                    <div className="col-xs-12 col-md-10">
+                        <Translated tag="p" id="palaute__p1">Tällä lomakkeella voit lähettää palautetta Suomi.fi-tunnistamisesta. Palaute käsitellään Kansalaisneuvonnassa, joka neuvoo julkishallinnon sähköisten palvelujen käytössä ja niihin tunnistautumisessa.</Translated>
 
-                <div className="form-group">
-                    <label className="form-label strong" htmlFor="message"><Translated tag="span" id="palaute__lomake__kuvaus__label">Palautteesi</Translated> <Translated tag="small" id="palaute__lomake__pakollinen">(pakollinen tieto)</Translated></label>
-                    <textarea id="message" cols="60" rows="8" onChange={this.handleMessageChange}></textarea>
-                </div>
+                        <div className="form-group" ref="messageValidationError">
+                            <Translated tag="label" id="palaute__lomake__kuvaus__label" className="form-label strong required small" htmlFor="message">Palautteesi</Translated>
+                            <Translated tag="span" id="palaute__lomake__pakollinen" className="sr-only">(pakollinen tieto)</Translated>
+                            <textarea id="message" className={this.state.isValid.message ? '' : 'invalid'} cols="60" rows="8" onChange={this.handleMessageChange}></textarea>
+                            <Translated tag="span" id="palaute__virhe__viesti_puuttuu" className="validation-error" style={{display: this.state.isValid.message ? 'none' : ''}}>Tarkista, että olet kirjoittanut palauteviestin</Translated>
+                        </div>
 
-                <div className="form-group">
-                    <Translated tag="label" className="form-label strong" id="palaute__lomake__yhteystiedot_label">Yhteystiedot</Translated>
-                    <Translated tag="legend" id="palaute__lomake__yhteystiedot_legend">Jos toivot palautteeseesi vastausta, liitä mukaan sähköpostiosoitteesi. Voit jättää palautteen myös nimettömänä.</Translated>
-                    <Translated tag="label" className="form-label" htmlFor="name" id="palaute__lomake__yhteystiedot_nimi">Nimi</Translated>
-                    <input id="name" type="text" size="60" onChange={this.handleNameChange}/>
-                    <Translated tag="label" className="form-label" htmlFor="email" id="palaute__lomake__yhteystiedot_email">Sähköpostiosoite</Translated>
-                    <input id="email" type="text" size="60"  onChange={this.handleEmailChange}/>
+                        <fieldset className="form-group">
+                            <Translated tag="legend" id="palaute__lomake__yhteystiedot_label" className="form-label strong small">Haluatko, että palautteen käsittelijä ottaa sinuun yhteyttä?</Translated>
+                            <ul className="selection-list">
+                                <li>
+                                    <input type="radio" name="radio-group-respond" id="radio-respond-no" value="anonymous" defaultChecked onChange={this.handleResponseRequest}/>
+                                    <span className="radio-marker" />
+                                    <Translated tag="label" id="palaute__lomake__yhteystiedot_ei" htmlFor="radio-respond-no">En halua (Palaute käsitellään nimettömänä.)</Translated>
+                                </li>
+                                <li>
+                                    <input type="radio" name="radio-group-respond" id="radio-respond-yes" value="respond" onChange={this.handleResponseRequest}/>
+                                    <span className="radio-marker" />
+                                    <Translated tag="label" className="small" id="palaute__lomake__yhteystiedot_kyllä" htmlFor="radio-respond-yes">Kyllä, ottakaa minuun yhteyttä</Translated>
+                                </li>
+                            </ul>
+                            { this.state.responseRequest === 'respond' ?
+                                <div className="form-group indented" ref="emailValidationError">
+                                    <Translated tag="label" id="palaute__lomake__yhteystiedot_email" className="form-label strong small required" htmlFor="email">Sähköpostiosoitteesi</Translated>
+                                    <Translated tag="span" id="palaute__lomake__pakollinen" className="sr-only">(pakollinen tieto)</Translated>
+                                    <input id="email" className={this.state.isValid.email ? 'width-320' : 'width-320 invalid'} type="text" onChange={this.handleEmailChange} value={this.state.email}/>
+                                    <Translated tag="span" id="palaute__virhe__email_vaarin" className="validation-error" style={{display: this.state.isValid.email ? 'none' : ''}}>Tarkista, että olet kirjoittanut hyväksytyn sähköpostiosoitteen.</Translated>
+                                </div>
+                                : ''
+                            }
+                        </fieldset>
+
+                        <button id="feedback-submit" onClick={this.handleSubmit} disabled={this.state.loading ? true : false}><span className="button-loader" style={{display: this.state.loading ? '' : 'none'}}/><Translated tag="span" id="palaute__lomake__submit">Lähetä palaute</Translated></button>
+                        <Translated tag="p" id="palaute__info">Palaute ohjautuu Kansalaisneuvontaan, joka käsittelee kaikki Suomi.fi-tunnistamiseen liittyvät palautteet.</Translated>
+                    </div>
                 </div>
-                <button id="feedback-submit" onClick={this.handleSubmit}><Translated tag="span" id="palaute__lomake__submit">Lähetä palaute</Translated></button>
-                <Translated tag="p" id="palaute__info">Palaute ohjautuu Kansalaisneuvontaan, joka käsittelee kaikki Suomi.fi-tunnistamiseen liittyvät palautteet.</Translated>
             </div>
-        </div>
         );
     }
 });

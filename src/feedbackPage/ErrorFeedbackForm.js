@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Translated from '../Translated.js';
+import TranslatedTitle from '../TranslatedTitle.js';
 import UAParser from 'ua-parser-js';
 
 var uaParser = new UAParser(window.navigator.userAgent);
@@ -11,12 +12,21 @@ function padLeft(nr, n, str) {
 
 var ErrorFeedbackForm = React.createClass({
     propTypes: {
+        location: React.PropTypes.object.isRequired,
         onFormSubmit: React.PropTypes.func.isRequired
+    },
+    componentDidMount: function() {
+        document.title = TranslatedTitle.getTitle('virhepalaute__otsikko');
     },
     getInitialState: function() {
         let date = new Date();
         return {
-            isValid: true,
+            isValid: {
+                errorDescription: true,
+                email: true,
+                errorCode: true,
+                errorMessage: true
+            },
             service: '',
             serviceAdditional: '',
             agentData: uaParser.getResult(),
@@ -24,13 +34,26 @@ var ErrorFeedbackForm = React.createClass({
             authType: 'pankki',
             authTypeBank: '',
             authTypeMobileCert: '',
-            hasErrorCode: 'false',
-            errorCode: '',
+            errorMessage: '',
+            hasErrorCode: this.hasProvidedErrorCode(),
+            errorCode: this.getErrorCode(),
             errorTime: this.displayDate(date),
             errorDescription: '',
             errorRepeats: 'virhe_ei_toistu',
-            email: ''
+            email: '',
+            responseRequest: 'anonymous',
+            loading: false
         };
+    },
+    hasProvidedErrorCode: function() {
+      if (this.getErrorCode() !== '') {
+        return 'true';
+      } else {
+        return 'false';
+      }
+    },
+    getErrorCode: function() {
+      return this.props.location.query.error ? decodeURIComponent(this.props.location.query.error) : '';
     },
     displayDate: function(date) {
         // Finnish format
@@ -71,6 +94,11 @@ var ErrorFeedbackForm = React.createClass({
             authTypeMobileCert: e.target.value
         });
     },
+    handleErrorMessagehange: function(e) {
+        this.setState({
+            errorMessage: e.target.value
+        });
+    },
     handleHasErrorCodeChange: function(e) {
         this.setState({
             hasErrorCode: e.target.value
@@ -96,182 +124,234 @@ var ErrorFeedbackForm = React.createClass({
             errorRepeats: e.target.value
         });
     },
+    handleResponseRequest: function(e) {
+        this.setState({
+            responseRequest: e.target.value
+        });
+    },
     handleEmailChange: function(e) {
         this.setState({
             email: e.target.value
         });
     },
-    hasValidContent: function() {
-        return !!this.state.errorDescription.trim();
+    toggleLoading: function(callback) {
+        function noop() {};
+        callback = callback || noop;
+        this.setState({
+            loading: !this.state.loading
+        }, callback);
+    },
+    hasValidContent: function(callback) {
+        const testEmailRegex = new RegExp(/^[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i);
+        let revalidation = {
+            errorDescription: true,
+            errorCode: true,
+            email: true,
+            errorMessage: true
+        };
+
+        if (!this.state.errorDescription.trim()) {
+            revalidation.errorDescription = false;
+        }
+        if (!this.state.errorMessage.trim()) {
+            revalidation.errorMessage = false;
+        }
+        if (this.state.responseRequest === 'respond' && !this.state.email.match(testEmailRegex)) {
+            revalidation.email = false;
+        }
+        this.setState({
+            isValid: revalidation
+        }, () => {
+            if (!this.state.isValid.errorDescription) {
+                this.refs.descriptionValidationError.scrollIntoView();
+            } else if (!this.state.isValid.errorMessage) {
+                this.refs.errorMessageValidationError.scrollIntoView();
+            } else if (!this.state.isValid.email) {
+                this.refs.emailValidationError.scrollIntoView();
+            }
+            callback(this.state.isValid.errorDescription && this.state.isValid.errorMessage && this.state.isValid.email);
+        });
     },
     handleSubmit: function(e) {
         e.preventDefault();
-        if (this.hasValidContent()) {
-            this.props.onFormSubmit({
-                form: 'errorfeedback',
-                content: {
-                    service: this.state.service.trim(),
-                    serviceAdditional: this.state.serviceAdditional.trim(),
-                    userAgent: this.state.agentData.ua.trim(),
-                    browserGiven: this.state.browserGiven.trim(),
-                    type: this.state.authType,
-                    bank: this.state.authTypeBank.trim(),
-                    mobileCertOperator: this.state.authTypeMobileCert.trim(),
-                    hasErrorCode: this.state.hasErrorCode,
-                    errorCode: this.state.hasErrorCode ? this.state.errorCode : '',
-                    time: this.state.errorTime.trim(),
-                    errorDescription: this.state.errorDescription.trim(),
-                    errorRepeats: this.state.errorRepeats,
-                    email: this.state.email.trim()
+        this.toggleLoading(() => {
+            this.hasValidContent((validContent) => {
+                if (validContent) {
+                    this.props.onFormSubmit({
+                        form: 'errorfeedback',
+                        content: {
+                            service: this.state.service.trim(),
+                            serviceAdditional: this.state.serviceAdditional.trim(),
+                            userAgent: this.state.agentData.ua.trim(),
+                            browserGiven: this.state.browserGiven.trim(),
+                            type: this.state.authType,
+                            bank: this.state.authTypeBank.trim(),
+                            mobileCertOperator: this.state.authTypeMobileCert.trim(),
+                            errorMessage: this.state.errorMessage,
+                            hasErrorCode: this.state.hasErrorCode,
+                            errorCode: this.state.hasErrorCode ? this.state.errorCode : '',
+                            time: this.state.errorTime.trim(),
+                            errorDescription: this.state.errorDescription.trim(),
+                            errorRepeats: this.state.errorRepeats,
+                            email: this.state.email.trim()
+                        }
+                    });
+                    this.setState(this.getInitialState());
+                } else {
+                    this.toggleLoading();
                 }
             });
-            this.setState(this.getInitialState());
-        } else {
-            this.setState({isValid: false});
-        }
+        });
     },
     render: function() {
         return (
-        <div>
-            <div id="input-alert" className="box alert-box" style={{display: this.state.isValid ? 'none' : ''}}>
-                <Translated tag="p" id="virhepalaute__virhe__puuttuu">Tarkista, että olet kirjoittanut vaaditut kentät</Translated>
-            </div>
-            <div className="col-xs-12 col-md-8">
+            <div className="col-xs-12 col-md-9 error-feedback-page">
                 <Translated tag="h2" id="virhepalaute__otsikko">Ilmoita virhetilanteesta</Translated>
-                <Translated tag="p" id="virhepalaute__p1">Tällä lomakkeella voit lähettää palautetta Suomi.fi-tunnistamisesta. Palaute käsitellään Kansalaisneuvonnassa, joka neuvoo julkishallinnon sähköisten palvelujen käytössä ja niihin tunnistautumisessa.</Translated>
-                <Translated tag="h3" id="virhepalaute__lomake__taustatiedot__header">Taustatietoja virhetilanteelle</Translated>
-                <div className="form-group">
-                    <label className="form-label" htmlFor="service">
-                        <Translated tag="span" id="virhepalaute__lomake__palvelu">Palvelu, johon tunnistauduit</Translated>
-                    </label>
-                    <input id="service" type="text" size="85" value={this.state.service} onChange={this.handleServiceChange}/>
-
-                    <Translated tag="label" className="form-label" htmlFor="serviceAdditional" id="virhepalaute__lomake__palvelu__additional">Täydennä palvelun nimi ja paikkakunta</Translated>
-                    <input id="serviceAdditional" type="text" size="85" value={this.state.serviceAdditional} onChange={this.handleServiceAdditionalChange}/>
-                </div>
-                <div className="form-group">
-                    <label className="form-label" htmlFor="browser">
-                        <Translated tag="span" id="virhepalaute__lomake__selain">Selain, jota käytit</Translated>
-                    </label>
-                    <input id="browser" type="text" size="85" value={this.state.agentData.browser.name + ' ' + this.state.agentData.browser.version} disabled readOnly/>
-
-                    <label className="form-label" htmlFor="browserGiven" >
-                        <Translated tag="span" id="virhepalaute__lomake__selain__valinta">Selain, jota käytit</Translated>
-                    </label>
-                    <input id="browserGiven" type="text" size="85" value={this.state.browserGiven} onChange={this.handleGivenBrowserChange}/>
-                </div>
-
-                <div className="form-group">
-                    <fieldset className="form-group">
-                        <Translated tag="legend" className="strong" id="virhepalaute__lomake__tunnistustapa">Mitä tunnistustapaa käytit?</Translated>
-                        <ul>
-                            <li>
-                                <label htmlFor="radio-3">
-                                    <input type="radio" name="radio-group-1" id="radio-3" value="pankki" defaultChecked onChange={this.handleAuthChange}/>
-                                    <Translated tag="span" className="cb-marker" id="virhepalaute__lomake__radio__pankki">Pankkitunnukset</Translated>
-                                </label>
-                                { this.state.authType === 'pankki' ?
-                                    <div>
-                                        <label className="form-label" htmlFor="bank">
-                                            <Translated tag="span" id="virhepalaute__lomake__pankki__legend">Minkä pankin tunnistusta käytit</Translated>
-                                        </label>
-                                        <input id="bank" type="text" onChange={this.handleBankChange} value={this.state.authTypeBank} />
-                                    </div>
-                                    : ''
-                                }
-                            </li>
-                            <li>
-                                <label htmlFor="radio-1">
-                                    <input type="radio" name="radio-group-1" id="radio-1" value="hst" onChange={this.handleAuthChange}/>
-                                    <Translated tag="span" className="cb-marker" id="virhepalaute__lomake__radio__hst">Henkilövarmenne tai organisaatiovarmenne</Translated>
-                                </label>
-                            </li>
-                            <li>
-                                <label htmlFor="radio-2">
-                                    <input type="radio" name="radio-group-1" id="radio-2" value="mobiili" onChange={this.handleAuthChange}/>
-                                    <Translated tag="span" className="cb-marker" id="virhepalaute__lomake__radio__mobiili">Mobiilivarmenne</Translated>
-                                </label>
-                            </li>
-                                { this.state.authType === 'mobiili' ?
-                                    <div>
-                                        <label className="form-label" htmlFor="mobileCertOperator">
-                                            <Translated tag="label" htmlFor="mobileCertOperator" id="virhepalaute__lomake__mobiili__legend">Minkä operaattorin mobiilivarmennetta käytit</Translated>
-                                        </label>
-                                        <input id="mobileCertOperator" type="text" onChange={this.handleMobileCertOperatorChange} value={this.state.authTypeMobileCert} />
-                                    </div>
-                                    : ''
-                                }
-                        </ul>
-                    </fieldset>
-                </div>
-                <div className="form-group">
-                    <Translated tag="h3" id="virhepalaute__lomake__virhekuvaus__header">Virhetilanteen kuvaus</Translated>
-                    <label className="form-label" htmlFor="errorDescription">
-                        <Translated tag="span" id="virhepalaute__lomake__virhekuvaus__legend">Kerro lyhyesti mitä olit tekemässä</Translated> <Translated tag="small" id="virhepalaute__lomake__pakollinen">(pakollinen tieto)</Translated>
-                    </label>
-                    <textarea id="errorDescription" cols="60" rows="4" onChange={this.handleErrorDescriptionChange}></textarea>
-
-                    <label className="form-label" htmlFor="errorTime">
-                        <Translated tag="span" id="virhepalaute__lomake__virheaika__legend">Milloin virhe tapahtui</Translated>
-                    </label>
-                    <input type="text" id="errorTime" name="error_time" onChange={this.handleErrorTimeChange} value={this.state.errorTime} />
+                <div className="feedback-form-wrapper">
+                    <Translated tag="p" id="virhepalaute__p1">Tällä lomakkeella voit lähettää palautetta Suomi.fi-tunnistamisesta. Palaute käsitellään Kansalaisneuvonnassa, joka neuvoo julkishallinnon sähköisten palvelujen käytössä ja niihin tunnistautumisessa.</Translated>
+                    <Translated tag="h3" id="virhepalaute__lomake__taustatiedot__header">Taustatietoja virhetilanteelle</Translated>
 
                     <div className="form-group">
+                        <Translated tag="label" id="virhepalaute__lomake__palvelu" className="form-label strong small" htmlFor="service">Palvelu, johon tunnistauduit</Translated>
+                        <input id="service" className="width-460" type="text" value={this.state.service} onChange={this.handleServiceChange}/>
+
+                        <Translated tag="label" id="virhepalaute__lomake__palvelu__additional" className="form-label strong small" htmlFor="serviceAdditional">Täydennä palvelun nimi ja paikkakunta</Translated>
+                        <input id="serviceAdditional" className="width-460" type="text" value={this.state.serviceAdditional} onChange={this.handleServiceAdditionalChange}/>
+                    </div>
+
+                    <div className="form-group">
+                        <Translated tag="label" id="virhepalaute__lomake__selain" className="form-label strong small" htmlFor="browser">Selain, jota käytit</Translated>
+                        <input id="browser" className="width-460" type="text" value={this.state.agentData.browser.name + ' ' + this.state.agentData.browser.version} disabled readOnly/>
+
+                        <Translated tag="label" id="virhepalaute__lomake__selain__valinta" className="form-label strong small" htmlFor="browserGiven">Selain, jota käytit</Translated>
+                        <input id="browserGiven" className="width-460" type="text" value={this.state.browserGiven} onChange={this.handleGivenBrowserChange}/>
+                    </div>
+
+                    <fieldset className="form-group">
+                        <Translated tag="legend" id="virhepalaute__lomake__tunnistustapa" className="form-label strong required small">Mitä tunnistustapaa käytit?</Translated>
+                        <Translated tag="span" id="virhepalaute__lomake__pakollinen" className="sr-only">(pakollinen tieto)</Translated>
+                        <ul className="selection-list">
+                            <li>
+                                <input type="radio" name="radio-group-method" id="radio-method-bank" value="pankki" defaultChecked onChange={this.handleAuthChange}/>
+                                <span className="radio-marker" />
+                                <Translated tag="label" id="virhepalaute__lomake__radio__pankki" htmlFor="radio-method-bank">Pankkitunnistus</Translated>
+                            </li>
+                            { this.state.authType === 'pankki' ?
+                                <div className="form-group indented">
+                                    <Translated tag="label" id="virhepalaute__lomake__pankki__legend" className="form-label small" htmlFor="bank">Minkä pankin tunnistusta käytit?</Translated>
+                                    <input id="bank" type="text" onChange={this.handleBankChange} value={this.state.authTypeBank}/>
+                                </div>
+                                : ''
+                            }
+                            <li>
+                                <input type="radio" name="radio-group-method" id="radio-method-hst" value="hst" onChange={this.handleAuthChange}/>
+                                <span className="radio-marker" />
+                                <Translated tag="label" id="virhepalaute__lomake__radio__hst" htmlFor="radio-method-hst">Varmennekortti</Translated>
+                            </li>
+                            <li>
+                                <input type="radio" name="radio-group-method" id="radio-method-mobile" value="mobiili" onChange={this.handleAuthChange}/>
+                                <span className="radio-marker" />
+                                <Translated tag="label" id="virhepalaute__lomake__radio__mobiili" htmlFor="radio-method-mobile">Mobiilivarmenne</Translated>
+                            </li>
+                            { this.state.authType === 'mobiili' ?
+                                <div className="form-group indented">
+                                    <Translated tag="label" id="virhepalaute__lomake__mobiili__legend" className="form-label small" htmlFor="mobileCertOperator">Minkä operaattorin mobiilivarmennetta käytit?</Translated>
+                                    <input id="mobileCertOperator" type="text" onChange={this.handleMobileCertOperatorChange} value={this.state.authTypeMobileCert}/>
+                                </div>
+                                : ''
+                            }
+                        </ul>
+                    </fieldset>
+
+                    <div className="form-group" ref="descriptionValidationError">
+                        <Translated tag="h3" id="virhepalaute__lomake__virhekuvaus__header">Virhetilanteen kuvaus</Translated>
+
+                        <Translated tag="label" id="virhepalaute__lomake__virhekuvaus__legend" className="form-label strong small required" htmlFor="errorDescription">Kerro lyhyesti mitä olit tekemässä</Translated>
+                        <Translated tag="span" id="virhepalaute__lomake__pakollinen" className="sr-only">(pakollinen tieto)</Translated>
+                        <textarea id="errorDescription" className="width-460" cols="60" rows="4" onChange={this.handleErrorDescriptionChange}></textarea>
+                        <Translated tag="span" id="virhepalaute__virhe__viesti_puuttuu" className="validation-error" style={{display: this.state.isValid.errorDescription ? 'none' : ''}}>Tarkista, että olet kirjoittanut palauteviestin</Translated>
+
+                        <Translated tag="label" id="virhepalaute__lomake__virheaika__legend" className="form-label strong small" htmlFor="errorTime">Milloin virhe tapahtui</Translated>
+                        <input type="text" id="errorTime" className="width-460" name="error_time" onChange={this.handleErrorTimeChange} value={this.state.errorTime} />
+
+                        <Translated tag="label" id="virhepalaute__lomake__virheviesti__legend" className="form-label strong small required" htmlFor="errorMessage">Mitä virhesivulla lukee?</Translated>
+                        <Translated tag="span" id="virhepalaute__lomake__pakollinen" className="sr-only">(pakollinen tieto)</Translated>
+                        <textarea id="errorMessage" className="width-460" cols="60" rows="4" onChange={this.handleErrorMessagehange} ref="errorMessageValidationError"></textarea>
+                        <Translated tag="span" id="virhepalaute__virhe__virheviesti_puuttuu" className="validation-error" style={{display: this.state.isValid.errorMessage ? 'none' : ''}}>Tarkista, että olet kirjoittanut virheilmoituksen</Translated>
+
                         <fieldset className="form-group">
-                            <Translated tag="legend" className="strong" id="virhepalaute__lomake__virhekoodi__valinta">Näkyykö virhesivulla virhekoodi?</Translated>
-                            <ul>
+                            <Translated tag="legend" id="virhepalaute__lomake__virhekoodi__valinta" className="form-label strong small">Näkyykö virhesivulla virhekoodi?</Translated>
+                            <ul className="selection-list">
                                 <li>
-                                    <label htmlFor="radio-errorcode-1">
-                                        <input type="radio" name="radio-group-errorcode" id="radio-errorcode-1" value="false" defaultChecked onChange={this.handleHasErrorCodeChange}/>
-                                        <Translated tag="span" className="cb-marker" id="virhepalaute__lomake__ei">Ei</Translated>
-                                    </label>
+                                    <input type="radio" name="radio-group-errorcode" id="radio-errorcode-no" value="false" defaultChecked onChange={this.handleHasErrorCodeChange}/>
+                                    <span className="radio-marker" />
+                                    <Translated tag="label" id="virhepalaute__lomake__ei" htmlFor="radio-errorcode-no">Ei</Translated>
                                 </li>
                                 <li>
-                                    <label htmlFor="radio-errorcode-2">
-                                        <input type="radio" name="radio-group-errorcode" id="radio-errorcode-2" value="true" onChange={this.handleHasErrorCodeChange}/>
-                                        <Translated tag="span" className="cb-marker" id="virhepalaute__lomake__kyllä">Kyllä</Translated>
-                                    </label>
+                                    { this.hasProvidedErrorCode() === 'true' ?
+                                      <input type="radio" name="radio-group-errorcode" id="radio-errorcode-yes" value="true" onChange={this.handleHasErrorCodeChange} defaultChecked/>
+                                    : <input type="radio" name="radio-group-errorcode" id="radio-errorcode-yes" value="true" onChange={this.handleHasErrorCodeChange}/>
+                                    }
+                                    <span className="radio-marker" />
+                                    <Translated tag="label" id="virhepalaute__lomake__kyllä" htmlFor="radio-errorcode-yes">Kyllä</Translated>
                                     { this.state.hasErrorCode === 'true' ?
-                                        <div>
-                                            <label className="form-label" htmlFor="errorCode">
-                                               <Translated tag="span" htmlFor="errorCode" id="virhepalaute__lomake__virhekoodi__legend">Näkyykö virhekoodi</Translated>
-                                            </label>
-                                            <input id="errorCode" type="text" onChange={this.handleErrorCodeChange} value={this.state.errorCode} />
+                                        <div className="form-group indented">
+                                            <Translated tag="label" id="virhepalaute__lomake__virhekoodi__legend" className="form-label small" htmlFor="errorCode">Mikä virhekoodi sinulla näkyy?</Translated>
+                                            <input id="errorcode" type="text" onChange={this.handleErrorCodeChange} value={this.state.errorCode}/>
+                                            <Translated tag="span" id="palaute__virhe__ei_koodia" className="validation-error" style={{display: this.state.isValid.errorCode ? 'none' : ''}}>Tarkista, että olet syöttänyt koodin.</Translated>
                                         </div>
                                         : ''
                                     }
                                 </li>
                             </ul>
                         </fieldset>
-                    </div>
-                    <div className="form-group">
+
                         <fieldset className="form-group">
-                            <Translated tag="legend" className="strong" id="virhepalaute__lomake__virhetoistuu__valinta">Toistuiko ongelma?</Translated>
-                            <ul>
+                            <Translated tag="legend" id="virhepalaute__lomake__virhetoistuu__valinta" className="form-label strong small">Toistuiko ongelma?</Translated>
+                            <ul className="selection-list">
                                 <li>
-                                    <label htmlFor="radio-repeat-1">
-                                        <input type="radio" name="radio-group-repeat" id="radio-repeat-1" value="virhe_ei_toistu" defaultChecked onChange={this.handleErrorRepeatsChange}/>
-                                        <Translated tag="span" className="cb-marker" id="virhepalaute__lomake__ei">Ei</Translated>
-                                    </label>
+                                    <input type="radio" name="radio-group-repeat" id="radio-repeat-no" value="virhe_ei_toistu" defaultChecked onChange={this.handleErrorRepeatsChange}/>
+                                    <span className="radio-marker" />
+                                    <Translated tag="label" id="virhepalaute__lomake__ei" htmlFor="radio-repeat-no">Ei</Translated>
                                 </li>
                                 <li>
-                                    <label htmlFor="radio-repeat-2">
-                                        <input type="radio" name="radio-group-repeat" id="radio-repeat-2" value="virhe_toistuu" onChange={this.handleErrorRepeatsChange}/>
-                                        <Translated tag="span" className="cb-marker" id="virhepalaute__lomake__kyllä">Kyllä</Translated>
-                                    </label>
+                                    <input type="radio" name="radio-group-repeat" id="radio-repeat-yes" value="virhe_toistuu" onChange={this.handleErrorRepeatsChange}/>
+                                    <span className="radio-marker" />
+                                    <Translated tag="label" id="virhepalaute__lomake__kyllä" htmlFor="radio-repeat-yes">Kyllä</Translated>
                                 </li>
                             </ul>
                         </fieldset>
+
+                        <Translated tag="h3" id="virhepalaute__lomake__contact">Yhteydenotto</Translated>
+                        <fieldset className="form-group">
+                            <Translated tag="legend" id="virhepalaute__lomake__yhteystiedot_label" className="form-label small strong">Haluatko, että palautteen käsittelijä ottaa sinuun yhteyttä?</Translated>
+                            <ul className="selection-list">
+                                <li>
+                                    <input type="radio" name="radio-group-respond" id="radio-respond-no" value="anonymous" defaultChecked onChange={this.handleResponseRequest}/>
+                                    <span className="radio-marker" />
+                                    <Translated tag="label"id="virhepalaute__lomake__yhteystiedot_ei" htmlFor="radio-respond-no" >En halua (Palaute käsitellään nimettömänä.)</Translated>
+                                </li>
+                                <li>
+                                    <input type="radio" name="radio-group-respond" id="radio-respond-yes" value="respond" onChange={this.handleResponseRequest}/>
+                                    <span className="radio-marker" />
+                                    <Translated tag="label" id="virhepalaute__lomake__yhteystiedot_kyllä" className="small" htmlFor="radio-respond-yes">Kyllä, ottakaa minuun yhteyttä</Translated>
+                                </li>
+                            </ul>
+                            { this.state.responseRequest === 'respond' ?
+                                <div className="form-group indented" ref="emailValidationError">
+                                    <Translated tag="label" id="virhepalaute__lomake__yhteystiedot_email" className="form-label strong required" htmlFor="email">Sähköpostiosoitteesi</Translated>
+                                    <Translated tag="span" id="virhepalaute__lomake__pakollinen" className="sr-only">(pakollinen tieto)</Translated>
+                                    <input id="email" type="text" onChange={this.handleEmailChange} value={this.state.email} className={this.state.isValid.email ? 'width-320' : 'width-320 invalid'}/>
+                                    <Translated tag="span" id="virhepalaute__virhe__email_vaarin" className="validation-error" style={{display: this.state.isValid.email ? 'none' : ''}}>Tarkista sähköpostiosoite.</Translated>
+                                </div>
+                                : ''
+                            }
+                        </fieldset>
+                        <button id="feedback-submit" onClick={this.handleSubmit} disabled={this.state.loading ? true : false}><span className="button-loader" style={{display: this.state.loading ? '' : 'none'}}/><Translated tag="span" id="virhepalaute__lomake__submit">Lähetä palaute</Translated></button>
+                        <Translated tag="p" className="feedback-info" id="virhepalaute__info">Palaute ohjautuu Kansalaisneuvontaan, joka käsittelee kaikki Suomi.fi-tunnistamiseen liittyvät palautteet.</Translated>
                     </div>
-                    <Translated tag="h3" id="virhepalaute__lomake__contact">Yhteydenotto</Translated>
-                    <Translated tag="legend" id="virhepalaute__lomake__yhteystiedot_legend">Jos toivot palautteeseesi vastausta, liitä mukaan sähköpostiosoitteesi. Voit jättää palautteen myös nimettömänä.</Translated>
-                    <Translated tag="label" className="form-label" htmlFor="email" id="virhepalaute__lomake__yhteystiedot_email">Sähköpostiosoite</Translated>
-                    <input id="email" type="text" size="60"  onChange={this.handleEmailChange}/>
                 </div>
-                <button id="feedback-submit" onClick={this.handleSubmit}><Translated tag="span" id="virhepalaute__lomake__submit">Lähetä palaute</Translated></button>
-                <Translated tag="p" id="virhepalaute__info">Palaute ohjautuu Kansalaisneuvontaan, joka käsittelee kaikki Suomi.fi-tunnistamiseen liittyvät palautteet.</Translated>
             </div>
-        </div>
         );
     }
 });

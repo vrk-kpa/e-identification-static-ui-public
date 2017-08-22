@@ -5,12 +5,12 @@
 		}else{
 			$(this).removeClass('open');
 		};
-			
+
 		$(this).first().on('click', function () {
 			$(this).toggleClass('closed');
 		});
 	});
-	
+
 	$("#page-header button").on('click', function () {
 		var textSize = $("html").attr("data-text-size");
 		var textSizeClass = "text-size-" + textSize;
@@ -35,7 +35,7 @@
 			}
 		}
 	});
-	
+
 	$(function() {
 		$('a[rel="external"]').on('click', function(e) {
 			window.open( $(this).attr('href') );
@@ -43,5 +43,49 @@
 			return false;
 		});
 	});
-	
+
 })(jQuery);
+
+function setupPlaceholders() {
+	function setHandlers(elem, placeholder) {
+		$(elem).focus(function() {
+			$(elem).attr('placeholder', '');
+			$(elem).removeClass('placeholder');
+		});
+		$(elem).blur(function() {
+			$(elem).attr('placeholder', placeholder);
+			if ($(elem).val() === undefined || $(elem).val() === null || $(elem).val() === '') {
+				$(elem).addClass('placeholder');
+			}
+		});
+	}
+
+	$('.placeholder').each(function(index, elem) {
+		var ph = $(elem).attr('placeholder');
+		if (ph === undefined) {
+			if ($(elem).attr('data-i18n').indexOf('[placeholder]') > -1) {
+				// localisation was not done yet. poll for value
+				var tries = 0;
+
+				var interval = setInterval(function() {
+					if (ph === undefined && tries < 5) {
+						tries++;
+						ph = $(elem).attr('placeholder');
+
+						if (ph !== undefined) {
+							clearInterval(interval);
+							setHandlers(elem, ph);
+						}
+					} else {
+						clearInterval(interval);
+						ph = ph || ' ';
+						setHandlers(elem, ph);
+					}
+				}, 1000);
+
+			}
+		} else {
+			setHandlers(elem, ph);
+		}
+	});
+}

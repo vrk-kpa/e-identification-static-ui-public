@@ -7,7 +7,7 @@ import i18n from 'i18next';
 import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
 
-import TranslatedImage from '../../src/header/TranslatedImage.js';
+import TranslatedImage from '../../src/TranslatedImage.js';
 
 describe('TranslatedImage', function() {
 
@@ -30,6 +30,17 @@ describe('TranslatedImage', function() {
                 let result = renderer.getRenderOutput();
                 expect(result.type).to.equal('img');
             });
+
+            it('should have data-i18n attribute', function() {
+                let renderer = ReactTestUtils.createRenderer();
+                renderer.render(
+                    <TranslatedImage srcKey="testImageId" altKey="testAltId"/>
+                );
+
+                let result = renderer.getRenderOutput();
+                expect(result.props["data-i18n"]).to.equal('testImageId');
+            });
+
         });
     }));
 
