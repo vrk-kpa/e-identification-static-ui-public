@@ -23,9 +23,9 @@ let SessionExpiredPage = React.createClass({
                         <div className="row">
                             <div className="col-xs-12 col-md-8 timeout-page">
                                 <div className="error-box">
-                                    <Translated tag="h2" id="istunto_vanhentunut__istuntosi_on_vanhentunut_fi">Istuntosi on vanhentunut, allaolevasta linkistä voit palata takaisin asiointipalveluun.</Translated>
+                                    <Translated tag="h2" id="istunto_vanhentunut__istuntosi_on_vanhentunut_fi"/>
                                     <IDPLink conversation={this.getConversationId()} status="return" >
-                                        <Translated tag="span" id="istunto_vanhentunut__palaa_palveluun">Palaa palveluun</Translated>
+                                        <Translated tag="span" id="istunto_vanhentunut__palaa_palveluun"/>
                                     </IDPLink>
                                     <div id="error-code"></div>
                                 </div>

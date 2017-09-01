@@ -94,45 +94,45 @@ var FeedbackForm = React.createClass({
     render: function() {
         return (
             <div className="col-xs-12 col-md-8 feedback-page">
-                <Translated tag="h2" id="palaute__otsikko">Palaute</Translated>
+                <Translated tag="h2" id="palaute__otsikko"/>
                 <div className="feedback-form-wrapper">
                     <div className="col-xs-12 col-md-10">
-                        <Translated tag="p" id="palaute__p1">Tällä lomakkeella voit lähettää palautetta Suomi.fi-tunnistamisesta. Palaute käsitellään Kansalaisneuvonnassa, joka neuvoo julkishallinnon sähköisten palvelujen käytössä ja niihin tunnistautumisessa.</Translated>
+                        <Translated tag="p" id="palaute__p1"/>
 
                         <div className="form-group" ref="messageValidationError">
-                            <Translated tag="label" id="palaute__lomake__kuvaus__label" className="form-label strong required small" htmlFor="message">Palautteesi</Translated>
-                            <Translated tag="span" id="palaute__lomake__pakollinen" className="sr-only">(pakollinen tieto)</Translated>
+                            <Translated tag="label" id="palaute__lomake__kuvaus__label" className="form-label strong required small" htmlFor="message"/>
+                            <Translated tag="span" id="palaute__lomake__pakollinen" className="sr-only"/>
                             <textarea id="message" className={this.state.isValid.message ? '' : 'invalid'} cols="60" rows="8" onChange={this.handleMessageChange}></textarea>
-                            <Translated tag="span" id="palaute__virhe__viesti_puuttuu" className="validation-error" style={{display: this.state.isValid.message ? 'none' : ''}}>Tarkista, että olet kirjoittanut palauteviestin</Translated>
+                            <Translated tag="span" id="palaute__virhe__viesti_puuttuu" className="validation-error" style={{display: this.state.isValid.message ? 'none' : ''}}/>
                         </div>
 
                         <fieldset className="form-group">
-                            <Translated tag="legend" id="palaute__lomake__yhteystiedot_label" className="form-label strong small">Haluatko, että palautteen käsittelijä ottaa sinuun yhteyttä?</Translated>
+                            <Translated tag="legend" id="palaute__lomake__yhteystiedot_label" className="form-label strong small"/>
                             <ul className="selection-list">
                                 <li>
                                     <input type="radio" name="radio-group-respond" id="radio-respond-no" value="anonymous" defaultChecked onChange={this.handleResponseRequest}/>
                                     <span className="radio-marker" />
-                                    <Translated tag="label" id="palaute__lomake__yhteystiedot_ei" htmlFor="radio-respond-no">En halua (Palaute käsitellään nimettömänä.)</Translated>
+                                    <Translated tag="label" id="palaute__lomake__yhteystiedot_ei" htmlFor="radio-respond-no"/>
                                 </li>
                                 <li>
                                     <input type="radio" name="radio-group-respond" id="radio-respond-yes" value="respond" onChange={this.handleResponseRequest}/>
                                     <span className="radio-marker" />
-                                    <Translated tag="label" className="small" id="palaute__lomake__yhteystiedot_kyllä" htmlFor="radio-respond-yes">Kyllä, ottakaa minuun yhteyttä</Translated>
+                                    <Translated tag="label" className="small" id="palaute__lomake__yhteystiedot_kyllä" htmlFor="radio-respond-yes"/>
                                 </li>
                             </ul>
                             { this.state.responseRequest === 'respond' ?
                                 <div className="form-group indented" ref="emailValidationError">
-                                    <Translated tag="label" id="palaute__lomake__yhteystiedot_email" className="form-label strong small required" htmlFor="email">Sähköpostiosoitteesi</Translated>
-                                    <Translated tag="span" id="palaute__lomake__pakollinen" className="sr-only">(pakollinen tieto)</Translated>
+                                    <Translated tag="label" id="palaute__lomake__yhteystiedot_email" className="form-label strong small required" htmlFor="email"/>
+                                    <Translated tag="span" id="palaute__lomake__pakollinen" className="sr-only"/>
                                     <input id="email" className={this.state.isValid.email ? 'width-320' : 'width-320 invalid'} type="text" onChange={this.handleEmailChange} value={this.state.email}/>
-                                    <Translated tag="span" id="palaute__virhe__email_vaarin" className="validation-error" style={{display: this.state.isValid.email ? 'none' : ''}}>Tarkista, että olet kirjoittanut hyväksytyn sähköpostiosoitteen.</Translated>
+                                    <Translated tag="span" id="palaute__virhe__email_vaarin" className="validation-error" style={{display: this.state.isValid.email ? 'none' : ''}}/>
                                 </div>
                                 : ''
                             }
                         </fieldset>
 
                         <button id="feedback-submit" onClick={this.handleSubmit} disabled={this.state.loading ? true : false}><span className="button-loader" style={{display: this.state.loading ? '' : 'none'}}/><Translated tag="span" id="palaute__lomake__submit">Lähetä palaute</Translated></button>
-                        <Translated tag="p" id="palaute__info">Palaute ohjautuu Kansalaisneuvontaan, joka käsittelee kaikki Suomi.fi-tunnistamiseen liittyvät palautteet.</Translated>
+                        <Translated tag="p" id="palaute__info"/>
                     </div>
                 </div>
             </div>

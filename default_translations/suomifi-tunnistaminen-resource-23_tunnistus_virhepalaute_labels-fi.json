@@ -1,6 +1,6 @@
 {
   "testword": "FI_kala",
-  "virhepalaute__info": "Palaute ohjautuu Kansalaisneuvontaan, joka käsittelee kaikki Suomi.fi-tunnistamiseen liittyvät palautteet.",
+  "virhepalaute__info": "Palaute ohjautuu Kansalaisneuvontaan, joka käsittelee kaikki Suomi.fi-tunnistukseen liittyvät palautteet.",
   "virhepalaute__lomake__contact": "Yhteydenotto",
   "virhepalaute__lomake__ei": "Ei",
   "virhepalaute__lomake__kyllä": "Kyllä",
@@ -30,7 +30,7 @@
   "virhepalaute__lomake__yhteystiedot_label": "Haluatko, että palautteen käsittelijä ottaa sinuun yhteyttä?",
   "virhepalaute__lomake__yhteystiedot_legend": "Jos toivot palautteeseesi vastausta, liitä mukaan sähköpostiosoitteesi. Voit jättää palautteen myös nimettömänä.",
   "virhepalaute__otsikko": "Ilmoita virhetilanteesta",
-  "virhepalaute__p1": "Tällä lomakkeella voit ilmoittaa Suomi.fi-tunnistamisen yhteydessä tapahtuneesta virheestä. Ilmoituksesi käsitellään Kansalaisneuvonnassa, joka neuvoo julkishallinnon sähköisten palvelujen käytössä ja niihin tunnistautumisessa.",
+  "virhepalaute__p1": "Tällä lomakkeella voit ilmoittaa Suomi.fi-tunnistuksen yhteydessä tapahtuneesta virheestä. Ilmoituksesi käsitellään Kansalaisneuvonnassa, joka neuvoo julkishallinnon sähköisten palvelujen käytössä ja niihin tunnistautumisessa.",
   "virhepalaute__virhe__email_vaarin": "Tarkista sähköpostiosoite",
   "virhepalaute__virhe__puuttuu": "Tarkista, että olet täyttänyt pakolliset tiedot",
   "virhepalaute__virhe__viesti_puuttuu": "Tarkista, että olet kirjoittanut palauteviestin",

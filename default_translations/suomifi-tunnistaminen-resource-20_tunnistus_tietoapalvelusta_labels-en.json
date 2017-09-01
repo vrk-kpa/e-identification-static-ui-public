@@ -25,7 +25,7 @@
   "tietoapalvelusta__tekniset_vaatimukset__otsikko": "Technical requirements",
   "tietoapalvelusta__tekniset_vaatimukset__p1": "The service has been designed to run on both computer screens and mobile devices. It may be used with different web browsers and their default settings. In most cases, you do not need to change your browser or its settings to use the service.",
   "tietoapalvelusta__tekniset_vaatimukset__p2": "In order to use the service, the following must be enabled in the browser:",
-  "tietoapalvelusta__tekniset_vaatimukset__tls": "TLS data encryption ",
+  "tietoapalvelusta__tekniset_vaatimukset__tls": "TLS data encryption",
   "tietoapalvelusta__vastuutahot__asiointipalvelu": "Responsibility for e-services using Suomi.fi identification rests with each service provider.",
   "tietoapalvelusta__vastuutahot__kansalaisneuvonta": "User support is provided by Public Service Info.",
   "tietoapalvelusta__vastuutahot__mobiilivarmenne": "Responsibility for mobile certificate identification rests with each operator.",

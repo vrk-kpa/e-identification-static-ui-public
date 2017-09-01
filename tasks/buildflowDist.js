@@ -164,7 +164,6 @@ gulp.task('dist:js', function () {
 
     var clean = gulp.src([
             './js/disruption_data/*',
-            './js/scs/*',
             './js/vendor/*'
         ], {base: "."})
         .pipe(gulp.dest(filePath.root + '/' + filePath.resourcesDir));

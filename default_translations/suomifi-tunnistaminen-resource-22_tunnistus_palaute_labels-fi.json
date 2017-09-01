@@ -1,5 +1,5 @@
 {
-  "palaute__info": "Palaute ohjautuu Kansalaisneuvontaan, joka käsittelee kaikki Suomi.fi-tunnistamiseen liittyvät palautteet.",
+  "palaute__info": "Palaute ohjautuu Kansalaisneuvontaan, joka käsittelee kaikki Suomi.fi-tunnistukseen liittyvät palautteet.",
   "palaute__lomake__kuvaus__label": "Palautteesi",
   "palaute__lomake__kuvaus__legend": "Mikäli palautteesi koskee tunnistuksessa tapahtunutta virhetilannetta, kuvaile tarkkaan, missä vaiheessa asiointia virhe tapahtui ja minkälaisen virheilmoituksen sait.",
   "palaute__lomake__pakollinen": "(pakollinen tieto)",
@@ -17,7 +17,7 @@
   "palaute__lomake__yhteystiedot_legend": "Jos toivot palautteeseesi vastausta, liitä mukaan sähköpostiosoitteesi. Voit jättää palautteen myös nimettömänä.",
   "palaute__lomake__yhteystiedot_nimi": "Nimi",
   "palaute__otsikko": "Palaute",
-  "palaute__p1": "Tällä lomakkeella voit lähettää palautetta Suomi.fi-tunnistamisesta. Palaute käsitellään Kansalaisneuvonnassa, joka neuvoo julkishallinnon sähköisten palvelujen käytössä ja niihin tunnistautumisessa.",
+  "palaute__p1": "Tällä lomakkeella voit lähettää palautetta Suomi.fi-tunnistuksesta. Palaute käsitellään Kansalaisneuvonnassa, joka neuvoo julkishallinnon sähköisten palvelujen käytössä ja niihin tunnistautumisessa.",
   "palaute__virhe__email_vaarin": "Tarkista sähköpostiosoite",
   "palaute__virhe__viesti_puuttuu": "Tarkista, että olet kirjoittanut palauteviestin",
   "testword": "FI_kala"
