@@ -232,7 +232,7 @@ var ErrorFeedbackForm = React.createClass({
                         <Translated tag="span" id="virhepalaute__lomake__pakollinen" className="sr-only"/>
                         <ul className="selection-list">
                             <li>
-                                <input type="radio" name="radio-group-method" id="radio-method-bank" value="pankki" defaultChecked onChange={this.handleAuthChange}/>
+                                <input type="radio" className="small" name="radio-group-method" id="radio-method-bank" value="pankki" defaultChecked onChange={this.handleAuthChange}/>
                                 <span className="radio-marker" />
                                 <Translated tag="label" id="virhepalaute__lomake__radio__pankki" htmlFor="radio-method-bank"/>
                             </li>
@@ -244,12 +244,12 @@ var ErrorFeedbackForm = React.createClass({
                                 : ''
                             }
                             <li>
-                                <input type="radio" name="radio-group-method" id="radio-method-hst" value="hst" onChange={this.handleAuthChange}/>
+                                <input type="radio" className="small" name="radio-group-method" id="radio-method-hst" value="hst" onChange={this.handleAuthChange}/>
                                 <span className="radio-marker" />
                                 <Translated tag="label" id="virhepalaute__lomake__radio__hst" htmlFor="radio-method-hst"/>
                             </li>
                             <li>
-                                <input type="radio" name="radio-group-method" id="radio-method-mobile" value="mobiili" onChange={this.handleAuthChange}/>
+                                <input type="radio" className="small" name="radio-group-method" id="radio-method-mobile" value="mobiili" onChange={this.handleAuthChange}/>
                                 <span className="radio-marker" />
                                 <Translated tag="label" id="virhepalaute__lomake__radio__mobiili" htmlFor="radio-method-mobile"/>
                             </li>
@@ -283,14 +283,14 @@ var ErrorFeedbackForm = React.createClass({
                             <Translated tag="legend" id="virhepalaute__lomake__virhekoodi__valinta" className="form-label strong small"/>
                             <ul className="selection-list">
                                 <li>
-                                    <input type="radio" name="radio-group-errorcode" id="radio-errorcode-no" value="false" defaultChecked onChange={this.handleHasErrorCodeChange}/>
+                                    <input type="radio" className="small" name="radio-group-errorcode" id="radio-errorcode-no" value="false" defaultChecked onChange={this.handleHasErrorCodeChange}/>
                                     <span className="radio-marker" />
                                     <Translated tag="label" id="virhepalaute__lomake__ei" htmlFor="radio-errorcode-no"/>
                                 </li>
                                 <li>
                                     { this.hasProvidedErrorCode() === 'true' ?
-                                      <input type="radio" name="radio-group-errorcode" id="radio-errorcode-yes" value="true" onChange={this.handleHasErrorCodeChange} defaultChecked/>
-                                    : <input type="radio" name="radio-group-errorcode" id="radio-errorcode-yes" value="true" onChange={this.handleHasErrorCodeChange}/>
+                                      <input type="radio" className="small" name="radio-group-errorcode" id="radio-errorcode-yes" value="true" onChange={this.handleHasErrorCodeChange} defaultChecked/>
+                                    : <input type="radio" className="small" name="radio-group-errorcode" id="radio-errorcode-yes" value="true" onChange={this.handleHasErrorCodeChange}/>
                                     }
                                     <span className="radio-marker" />
                                     <Translated tag="label" id="virhepalaute__lomake__kyllä" htmlFor="radio-errorcode-yes"/>
@@ -310,12 +310,12 @@ var ErrorFeedbackForm = React.createClass({
                             <Translated tag="legend" id="virhepalaute__lomake__virhetoistuu__valinta" className="form-label strong small"/>
                             <ul className="selection-list">
                                 <li>
-                                    <input type="radio" name="radio-group-repeat" id="radio-repeat-no" value="virhe_ei_toistu" defaultChecked onChange={this.handleErrorRepeatsChange}/>
+                                    <input type="radio" className="small" name="radio-group-repeat" id="radio-repeat-no" value="virhe_ei_toistu" defaultChecked onChange={this.handleErrorRepeatsChange}/>
                                     <span className="radio-marker" />
                                     <Translated tag="label" id="virhepalaute__lomake__ei" htmlFor="radio-repeat-no"/>
                                 </li>
                                 <li>
-                                    <input type="radio" name="radio-group-repeat" id="radio-repeat-yes" value="virhe_toistuu" onChange={this.handleErrorRepeatsChange}/>
+                                    <input type="radio" className="small" name="radio-group-repeat" id="radio-repeat-yes" value="virhe_toistuu" onChange={this.handleErrorRepeatsChange}/>
                                     <span className="radio-marker" />
                                     <Translated tag="label" id="virhepalaute__lomake__kyllä" htmlFor="radio-repeat-yes"/>
                                 </li>
@@ -327,19 +327,19 @@ var ErrorFeedbackForm = React.createClass({
                             <Translated tag="legend" id="virhepalaute__lomake__yhteystiedot_label" className="form-label small strong"/>
                             <ul className="selection-list">
                                 <li>
-                                    <input type="radio" name="radio-group-respond" id="radio-respond-no" value="anonymous" defaultChecked onChange={this.handleResponseRequest}/>
+                                    <input type="radio" className="small" name="radio-group-respond" id="radio-respond-no" value="anonymous" defaultChecked onChange={this.handleResponseRequest}/>
                                     <span className="radio-marker" />
                                     <Translated tag="label"id="virhepalaute__lomake__yhteystiedot_ei" htmlFor="radio-respond-no"/>
                                 </li>
                                 <li>
-                                    <input type="radio" name="radio-group-respond" id="radio-respond-yes" value="respond" onChange={this.handleResponseRequest}/>
+                                    <input type="radio" className="small" name="radio-group-respond" id="radio-respond-yes" value="respond" onChange={this.handleResponseRequest}/>
                                     <span className="radio-marker" />
                                     <Translated tag="label" id="virhepalaute__lomake__yhteystiedot_kyllä" className="small" htmlFor="radio-respond-yes"/>
                                 </li>
                             </ul>
                             { this.state.responseRequest === 'respond' ?
                                 <div className="form-group indented" ref="emailValidationError">
-                                    <Translated tag="label" id="virhepalaute__lomake__yhteystiedot_email" className="form-label strong required" htmlFor="email"/>
+                                    <Translated tag="label" id="virhepalaute__lomake__yhteystiedot_email" className="form-label strong small required" htmlFor="email"/>
                                     <Translated tag="span" id="virhepalaute__lomake__pakollinen" className="sr-only"/>
                                     <input id="email" type="text" onChange={this.handleEmailChange} value={this.state.email} className={this.state.isValid.email ? 'width-320' : 'width-320 invalid'}/>
                                     <Translated tag="span" id="virhepalaute__virhe__email_vaarin" className="validation-error" style={{display: this.state.isValid.email ? 'none' : ''}}/>

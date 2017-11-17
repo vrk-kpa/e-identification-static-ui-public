@@ -97,8 +97,6 @@ var FeedbackForm = React.createClass({
                 <Translated tag="h2" id="palaute__otsikko"/>
                 <div className="feedback-form-wrapper">
                     <div className="col-xs-12 col-md-10">
-                        <Translated tag="p" id="palaute__p1"/>
-
                         <div className="form-group" ref="messageValidationError">
                             <Translated tag="label" id="palaute__lomake__kuvaus__label" className="form-label strong required small" htmlFor="message"/>
                             <Translated tag="span" id="palaute__lomake__pakollinen" className="sr-only"/>
@@ -110,12 +108,12 @@ var FeedbackForm = React.createClass({
                             <Translated tag="legend" id="palaute__lomake__yhteystiedot_label" className="form-label strong small"/>
                             <ul className="selection-list">
                                 <li>
-                                    <input type="radio" name="radio-group-respond" id="radio-respond-no" value="anonymous" defaultChecked onChange={this.handleResponseRequest}/>
+                                    <input type="radio" className="small" name="radio-group-respond" id="radio-respond-no" value="anonymous" defaultChecked onChange={this.handleResponseRequest}/>
                                     <span className="radio-marker" />
                                     <Translated tag="label" id="palaute__lomake__yhteystiedot_ei" htmlFor="radio-respond-no"/>
                                 </li>
                                 <li>
-                                    <input type="radio" name="radio-group-respond" id="radio-respond-yes" value="respond" onChange={this.handleResponseRequest}/>
+                                    <input type="radio" className="small" name="radio-group-respond" id="radio-respond-yes" value="respond" onChange={this.handleResponseRequest}/>
                                     <span className="radio-marker" />
                                     <Translated tag="label" className="small" id="palaute__lomake__yhteystiedot_kyllä" htmlFor="radio-respond-yes"/>
                                 </li>
@@ -132,7 +130,7 @@ var FeedbackForm = React.createClass({
                         </fieldset>
 
                         <button id="feedback-submit" onClick={this.handleSubmit} disabled={this.state.loading ? true : false}><span className="button-loader" style={{display: this.state.loading ? '' : 'none'}}/><Translated tag="span" id="palaute__lomake__submit">Lähetä palaute</Translated></button>
-                        <Translated tag="p" id="palaute__info"/>
+                        <Translated tag="p" className="feedback-info" id="palaute__info"/>
                     </div>
                 </div>
             </div>

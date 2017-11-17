@@ -105,6 +105,7 @@ let DiscoveryPage = React.createClass({
     },
     render() {
         let theMetadataDisplayName = '';
+        let attributeLevelOfAssurance = '';
         let entityId = this.getEntityId();
         if (entityId) {
             let theMetadata = getMetadata(entityId);
@@ -116,6 +117,9 @@ let DiscoveryPage = React.createClass({
                 } else if (theMetadata.displayName.fi) {
                     theMetadataDisplayName = theMetadata.displayName.fi;
                 }
+            }
+            if (theMetadata) {
+                attributeLevelOfAssurance = theMetadata.attributeLevelOfAssurance;
             }
         }
 
@@ -135,7 +139,7 @@ let DiscoveryPage = React.createClass({
                             <IDPLink status="timeout" visible={false}>
                                 <TimeOut millisecs={this.getTimeout()} />
                             </IDPLink>
-                            <AuthSelection authMethods={this.context.queryParams.authMethdReq} />
+                            <AuthSelection requestedAuthMethods={this.context.queryParams.authMethdReq} attributeLevelOfAssurance={attributeLevelOfAssurance} />
                             <div className="row">
                                 <IDPLink status="cancel">
                                     <Translated tag="span" id="valinta__return-link" />

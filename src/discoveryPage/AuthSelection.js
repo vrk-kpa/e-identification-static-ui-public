@@ -138,24 +138,29 @@ let authMethodOrder = ['HST',
  */
 var AuthSelection = React.createClass({
     propTypes: {
-        authMethods: React.PropTypes.string.isRequired
+        attributeLevelOfAssurance: React.PropTypes.string.isRequired,
+        requestedAuthMethods: React.PropTypes.string.isRequired
     },
-    getAllowedMethods: function() {
-        let methods = this.props.authMethods.split(';');
-        let allowedMethods = [];
+    getMethodsToShow: function() {
+        const allowedMethods = this.props.attributeLevelOfAssurance.split(';');
+        let requestedMethods = this.props.requestedAuthMethods.split(';');
+        let methodsToShow = [];
         for (let i = 0; i < authMethodOrder.length; i++) {
             let authMethod = authMethodOrder[i];
-            if (methods.indexOf(authMethod) >= 0 && authMethods[authMethod]) {
-                allowedMethods = allowedMethods.concat(authMethods[authMethod]);
+            if (requestedMethods.indexOf(authMethod) >= 0 && authMethods[authMethod]) {
+                // crosscheck that authMethod exists in metadata
+                if (allowedMethods.indexOf(authMethod) >= 0) {
+                    methodsToShow = methodsToShow.concat(authMethods[authMethod]);
+                }
             }
         }
-        return allowedMethods;
+        return methodsToShow;
     },
     render: function() {
         return (
         <div className="row">
             <div className="col-xs-12">
-                <SignInOptionList allowedMethods={ this.getAllowedMethods() } />
+                <SignInOptionList allowedMethods={ this.getMethodsToShow() } />
             </div>
         </div>
         );

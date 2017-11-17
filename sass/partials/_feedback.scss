@@ -2,7 +2,7 @@
   .feedback-form-wrapper {
     @extend .box;
     border: 1px solid $color-harmaa-60;
-    padding: 30px;
+    padding: 10px 25px 30px 25px;
 
     .indented {
       margin-left: 45px;
@@ -17,7 +17,7 @@
     }
 
     p.feedback-info {
-      margin-top: 32px;
+      margin-top: 20px;
     }
   }
 

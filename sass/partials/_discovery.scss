@@ -67,7 +67,28 @@
     }
   }
 
-  .country-image,
+  button {
+    font-family: inherit;
+    font-weight: inherit;
+    background: inherit;
+    text-shadow: none;
+    display: block;
+    color: $color-jarvi;
+    min-height: 96px;
+    width: 100%;
+    padding: 48px 16px;
+    text-decoration: none;
+    overflow: hidden;
+
+    &:hover, &:focus {
+      @include box-shadow(inset 0 0 10px 0 $color-harmaa-60);
+
+      img {
+        opacity: 0.8;
+      }
+    }
+  }
+
   .organization-logo {
     display: block;
     text-align: center;
@@ -76,6 +97,17 @@
     img {
       @include rem(min-height, 70px);
       @include rem(margin-bottom, 23px);
+    }
+  }
+  .country-image {
+    display: block;
+    text-align: center;
+    line-height: 0;
+
+    img {
+      @include rem(min-height, 40px);
+      @include rem(margin-bottom, 23px);
+      @include box-shadow(0 4px 8px 0px rgba(0,0,0,0.12), 0 6px 20px 0 rgba(0,0,0,0.12));
     }
   }
 
