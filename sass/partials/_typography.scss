@@ -200,6 +200,11 @@ input, textarea {
   hyphens: auto;
 }
 
+.break-words-forced {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
 // This forces IE11 to break long lines (e.g. urls)
 .force-break-words {
     display: inline-block;

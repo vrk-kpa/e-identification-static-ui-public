@@ -16,8 +16,9 @@
   "palaute__lomake__yhteystiedot_label": "Vill du att den som handlägger responsen kontaktar dig?",
   "palaute__lomake__yhteystiedot_legend": "Om du önskar få ett svar på din respons, uppge din e-postadress. Du kan också lämna din respons anonymt.",
   "palaute__lomake__yhteystiedot_nimi": "Namn",
-  "palaute__otsikko": "Respons",
+  "palaute__otsikko": "Ge respons",
   "palaute__virhe__email_vaarin": "Kontrollera din e-postadress",
   "palaute__virhe__viesti_puuttuu": "Kontrollera att du har skrivit responsmeddelandet",
+  "palaute__peruutalinkki": "Avbryt",
   "testword": "SV_kala"
 }

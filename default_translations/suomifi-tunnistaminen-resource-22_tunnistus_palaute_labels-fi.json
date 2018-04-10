@@ -16,8 +16,9 @@
   "palaute__lomake__yhteystiedot_label": "Haluatko, että palautteen käsittelijä ottaa sinuun yhteyttä?",
   "palaute__lomake__yhteystiedot_legend": "Jos toivot palautteeseesi vastausta, liitä mukaan sähköpostiosoitteesi. Voit jättää palautteen myös nimettömänä.",
   "palaute__lomake__yhteystiedot_nimi": "Nimi",
-  "palaute__otsikko": "Palaute",
+  "palaute__otsikko": "Anna palautetta",
   "palaute__virhe__email_vaarin": "Tarkista sähköpostiosoite",
   "palaute__virhe__viesti_puuttuu": "Tarkista, että olet kirjoittanut palauteviestin",
+  "palaute__peruutalinkki": "Keskeytä",
   "testword": "FI_kala"
 }

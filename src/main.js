@@ -18,6 +18,7 @@ import FeedbackPage from './feedbackPage/FeedbackPage.js';
 import FeedbackForm from './feedbackPage/FeedbackForm.js';
 import ErrorFeedbackForm from './feedbackPage/ErrorFeedbackForm.js';
 import ThanksPage from './feedbackPage/ThanksPage.js';
+import CancelledPage from './feedbackPage/CancelledPage.js';
 import NotFoundPage from './notFoundPage/NotFoundPage.js';
 import InternalErrorPage from './internalErrorPage/InternalErrorPage.js';
 import SessionExpiredPage from './sessionExpiredPage/SessionExpiredPage.js';
@@ -28,6 +29,7 @@ const translationResources = {
     '/sivut/info/palaute/': '22_tunnistus_palaute_labels',
     '/sivut/info/virhepalaute/': '23_tunnistus_virhepalaute_labels',
     '/sivut/info/palaute/kiitos/': '24_tunnistus_palaute_kiitos_labels',
+    '/sivut/info/palaute/peruuta/': '26_tunnistus_palaute_peruuta_labels',
     '/sivut/discovery-page/': '03_tunnistus_valinta_vaihtoehto_labels',
     '/sivut/404/': '06_tunnistus_virhesivu_labels',
     '/sivut/500/': '07_tunnistus_virhesivu2_labels',
@@ -175,11 +177,13 @@ let routes = (
                 <Redirect from="palaute/index.html" to="palaute/" />
                 <Redirect from="virhepalaute/index.html" to="virhepalaute/" />
                 <Redirect from="palaute/kiitos/index.html" to="palaute/kiitos/" />
+                <Redirect from="palaute/peruuta/index.html" to="palaute/peruuta/" />
                 <Redirect from="tietoapalvelusta/index.html" to="tietoapalvelusta/" />
                 <Redirect from="tietosuojaseloste/index.html" to="tietosuojaseloste/" />
                 <Route path="palaute/" component={FeedbackForm} />
                 <Route path="virhepalaute/" component={ErrorFeedbackForm} />
                 <Route path="palaute/kiitos/" component={ThanksPage} />
+                <Route path="palaute/peruuta/" component={CancelledPage} />
                 <Route path="tietoapalvelusta/" component={TietoapalvelustaPage} />
                 <Route path="tietosuojaseloste/" component={TietosuojaselostePageMain} />
             </Route>

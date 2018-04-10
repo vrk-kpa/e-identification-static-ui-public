@@ -1,8 +1,7 @@
 {
   "testword": "EN_kala",
   "tietoapalvelusta__1": "Suomi.fi identification is a shared identification service of public administration e-services. It enables secure electronic identification.",
-  "tietoapalvelusta__2": "While Suomi.fi identification will only be used in the beta.suomi.fi service during the initial phase, it will be expanded to other services in 2016-2017.",
-  "tietoapalvelusta__3": "Suomi.fi identification is the responsibility of the Population Register Centre.",
+  "tietoapalvelusta__2": "Suomi.fi identification is the responsibility of the Population Register Centre.",
   "tietoapalvelusta__kansalaisneuvonta__otsikko": "Public Service Info offers help in using this service",
   "tietoapalvelusta__kansalaisneuvonta__p1": "If you need support or assistance in using Suomi.fi identification, you can contact Public Service Info.",
   "tietoapalvelusta__kansalaisneuvonta__palaute_1_space": "You can send feedback or a question",
@@ -31,6 +30,6 @@
   "tietoapalvelusta__vastuutahot__mobiilivarmenne": "Responsibility for mobile certificate identification rests with each operator.",
   "tietoapalvelusta__vastuutahot__otsikko": "Parties responsible for the service",
   "tietoapalvelusta__vastuutahot__pankkitunnisteet": "Responsibility for identification with online banking IDs rests with each bank.",
-  "tietoapalvelusta__vastuutahot__varmennekortti": "The Population Register Centre is responsible for ensuring that the citizen certificate on the certificate card works.",
+  "tietoapalvelusta__vastuutahot__varmennekortti": "The Population Register Centre is responsible for ensuring that the certificate on the certificate card works.",
   "tietoapalvelusta__vastuutahot__vrk": "The Population Register Centre provides the service and is responsible for its development."
 }

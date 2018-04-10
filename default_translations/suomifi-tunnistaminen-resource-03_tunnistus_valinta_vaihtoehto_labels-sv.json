@@ -2,7 +2,7 @@
   "testword": "SV_kala",
   "valinta__olet_tunnistautumassa_palveluun": "Du skall identifiera dig i tjänsten",
   "valinta__return-link": "Återvänd till tjänsten",
-  "valinta__suomifi-tunnistaminen-roadmap": "Användargränssnittet för Suomi.fi-identifieringen har förnyats. Du känner igen alla Suomi.fi-tjänster på Suomi.fi-flaggsymbolen. Suomi.fi-identifiering är den gemensamma identifieringstjänsten för den offentliga förvaltningens e-tjänster. Det är enkelt och tryggt att identifiera sig. Du väljer själv vilken identifieringsmetod du vill använda.",
+  "valinta__suomifi-tunnistaminen-roadmap": "Suomi.fi-identifiering är den gemensamma identifieringstjänsten för den offentliga förvaltningens e-tjänster. Det är enkelt och tryggt att identifiera sig. Du väljer själv vilken identifieringsmetod du vill använda.",
   "valinta__toisten_maiden_tunnistautumistavat": "Använd identifieringstjänsten för ett annat EU-land",
   "valinta__vaihtoehto__aktia": "Aktia",
   "valinta__vaihtoehto__alandsbanken": "Ålandsbanken",
@@ -18,5 +18,6 @@
   "valinta__vaihtoehto__pop_pankki": "POP Banken",
   "valinta__vaihtoehto__saastopankki": "Sparbanken",
   "valinta__vaihtoehto__spankki": "S-Banken",
-  "valinta__vaihtoehto__varmennekortti": "Certifikatkort"
+  "valinta__vaihtoehto__varmennekortti": "Certifikatkort",
+  "valinta__vaihtoehto__eIDAS_CEF": "eIDAS CEF test"
 }

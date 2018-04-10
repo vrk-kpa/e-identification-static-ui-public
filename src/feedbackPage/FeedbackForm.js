@@ -2,6 +2,7 @@ import React from 'react';
 
 import Translated from '../Translated.js';
 import TranslatedTitle from '../TranslatedTitle.js';
+import TranslatedLink from '../TranslatedLink.js';
 
 var FeedbackForm = React.createClass({
     propTypes: {
@@ -130,6 +131,7 @@ var FeedbackForm = React.createClass({
                         </fieldset>
 
                         <button id="feedback-submit" onClick={this.handleSubmit} disabled={this.state.loading ? true : false}><span className="button-loader" style={{display: this.state.loading ? '' : 'none'}}/><Translated tag="span" id="palaute__lomake__submit">Lähetä palaute</Translated></button>
+                        <TranslatedLink link_i18n_id="/sivut/info/palaute/peruuta/" target="_self" id="palaute__peruutalinkki" content_i18n_id="palaute__peruutalinkki" className="button-cancel"/>
                         <Translated tag="p" className="feedback-info" id="palaute__info"/>
                     </div>
                 </div>

@@ -34,5 +34,6 @@
   "virhepalaute__virhe__email_vaarin": "Check the email address",
   "virhepalaute__virhe__puuttuu": "Please check that you have entered mandatory fields",
   "virhepalaute__virhe__viesti_puuttuu": "Please check that you have entered a feedback message",
-  "virhepalaute__virhe__virheviesti_puuttuu": "Please check that you have entered an error report"
+  "virhepalaute__virhe__virheviesti_puuttuu": "Please check that you have entered an error report",
+  "virhepalaute__peruutalinkki": "Abort"
 }

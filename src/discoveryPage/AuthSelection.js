@@ -103,28 +103,36 @@ let authMethodConfig = {
         'id': 'eidas',
         'loc_id': 'eIDAS Test',
         'loginContext': 'LoginEIDAS1'
+    },
+    eidasloa2: {
+        'img_src': '/resources/images/eu-logo.jpg',
+        'id': 'eidas_cef',
+        'loc_id': 'valinta__vaihtoehto__eIDAS_CEF',
+        'loginContext': 'LoginEIDAS2'
     }
 };
 
 let authMethods = {
-    HST:      [authMethodConfig.vrk],
-    MOBIILI:  [authMethodConfig.mobiilivarmenne],
-    TUPAS:    [authMethodConfig.osuuspankki,
-               authMethodConfig.nordea,
-               authMethodConfig.danskebank,
-               authMethodConfig.handelsbanken,
-               authMethodConfig.alandsbanken,
-               authMethodConfig.spankki,
-               authMethodConfig.aktia,
-               authMethodConfig.poppankki,
-               authMethodConfig.saastopankki,
-               authMethodConfig.omasaastopankki],
-    KATSOOTP: [authMethodConfig.katsootp],
-    KATSOPWD: [authMethodConfig.katsopwd],
-    MPASS1:   [authMethodConfig.mpass],
-    TESTI:    [authMethodConfig.fakevetuma],
-    EIDAS1:   [authMethodConfig.eidastest],
+    HST:        [authMethodConfig.vrk],
+    MOBIILI:    [authMethodConfig.mobiilivarmenne],
+    TUPAS:      [authMethodConfig.osuuspankki,
+                 authMethodConfig.nordea,
+                 authMethodConfig.danskebank,
+                 authMethodConfig.handelsbanken,
+                 authMethodConfig.alandsbanken,
+                 authMethodConfig.spankki,
+                 authMethodConfig.aktia,
+                 authMethodConfig.poppankki,
+                 authMethodConfig.saastopankki,
+                 authMethodConfig.omasaastopankki],
+    KATSOOTP:   [authMethodConfig.katsootp],
+    KATSOPWD:   [authMethodConfig.katsopwd],
+    MPASS1:     [authMethodConfig.mpass],
+    TESTI:      [authMethodConfig.fakevetuma],
+    EIDAS1:     [authMethodConfig.eidastest],
+    EIDAS_LOA2: [authMethodConfig.eidasloa2],
 };
+
 let authMethodOrder = ['HST',
                        'MOBIILI',
                        'TUPAS',
@@ -132,7 +140,9 @@ let authMethodOrder = ['HST',
                        'KATSOPWD',
                        'MPASS1',
                        'TESTI',
-                       'EIDAS1'];
+                       'EIDAS1',
+                       'EIDAS_LOA2'];
+
 /**
  * Process the authMethods for SignInOptionList
  */

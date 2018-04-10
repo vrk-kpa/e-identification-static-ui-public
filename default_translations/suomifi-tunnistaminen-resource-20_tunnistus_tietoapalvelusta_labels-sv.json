@@ -1,8 +1,7 @@
 {
   "testword": "SV_kala",
   "tietoapalvelusta__1": "Suomi.fi-identifiering kommer att vara den gemensamma identifieringstjänsten för den offentliga förvaltningens e-tjänster. Tjänsten möjliggör trygg elektronisk identifiering.",
-  "tietoapalvelusta__2": "I det första skedet används Suomi.fi-identifiering i tjänsten beta.suomi.fi, men användningen utvidgas åren 2016–2017.",
-  "tietoapalvelusta__3": "För tjänsten Suomi.fi-identifiering ansvarar Befolkningsregistercentralen.",
+  "tietoapalvelusta__2": "För tjänsten Suomi.fi-identifiering ansvarar Befolkningsregistercentralen.",
   "tietoapalvelusta__kansalaisneuvonta__otsikko": "Medborgarrådgivningen hjälper dig att använda tjänsten",
   "tietoapalvelusta__kansalaisneuvonta__p1": "Om du behöver support eller hjälp med att använda Suomi.fi-identifiering, ta kontakt med Medborgarrådgivningen.",
   "tietoapalvelusta__kansalaisneuvonta__palaute_1_space": "Du kan skicka respons eller frågor",
@@ -31,6 +30,6 @@
   "tietoapalvelusta__vastuutahot__mobiilivarmenne": "För identifiering med mobilcertifikat ansvarar respektive operatör.",
   "tietoapalvelusta__vastuutahot__otsikko": "Ansvariga instanser",
   "tietoapalvelusta__vastuutahot__pankkitunnisteet": "För identifiering med bankkoder ansvarar respektive bank.",
-  "tietoapalvelusta__vastuutahot__varmennekortti": "Befolkningsregistercentralen ansvarar för funktionen av medborgarcertifikat som finns på certifikatkort.",
+  "tietoapalvelusta__vastuutahot__varmennekortti": "Befolkningsregistercentralen ansvarar för funktionen av certifikat som finns på certifikatkort.",
   "tietoapalvelusta__vastuutahot__vrk": "Befolkningsregistercentralen producerar tjänsten och ansvarar för dess utveckling."
 }

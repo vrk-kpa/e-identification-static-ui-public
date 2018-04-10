@@ -11,6 +11,7 @@ button,
   font-weight: 400;
   text-decoration: none;
   text-shadow: 0 1px 1px rgba($color-kaamos-k50, 0.5);
+  text-align: center;
   display: inline-block;
   background: $color-jarvi;
   @include linear-gradient($color-jarvi, $color-jarvi-k10);
@@ -47,7 +48,7 @@ button,
 
   @media (max-width: $breakpoint-2) {
     & {
-      @include rem(font-size, 12px);
+      @include rem(font-size, 16px);
       padding: 8px 16px;
     }
   }
@@ -96,6 +97,7 @@ button,
   text-shadow: none;
   background: none;
   @include rem(padding, 10px, 20px);
+  @include rem(margin-left, 20px);
 
   &:visited {
     color: $color-jarvi;
@@ -113,6 +115,10 @@ button,
     background: transparent;
     color: $color-jarvi-k10;
     @include box-shadow(none);
+  }
+
+  @media (max-width: $breakpoint-1) {
+    @include rem(margin-left, 0);
   }
 }
 

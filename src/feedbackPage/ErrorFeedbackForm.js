@@ -2,6 +2,7 @@ import React from 'react';
 
 import Translated from '../Translated.js';
 import TranslatedTitle from '../TranslatedTitle.js';
+import TranslatedLink from '../TranslatedLink.js';
 import UAParser from 'ua-parser-js';
 
 var uaParser = new UAParser(window.navigator.userAgent);
@@ -348,6 +349,7 @@ var ErrorFeedbackForm = React.createClass({
                             }
                         </fieldset>
                         <button id="feedback-submit" onClick={this.handleSubmit} disabled={this.state.loading ? true : false}><span className="button-loader" style={{display: this.state.loading ? '' : 'none'}}/><Translated tag="span" id="virhepalaute__lomake__submit"/></button>
+                        <TranslatedLink link_i18n_id="/sivut/info/palaute/peruuta/" target="_self" id="virhepalaute__peruutalinkki" content_i18n_id="virhepalaute__peruutalinkki" className="button-cancel"/>
                         <Translated tag="p" className="feedback-info" id="virhepalaute__info"/>
                     </div>
                 </div>

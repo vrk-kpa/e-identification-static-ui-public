@@ -13,12 +13,11 @@ let AuthMethod = React.createClass({
         methodConfig: React.PropTypes.object.isRequired
     },
     getUrl: function() {
-        let returnParam = this.context.queryParams.return;
         let loginContext = this.props.methodConfig.loginContext;
         let lang = this.context.lang;
         let targetParam = this.context.queryParams.target;
-        let hrefLink = returnParam.replace('Login', loginContext + '/' + lang);
-        return hrefLink + '&target=' + encodeURIComponent(targetParam);
+        let hrefLink =  '/Shibboleth.sso/' + loginContext + '/' + lang;
+        return hrefLink + '?SAMLDS=1&target=' + encodeURIComponent(targetParam);
     },
     render: function() {
         return (

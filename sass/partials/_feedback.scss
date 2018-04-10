@@ -43,7 +43,7 @@
   }
 
   @media (max-width: $breakpoint-1) {
-    button {
+    button, .button-cancel {
       width: 100%;
       @include rem (font-size, 15px);
     }

@@ -34,5 +34,6 @@
   "virhepalaute__virhe__email_vaarin": "Kontrollera din e-postadress",
   "virhepalaute__virhe__puuttuu": "Kontrollera att du har skrivit responsmeddelandet",
   "virhepalaute__virhe__viesti_puuttuu": "Kontrollera att du har skrivit responsmeddelandet",
-  "virhepalaute__virhe__virheviesti_puuttuu": "Kontrollera att du har skrivit en felanmälan"
+  "virhepalaute__virhe__virheviesti_puuttuu": "Kontrollera att du har skrivit en felanmälan",
+  "virhepalaute__peruutalinkki": "Avbryt"
 }

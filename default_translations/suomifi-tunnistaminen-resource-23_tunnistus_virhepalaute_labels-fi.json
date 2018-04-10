@@ -34,5 +34,6 @@
   "virhepalaute__virhe__email_vaarin": "Tarkista sähköpostiosoite",
   "virhepalaute__virhe__puuttuu": "Tarkista, että olet täyttänyt pakolliset tiedot",
   "virhepalaute__virhe__viesti_puuttuu": "Tarkista, että olet kirjoittanut palauteviestin",
-  "virhepalaute__virhe__virheviesti_puuttuu": "Tarkista, että olet kirjoittanut virheilmoituksen"
+  "virhepalaute__virhe__virheviesti_puuttuu": "Tarkista, että olet kirjoittanut virheilmoituksen",
+  "virhepalaute__peruutalinkki": "Keskeytä"
 }

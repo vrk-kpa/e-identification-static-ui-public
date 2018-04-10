@@ -2,7 +2,7 @@
   "testword": "EN_kala",
   "valinta__olet_tunnistautumassa_palveluun": "You are identifying yourself to the service",
   "valinta__return-link": "Back to service",
-  "valinta__suomifi-tunnistaminen-roadmap": "The Suomi.fi e-Identification offers a new user interface. You can now recognise all Suomi.fi services from the Suomi.fi flag symbol. Suomi.fi e-Identification is a shared identification service for public administration e-services. It will make identification secure and easy. You can use the identification method of your preference.",
+  "valinta__suomifi-tunnistaminen-roadmap": "Suomi.fi e-Identification is a shared identification service for public administration e-services. It will make identification secure and easy. You can use the identification method of your preference.",
   "valinta__toisten_maiden_tunnistautumistavat": "Use the identification service of an other EU Member State",
   "valinta__vaihtoehto__aktia": "Aktia",
   "valinta__vaihtoehto__alandsbanken": "Ålandsbanken",
@@ -18,5 +18,6 @@
   "valinta__vaihtoehto__pop_pankki": "POP Pankki",
   "valinta__vaihtoehto__saastopankki": "Säästöpankki",
   "valinta__vaihtoehto__spankki": "S-pankki",
-  "valinta__vaihtoehto__varmennekortti": "Certificate card"
+  "valinta__vaihtoehto__varmennekortti": "Certificate card",
+  "valinta__vaihtoehto__eIDAS_CEF": "eIDAS CEF test"
 }

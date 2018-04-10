@@ -1,8 +1,7 @@
 {
   "testword": "FI_kala",
   "tietoapalvelusta__1": "Suomi.fi-tunnistus on julkishallinnon asiointipalveluiden yhteinen tunnistuspalvelu. Palvelu mahdollistaa turvallisen sähköisen tunnistamisen.",
-  "tietoapalvelusta__2": "Ensimmäisessä vaiheessa Suomi.fi-tunnistus on käytössä beta.suomi.fi-palvelussa mutta sen käyttöä laajennetaan vuosina 2016-2017.",
-  "tietoapalvelusta__3": "Suomi.fi-tunnistuksesta vastaa Väestörekisterikeskus.",
+  "tietoapalvelusta__2": "Suomi.fi-tunnistuksesta vastaa Väestörekisterikeskus.",
   "tietoapalvelusta__kansalaisneuvonta__otsikko": "Kansalaisneuvonta auttaa palvelun käytössä",
   "tietoapalvelusta__kansalaisneuvonta__p1": "Jos tarvitset tukea tai apua Suomi.fi-tunnistuksen käyttämisessä, ole yhteydessä Kansalaisneuvontaan.",
   "tietoapalvelusta__kansalaisneuvonta__palaute_1_space": "Voit lähettää palautetta tai kysymyksen",
@@ -31,6 +30,6 @@
   "tietoapalvelusta__vastuutahot__mobiilivarmenne": "Mobiilivarmenteella tunnistautumisesta vastaa kukin operaattori.",
   "tietoapalvelusta__vastuutahot__otsikko": "Vastuutahot",
   "tietoapalvelusta__vastuutahot__pankkitunnisteet": "Pankkitunnisteilla tunnistuksesta vastaa kukin pankki.",
-  "tietoapalvelusta__vastuutahot__varmennekortti": "Varmennekortilla olevan kansalaisvarmenteen toimivuudesta vastaa Väestörekisterikeskus.",
+  "tietoapalvelusta__vastuutahot__varmennekortti": "Varmennekortilla olevan varmenteen toimivuudesta vastaa Väestörekisterikeskus.",
   "tietoapalvelusta__vastuutahot__vrk": "Väestörekisterikeskus tuottaa palvelun ja vastaa sen kehittämisestä."
 }

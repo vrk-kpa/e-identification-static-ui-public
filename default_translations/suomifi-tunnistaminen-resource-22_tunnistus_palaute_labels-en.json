@@ -16,8 +16,9 @@
   "palaute__lomake__yhteystiedot_label": "Would you like the person processing the feedback to contact you?",
   "palaute__lomake__yhteystiedot_legend": "If you would like us to respond to your feedback, please include your e-mail address. You may also submit feedback anonymously.",
   "palaute__lomake__yhteystiedot_nimi": "Name",
-  "palaute__otsikko": "Feedback",
+  "palaute__otsikko": "Send us feedback",
   "palaute__virhe__email_vaarin": "Check the email address",
   "palaute__virhe__viesti_puuttuu": "Please check that you have entered a feedback message",
+  "palaute__peruutalinkki": "Abort",
   "testword": "EN_kala"
 }

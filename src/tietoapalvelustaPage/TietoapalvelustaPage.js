@@ -14,7 +14,6 @@ class TietoapalvelustaPage extends React.Component {
                 <Translated tag="h2" id="tietoapalvelusta__otsikko"/>
                 <Translated tag="p" id="tietoapalvelusta__1"/>
                 <Translated tag="p" id="tietoapalvelusta__2"/>
-                <Translated tag="p" id="tietoapalvelusta__3"/>
                 <Translated tag="h4" id="tietoapalvelusta__perusasioita__otsikko"/>
                 <Translated tag="p" id="tietoapalvelusta__perusasioita__p1"/>
                 <Translated tag="p" id="tietoapalvelusta__perusasioita__p2"/>
