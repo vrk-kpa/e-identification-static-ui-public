@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="508" height="508" viewBox="0 0 508 508">
+  <defs>
+    <circle id="romania-a" cx="254" cy="254" r="254"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="romania-b" fill="#fff">
+      <use xlink:href="#romania-a"/>
+    </mask>
+    <g fill-rule="nonzero" mask="url(#romania-b)">
+      <g transform="translate(-4 -8)">
+        <rect width="171.188" height="520.879" x=".436" fill="#24467C"/>
+        <rect width="171.188" height="520.879" x="171.624" fill="#FCCE22"/>
+        <rect width="171.188" height="520.879" x="342.812" fill="#C7463D"/>
+      </g>
+    </g>
+  </g>
+</svg>

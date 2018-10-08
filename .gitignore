@@ -39,6 +39,8 @@ css/orig-style.css
 # IntelliJ Idea file
 *.iml
 
+.DS_Store
+
 .classpath
 .project
 .settings/
@@ -47,6 +49,8 @@ dist
 dev
 reports
 # target
+
+.DS_Store
 
 # downloaded node.tar.xz file
 node-*.tar.xz

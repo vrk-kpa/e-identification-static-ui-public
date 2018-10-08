@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="508" height="508" viewBox="0 0 508 508">
+  <defs>
+    <circle id="sweden-a" cx="254" cy="254" r="254"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="sweden-b" fill="#fff">
+      <use xlink:href="#sweden-a"/>
+    </mask>
+    <g fill-rule="nonzero" mask="url(#sweden-b)">
+      <g transform="translate(-115 -16)">
+        <path fill="#24467C" d="M997.426,493.81 C997.426,516.221 979.089,534.559 956.676,534.559 L45.217,534.559 C22.805,534.559 4.468,516.221 4.468,493.81 L4.468,51.344 C4.468,28.931 22.805,10.594 45.217,10.594 L956.676,10.594 C979.089,10.594 997.426,28.93 997.426,51.344 L997.426,493.81 Z"/>
+        <polygon fill="#FCCE22" points="997.426 221.787 359.052 221.787 359.052 0 254.883 0 254.883 221.787 .575 221.787 .575 325.958 254.883 325.958 254.883 534.559 359.052 534.559 359.052 325.958 997.426 325.958"/>
+      </g>
+    </g>
+  </g>
+</svg>

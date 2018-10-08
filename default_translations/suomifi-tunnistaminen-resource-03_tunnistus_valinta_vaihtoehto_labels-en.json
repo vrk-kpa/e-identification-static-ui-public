@@ -1,6 +1,5 @@
 {
   "testword": "EN_kala",
-  "valinta__olet_tunnistautumassa_palveluun": "You are identifying yourself to the service",
   "valinta__return-link": "Back to service",
   "valinta__suomifi-tunnistaminen-roadmap": "Suomi.fi e-Identification is a shared identification service for public administration e-services. It will make identification secure and easy. You can use the identification method of your preference.",
   "valinta__toisten_maiden_tunnistautumistavat": "Use the identification service of an other EU Member State",
@@ -15,9 +14,14 @@
   "valinta__vaihtoehto__oma_saastopankki": "Oma Säästöpankki",
   "valinta__vaihtoehto__osuuspankki": "OP Bank Group ",
   "valinta__vaihtoehto__otsokko": "Select identification method",
+  "valinta__vaihtoehto__otsikko_valitse_maa": "Select country in the common European identification scheme (eIDAS)",
   "valinta__vaihtoehto__pop_pankki": "POP Pankki",
   "valinta__vaihtoehto__saastopankki": "Säästöpankki",
   "valinta__vaihtoehto__spankki": "S-pankki",
   "valinta__vaihtoehto__varmennekortti": "Certificate card",
-  "valinta__vaihtoehto__eIDAS_CEF": "eIDAS CEF test"
+  "valinta__vaihtoehto__eIDAS_CEF": "eIDAS CEF test",
+  "valinta__vaihtoehto__eIDAS": "Other European identification schemes (eIDAS)",
+  "valinta__vaihtoehto__testidp": "Test IdP (fLoA3)",
+  "valinta__vaihtoehto__vetupas2": "Test IdP",
+  "valinta__palaa_tunnistajan_valintaan": "Go back to method of identification"
 }

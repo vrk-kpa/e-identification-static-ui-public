@@ -17,6 +17,8 @@
   "attribute__tietolahde": "Dina personuppgifter har sökts i befolkningsdatasystemet.",
   "attribute__tietolahde__rekisteriseloste__kuvaus": "Tjänsten, som du håller på att identifiera dig i, behöver dina personuppgifter för ärendehanteringen. Registerbeskrivningen för tjänsten beskriver mer detaljerat vad uppgifterna används för.",
   "attribute__tietolahde__rekisteriseloste__linkki": "Registerbeskrivning för tjänsten",
+  "attribute__tietolahde__muutos": "I tjänsten <a href=\"https://verkkopalvelu.vrk.fi/Omat/Etusivu.aspx\" target=\"_blank\">$t(attribute__tietolahde__muutos_linkki)</a> kan du kontrollera och själv uppdatera vissa egna uppgifter. En del uppgifter underhålls av magistraten för din hemkommun. Uppgifter om magistraterna finns i nämnda tjänst.",
+  "attribute__tietolahde__muutos_linkki": "Kontroll av egna uppgifter",
   "attribute__tilapainen_osoite": " Tillfällig adress:",
   "attribute__turvakielto": "Spärrmarkering har införts i befolkningsdatasystemet. Adressuppgifter förmedlas inte till e-tjänsten.",
   "footer__anna_palautetta": "Skicka respons",

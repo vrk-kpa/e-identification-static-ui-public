@@ -25,14 +25,6 @@ var filePath = {
     resourcesDir: "resources",
     pagesDir: "pages",
     stylesheetsDir: "stylesheets",
-    notFoundDir: "404",
-    internalErrorDir: "500",
-    discopageDir: "discovery-page",
-    infoDir: "info",
-    feedbackDir: "feedback",
-    feedbackResponseDir: "feedbackResponse",
-    privacystatementDir: "privacystatement",
-    timeoutDir: "timeout",
     localisedPagesDir: global.pagesDir
 };
 
@@ -96,45 +88,11 @@ gulp.task('dev:pages', function () {
     // Create pages dir
     mkdirp.sync(pagesPath);
 
-    var notFound = gulp.src('06_tunnistus_virhesivu.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.notFoundDir));
-    var internalError = gulp.src('07_tunnistus_virhesivu2.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.internalErrorDir));
-    var disco = gulp.src('03_tunnistus_valinta_vaihtoehto.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.discopageDir));
-    var info = gulp.src('20_tunnistus_tietoapalvelusta.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.infoDir));
-    var feedback = gulp.src('22_tunnistus_palaute.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.feedbackDir));
-    var feedbackResponse = gulp.src('24_tunnistus_palaute_kiitos.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.feedbackResponseDir));
-    var privacystatement = gulp.src('21_tunnistus_tietosuojaseloste.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.privacystatementDir));
-    var timeout = gulp.src('25_tunnistus_istunto_vanhentunut.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.timeoutDir));
-
     var localised = gulp.src('00_tunnistus_lokalisoitu.html', {base: '.'})
         .pipe(rename('index.html'))
         .pipe(gulp.dest(filePath.devPath + '/' + filePath.localisedPagesDir));
 
-    return merge(notFound, internalError, disco, localised, info,
-        feedback, feedbackResponse, privacystatement, timeout);
+    return merge(localised);   
 });
 
 gulp.task('dev:fonts', function () {
@@ -161,6 +119,10 @@ gulp.task('dev:js', function () {
     var ourJsFiles = gulp.src('./js/*.js', {base: "."})
         .pipe(replace('{{ resource_path }}', '/resources/'))
         .pipe(replace('{{ discovery_page_timeout }}', 29500))
+        .pipe(replace('{{ mobile_identification_operator }}', 'elisa'))
+        //.pipe(replace('{{ api_metadata_path }}', '/api/metadata/'))
+        .pipe(replace('apiProvidersPath: "/api/metadata/?type=AUTHENTICATION_PROVIDER"', 'apiProvidersPath: "/api/metadata/providers.json"'))
+        .pipe(replace('apiCountryPath: "/api/country/"', 'apiCountryPath: "/api/country.json"'))
         .pipe(gulp.dest(filePath.devPath + '/' + filePath.resourcesDir));
 
     var vendor = gulp.src([

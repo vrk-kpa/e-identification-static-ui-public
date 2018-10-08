@@ -22,6 +22,10 @@ import CancelledPage from './feedbackPage/CancelledPage.js';
 import NotFoundPage from './notFoundPage/NotFoundPage.js';
 import InternalErrorPage from './internalErrorPage/InternalErrorPage.js';
 import SessionExpiredPage from './sessionExpiredPage/SessionExpiredPage.js';
+import CookiesDisabledPage from './cookiesDisabledPage/CookiesDisabledPage.js';
+import EidasFormPage from './eidasFormPage/EidasFormPage.js';
+import EidasCancelledPage from './eidasFormPage/RequestCancelledPage';
+import EidasSentPage from './eidasFormPage/RequestSentPage';
 
 const serverLangCookieName = 'E-Identification-Lang';
 const fallbackLanguage = 'fi';
@@ -31,9 +35,14 @@ const translationResources = {
     '/sivut/info/palaute/kiitos/': '24_tunnistus_palaute_kiitos_labels',
     '/sivut/info/palaute/peruuta/': '26_tunnistus_palaute_peruuta_labels',
     '/sivut/discovery-page/': '03_tunnistus_valinta_vaihtoehto_labels',
+    '/sivut/country-selection/': '03_tunnistus_valinta_vaihtoehto_labels',
     '/sivut/404/': '06_tunnistus_virhesivu_labels',
     '/sivut/500/': '07_tunnistus_virhesivu2_labels',
     '/sivut/timeout/': '25_tunnistus_istunto_vanhentunut_labels',
+    '/sivut/cookie/': '27_tunnistus_evasteet_estetty_labels',
+    '/sivut/eidas-form/': '28_tunnistus_eidas_palaute_labels',
+    '/sivut/eidas-form/cancel/': '28_tunnistus_eidas_palaute_labels',
+    '/sivut/eidas-form/sent/': '28_tunnistus_eidas_palaute_labels',
     '/sivut/info/tietoapalvelusta/': '20_tunnistus_tietoapalvelusta_labels',
     '/sivut/info/tietosuojaseloste/': '21_tunnistus_tietosuojaseloste_labels'
 };
@@ -168,10 +177,16 @@ let routes = (
         <Redirect from="sivut" to="/sivut/404/" />
         <Route path="/sivut/">
             <Redirect from="discovery-page/index.html" to="discovery-page/" />
+            <Redirect from="country-selection/index.html" to="country-selection/" />
             <Redirect from="404/index.html" to="404/" />
             <Redirect from="500/index.html" to="500/" />
             <Redirect from="timeout/index.html" to="timeout/" />
+            <Redirect from="cookie/index.html" to="cookie/" />
+            <Redirect from="eidasForm/index.html" to="eidas-form/" />
+            <Redirect from="discovery-page/index.html" to="discovery-page/" />
+            <Redirect from="country-selection/index.html" to="country-selection/" />
             <Route path="discovery-page/" component={DiscoveryPage} />
+            <Route path="country-selection/" component={DiscoveryPage} />
             <Redirect from="info" to="/sivut/404/" />
             <Route path="info/" component={FeedbackPage}>
                 <Redirect from="palaute/index.html" to="palaute/" />
@@ -190,6 +205,10 @@ let routes = (
             <Route path="404/" component={NotFoundPage} />
             <Route path="500/" component={InternalErrorPage} />
             <Route path="timeout/" component={SessionExpiredPage} />
+            <Route path="cookie/" component={CookiesDisabledPage} />
+            <Route path="eidas-form/" component={EidasFormPage} />
+            <Route path="eidas-form/cancel" component={EidasCancelledPage} />
+            <Route path="eidas-form/sent" component={EidasSentPage} />
             <Redirect from="*" to="404/" />
         </Route>
         <Redirect from="*" to="/sivut/404/" />

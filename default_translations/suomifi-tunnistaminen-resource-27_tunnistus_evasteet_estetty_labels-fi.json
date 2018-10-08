@@ -1,0 +1,9 @@
+{
+  "virhesivu__evasteet_estetty_otsikko_fi": "Selaimessasi on estetty evästeet",
+  "virhesivu__evasteet_estetty_otsikko_sv": "Kakor blockeras i din webbläsare",
+  "virhesivu__evasteet_estetty_otsikko_en": "Cookies have been blocked in your browser",
+  "virhesivu__evasteet_estetty_fi": "Suomi.fi-tunnistuksen käyttö edellyttää, että selainohjelmassa on sallittu istuntokohtaiset evästeet.",
+  "virhesivu__evasteet_estetty_sv": "För att suomi.fi-identifikationen ska kunna användas måste sessionsspecifika kakor tillåtas i webbläsaren.",
+  "virhesivu__evasteet_estetty_en":  "To be able to use Suomi.fi e-Identification, you have to allow session cookies in your browser.",
+  "testword": "FI_kala"
+}

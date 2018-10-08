@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="508" height="508" viewBox="0 0 508 508">
+  <defs>
+    <circle id="poland-a" cx="254" cy="254" r="254"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="poland-b" fill="#fff">
+      <use xlink:href="#poland-a"/>
+    </mask>
+    <g fill-rule="nonzero" mask="url(#poland-b)">
+      <g transform="translate(-14 -2)">
+        <rect width="531.65" height="255.562" x=".175" fill="#F2F2F2"/>
+        <rect width="531.65" height="255.562" x=".175" y="255.562" fill="#C7463D"/>
+      </g>
+    </g>
+  </g>
+</svg>

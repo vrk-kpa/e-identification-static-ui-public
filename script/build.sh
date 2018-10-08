@@ -82,7 +82,7 @@ else
     rm -fr ${NODE_RELEASE}
 fi
 
-IMAGE_NAME=dev-docker-registry.kapa.ware.fi/${PROJECTNAME}:${TARGET_ENV}
+IMAGE_NAME=e-identification-docker-virtual.vrk-artifactory-01.eden.csc.fi/${PROJECTNAME}:${TARGET_ENV}
 
 #build, tag and push docker image
 docker build -f Dockerfile -t ${IMAGE_NAME} .

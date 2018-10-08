@@ -1,0 +1,80 @@
+[
+  {
+    "countryCode":"EE",
+    "imgSrc":"/resources/images/flags/ee.svg",
+    "displayName":{
+      "fi":"Viro",
+      "en":"Estonia",
+      "sv":"Estland"
+    },
+    "levelOfAssurance":"eLoA2",
+    "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
+    "sortOrder":1,
+    "enabled":true
+  },
+  {
+    "countryCode":"DE",
+    "imgSrc":"/resources/images/flags/de.svg",
+    "displayName":{
+      "fi":"Saksa",
+      "en":"Germany",
+      "sv":"Tyskland"
+    },
+    "levelOfAssurance":"eLoA3",
+    "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
+    "sortOrder":2,
+    "enabled":true
+  },
+  {
+    "countryCode":"PL",
+    "imgSrc":"/resources/images/flags/pl.svg",
+    "displayName":{
+      "fi":"Puola",
+      "en":"Poland",
+      "sv":"Polen"
+    },
+    "levelOfAssurance":"eLoA2",
+    "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
+    "sortOrder":3,
+    "enabled":true
+  },
+  {
+    "countryCode":"FR",
+    "imgSrc":"/resources/images/flags/fr.svg",
+    "displayName":{
+      "fi":"Ranska",
+      "en":"France",
+      "sv":"Frankrike"
+    },
+    "levelOfAssurance":"eLoA2",
+    "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
+    "sortOrder":4,
+    "enabled":true
+  },
+  {
+    "countryCode":"UK",
+    "imgSrc":"/resources/images/flags/gb.svg",
+    "displayName":{
+      "fi":"Yhdistynyt kuningaskunta",
+      "en":"United Kingdom",
+      "sv":"Förenade kungariket"
+    },
+    "levelOfAssurance":"eLoA2",
+    "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
+    "sortOrder":5,
+    "enabled":true
+  },
+  {
+    "countryCode":"CX",
+    "imgSrc":"/resources/images/flags/cx.svg",
+    "displayName":{
+      "fi":"Maa X",
+      "en":"Country X",
+      "sv":"Land X"
+    },
+    "levelOfAssurance":"eLoA3",
+    "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
+    "sortOrder":6,
+    "enabled":true
+  }
+]

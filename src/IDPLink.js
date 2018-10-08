@@ -1,33 +1,5 @@
 import React from 'react';
 
-function getTidParameterFromTarget(target) {
-    var regex = new RegExp('[\\?&]tid=([^&#]*)');
-    var results = regex.exec(target);
-    if (results) {
-        return results[1];
-    }
-    return;
-}
-
-function getPidParameterFromTarget(target) {
-    var regex = new RegExp('[\\?&]pid=([^&#]*)');
-    var results = regex.exec(target);
-    if (results) {
-        return results[1];
-    }
-    return;
-}
-
-function getTagParameterFromTarget(target) {
-    var regex = new RegExp('[\\?&]tag=([^&#]*)');
-    var results = regex.exec(target);
-    if (results) {
-        return results[1];
-    }
-    return;
-}
-
-
 let IDPLink = React.createClass({
     contextTypes: {
         queryParams: React.PropTypes.object.isRequired
@@ -53,22 +25,24 @@ let IDPLink = React.createClass({
     },
     getUrl() {
         let url = '/idp/authn/External?status=' + this.props.status;
-        let target = this.context.queryParams.target;
         url = this.props.conversation ? url + '&conversation=' + this.props.conversation : url;
-        let tid = getTidParameterFromTarget(target);
+        let tid = this.context.queryParams.tid;
         url = tid ? url + '&tid=' + tid : url;
-        let pid = getPidParameterFromTarget(target);
+        let pid = this.context.queryParams.pid;
         url = pid ? url + '&pid=' + pid : url;
-        let tag = getTagParameterFromTarget(target);
+        let tag = this.context.queryParams.tag;
         url = tag ? url + '&tag=' + tag : url;
         return url;
     },
     getClass() {
         return 'go-back' + (this.props.visible ? '' : ' visuallyhidden');
     },
+    getAriaHidden() {
+        return (this.props.visible ? 'false' : 'true');
+    },
     render() {
         return (
-            <a href={this.getUrl()} className={this.getClass()}>
+            <a href={this.getUrl()} className={this.getClass()} aria-hidden={this.getAriaHidden()}>
                 {this.props.children}
             </a>
         );

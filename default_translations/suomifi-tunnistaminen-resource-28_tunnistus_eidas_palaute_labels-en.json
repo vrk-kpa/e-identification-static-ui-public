@@ -1,0 +1,23 @@
+{
+  "testword": "EN_kala",
+  "eidasform__pagetitle": "Send service request",
+  "eidasform__lomake_otsikko": "Send service request",
+  "eidasform__lomake_teksti1": "On this form, you can send a service request to the organisation responsible for the e-service. The organisation receiving the request will process your message in accordance with its own service schedules.",
+  "eidasform__lomake_teksti2": "The message is transmitted by email. If your matter is urgent or contains specific personal data, you should contact the organisation responsible for the e-service.",
+  "eidasform__viesti_label": "Your message",
+  "eidasform__lomake__pakollinen": "(mandatory information)",
+  "eidasform__virhe__viesti_puuttuu": "Please check that you have entered a service request message",
+  "eidasform__lomake_submit": "Submit request",
+  "eidasform__peruuta_linkki": "Abort",
+  "eidasform__yhteystiedot_email_label": "Your email",
+  "eidasform__virhe__email_vaarin": "Check the email address",
+  "eidasform__yhteystiedot_puhelinnumero_label": "Your phone number",
+  "eidasform__virhe__puhelinnumero_vaarin": "Check the phone number",
+  "eidasform__bulletin-title": "Please note!",
+  "eidasform__bulletin-content1": "You can only use this e-service with a Finnish token. If you are an eIDAS-identified user, you can use the form below to send your request to the organisation.",
+  "eidasform__bulletin-content2": "Your personal identification data is not sent with the form. You can contact the organisation responsible for the e-service or send the service request on the form below.",
+  "eidasform_cancel__pagetitle": "Your message was not sent",
+  "eidasform_cancel__info_1": "The sending of your message was cancelled and the information that you tried to send was not saved.",
+  "eidasform_sent__pagetitle": "Your message was sent",
+  "eidasform_sent__info_1": "Your message was sent successfully."
+}

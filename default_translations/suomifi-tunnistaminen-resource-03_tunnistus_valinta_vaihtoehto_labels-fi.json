@@ -1,6 +1,5 @@
 {
   "testword": "FI_kala",
-  "valinta__olet_tunnistautumassa_palveluun": "Olet tunnistautumassa palveluun",
   "valinta__return-link": "Palaa palveluun",
   "valinta__suomifi-tunnistaminen-roadmap": "Suomi.fi-tunnistus on julkishallinnon asiointipalveluiden yhteinen tunnistuspalvelu. Tunnistautuminen on turvallista ja helppoa. Valitset itse, mitä tunnistustapaa haluat hyödyntää.",
   "valinta__toisten_maiden_tunnistautumistavat": "Käytä toisen EU maan tunnistautumispalvelua",
@@ -15,9 +14,14 @@
   "valinta__vaihtoehto__oma_saastopankki": "Oma Säästöpankki",
   "valinta__vaihtoehto__osuuspankki": "Osuuspankki",
   "valinta__vaihtoehto__otsokko": "Valitse tunnistustapa",
+  "valinta__vaihtoehto__otsikko_valitse_maa": "Valitse yhteiseurooppalaisen tunnistautumisen (eIDAS) maa",
   "valinta__vaihtoehto__pop_pankki": "POP Pankki",
   "valinta__vaihtoehto__saastopankki": "Säästöpankki",
   "valinta__vaihtoehto__spankki": "S-Pankki",
   "valinta__vaihtoehto__varmennekortti": "Varmennekortti",
-  "valinta__vaihtoehto__eIDAS_CEF": "eIDAS CEF test"
+  "valinta__vaihtoehto__eIDAS_CEF": "eIDAS CEF test",
+  "valinta__vaihtoehto__eIDAS": "Muut eurooppalaiset tunnistustavat (eIDAS)",
+  "valinta__vaihtoehto__testidp": "Test IdP (fLoA3)",
+  "valinta__vaihtoehto__vetupas2": "Testitunnistaja",
+  "valinta__palaa_tunnistajan_valintaan": "Palaa tunnistusvälineen valintaan"
 }

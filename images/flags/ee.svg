@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="508" height="508" viewBox="0 0 508 508">
+  <defs>
+    <circle id="estonia-a" cx="254" cy="254" r="254"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="estonia-b" fill="#fff">
+      <use xlink:href="#estonia-a"/>
+    </mask>
+    <g fill-rule="nonzero" mask="url(#estonia-b)">
+      <g transform="translate(-237 -7)">
+        <rect width="981.812" height="174.377" x=".094" y=".479" fill="#337EBE"/>
+        <rect width="981.812" height="174.375" x=".094" y="174.856" fill="#000"/>
+        <rect width="981.812" height="174.377" x=".094" y="349.231" fill="#F2F2F2"/>
+      </g>
+    </g>
+  </g>
+</svg>

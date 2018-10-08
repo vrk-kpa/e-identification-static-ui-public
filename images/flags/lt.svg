@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="508" height="508" viewBox="0 0 508 508">
+  <defs>
+    <circle id="lithuania-a" cx="254" cy="254" r="254"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="lithuania-b" fill="#fff">
+      <use xlink:href="#lithuania-a"/>
+    </mask>
+    <g fill-rule="nonzero" mask="url(#lithuania-b)">
+      <g transform="translate(-239 -4)">
+        <rect width="976" height="515.947" y=".053" fill="#FCCE22"/>
+        <rect width="976" height="257.974" y="258.026" fill="#C7463D"/>
+        <rect width="976" height="171.982" y="172.036" fill="#406A5F"/>
+      </g>
+    </g>
+  </g>
+</svg>

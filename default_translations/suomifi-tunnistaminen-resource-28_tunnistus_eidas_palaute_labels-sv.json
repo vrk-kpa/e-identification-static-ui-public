@@ -1,0 +1,23 @@
+{
+  "testword": "SV_kala",
+  "eidasform__pagetitle": "Skicka en begäran om service",
+  "eidasform__lomake_otsikko": "Skicka en begäran om service",
+  "eidasform__lomake_teksti1": "Med det här formuläret kan du skicka in en begäran om service till den organisation som ansvarar för ärendetjänsten. Organisationen handlägger ditt meddelande inom ramen för sina egna servicetider.",
+  "eidasform__lomake_teksti2": "Meddelandet förmedlas per e-post. Om ditt ärende brådskar eller innehåller särskilda personuppgifter, kontakta organisationen direkt.",
+  "eidasform__viesti_label": "Meddelande",
+  "eidasform__lomake__pakollinen": "(obligatorisk uppgift)",
+  "eidasform__virhe__viesti_puuttuu": "Kontrollera att du har skrivit meddelandet",
+  "eidasform__lomake_submit": "Skicka meddelande",
+  "eidasform__peruuta_linkki": "Avbryt",
+  "eidasform__yhteystiedot_email_label": "E-postadress",
+  "eidasform__virhe__email_vaarin": "Kontrollera din e-postadress",
+  "eidasform__yhteystiedot_puhelinnumero_label": "Telefonnummer",
+  "eidasform__virhe__puhelinnumero_vaarin": "Kontrollera ditt telefonnummer",
+  "eidasform__bulletin-title": "Obs!",
+  "eidasform__bulletin-content1": "Den här ärendetjänsten kan endast användas med ett finländskt identifieringsverktyg. I ärendetjänsten används formuläret nedan för eIDAS-identifierade. Du kan använda formuläret för att lämna fram ditt ärende för organisationen.",
+  "eidasform__bulletin-content2": "Identifikationsuppgifterna förmedlas inte med formuläret. Du kan kontakta den organisation som ansvarar för ärendetjänsten direkt eller skicka en begäran om service med formuläret.",
+  "eidasform_cancel__pagetitle": "Meddelandet skickades inte",
+  "eidasform_cancel__info_1": "Meddelandet har återkallats och informationen i det har inte sparats.",
+  "eidasform_sent__pagetitle": "Ditt meddelande har skickats",
+  "eidasform_sent__info_1": "Ditt meddelande har skickats."
+}

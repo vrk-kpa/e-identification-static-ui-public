@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="508" height="508" viewBox="0 0 508 508">
+  <defs>
+    <circle id="germany-a" cx="254" cy="254" r="254"/>
+    <circle id="germany-c" cx="254" cy="254" r="254"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="germany-b" fill="#fff">
+      <use xlink:href="#germany-a"/>
+    </mask>
+    <g fill-rule="nonzero" mask="url(#germany-b)">
+      <g transform="translate(-14 -7)">
+        <rect width="534.928" height="174.511" fill="#000"/>
+        <rect width="534.928" height="174.51" y="174.511" fill="#C7463D"/>
+        <rect width="534.928" height="174.511" y="349.021" fill="#FCCE22"/>
+      </g>
+    </g>
+    <g>
+      <mask id="germany-d" fill="#fff">
+        <use xlink:href="#germany-c"/>
+      </mask>
+      <g fill-rule="nonzero" mask="url(#germany-d)">
+        <g transform="translate(-14 -7)">
+          <rect width="534.928" height="174.511" fill="#000"/>
+          <rect width="534.928" height="174.51" y="174.511" fill="#C7463D"/>
+          <rect width="534.928" height="174.511" y="349.021" fill="#FCCE22"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

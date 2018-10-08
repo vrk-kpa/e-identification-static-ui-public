@@ -37,6 +37,11 @@ server {
         expires 10m;
     }
 
+    # Own Javascript
+    location = /resources/js/config.js {
+        expires 10s;
+    }
+
     location /sivut {
         expires 10m;
         add_header Cache-Control "public";

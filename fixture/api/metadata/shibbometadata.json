@@ -3,5 +3,6 @@
     "en": "Service",
     "fi": "Palvelu",
     "sv": "Svenska"
-  }
+  },
+  "attributeLevelOfAssurance": "KATSOOTP;KATSOPWD;EIDAS1;TESTI;EIDAS_LOA2;fLoA3;fLoA2;eLoA3;eLoA2"
 }

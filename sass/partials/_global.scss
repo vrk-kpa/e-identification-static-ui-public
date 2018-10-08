@@ -220,8 +220,34 @@ main {
   }
 }
 
+.bulletin-box {
+  @extend .box;
+  border-top: 6px solid $color-taivas;
+  padding: 20px 40px;
+  padding-left: 96px;
+  min-height: 92px;
+  margin: 0;
+
+  &:before {
+    display: block;
+    content: ' ';
+    position: absolute;
+    background: url('/resources/img/bulletin.svg') no-repeat;
+    background-size: 40px;
+    height: 40px;
+    width: 40px;
+    left: 35px;
+  }
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 7px;
+    padding-top: 7px;
+  }
+}
+
 @media (max-width: $breakpoint-2) {
-  .alert-box, .error-box {
+  .alert-box, .error-box, .bulletin-box {
     padding: 16px;
     padding-left: 56px;
     min-height: 48px;
@@ -231,7 +257,9 @@ main {
       height: 32px;
       width: 32px;
       left: 16px;
-      margin-top: 8px;
+      margin-top: 5px;
     }
   }
 }
+
+

@@ -10,20 +10,41 @@ let AuthMethod = React.createClass({
         lang: React.PropTypes.string.isRequired
     },
     propTypes: {
-        methodConfig: React.PropTypes.object.isRequired
+        countryCode: React.PropTypes.string,
+        id: React.PropTypes.string.isRequired,
+        imgSrc: React.PropTypes.string.isRequired,
+        levelOfAssurance: React.PropTypes.string,
+        localisationId: React.PropTypes.string,
+        localisedText: React.PropTypes.string,
+        loginContext: React.PropTypes.string.isRequired,
     },
     getUrl: function() {
-        let loginContext = this.props.methodConfig.loginContext;
+        let loginContext = this.props.loginContext;
+        let levelOfAssurance = this.props.levelOfAssurance;
         let lang = this.context.lang;
-        let targetParam = this.context.queryParams.target;
-        let hrefLink =  '/Shibboleth.sso/' + loginContext + '/' + lang;
-        return hrefLink + '?SAMLDS=1&target=' + encodeURIComponent(targetParam);
+        let targetParam = '/sp-secured?' +
+            'tid=' + this.context.queryParams.tid +
+            '&pid=' + this.context.queryParams.pid +
+            '&tag=' + this.context.queryParams.tag;
+        let hrefLink = loginContext + ((levelOfAssurance) ? levelOfAssurance : '');
+        if (!this.props.countryCode) { /* This is temporary fix. Lang parameter is not need after KAPA-4646 merge */
+            hrefLink += '/' + lang;
+        }
+        hrefLink += '?SAMLDS=1';
+        hrefLink += ((this.props.countryCode) ? '&countryCode=' + this.props.countryCode : '');
+        hrefLink += '&target=';
+        return hrefLink + encodeURIComponent(targetParam);
     },
     render: function() {
         return (
-            <a href={this.getUrl()} id={this.props.methodConfig.id}>
-                <span className="organization-logo"><img src={this.props.methodConfig.img_src} alt=""/></span>
-                <Translated tag="span" id={this.props.methodConfig.loc_id} className="organization-name" />
+            <a href={this.getUrl()} id={this.props.id}>
+                <span className="organization-logo"><img src={this.props.imgSrc} alt=""/></span>
+                <div className="organization-name-container">
+                {(this.props.localisationId && this.props.localisationId !== '') ?
+                    <Translated tag="span" id={this.props.localisationId} className="organization-name" /> :
+                    <span className="organization-name">{this.props.localisedText}</span>
+                }
+                </div>
             </a>
         );
     }

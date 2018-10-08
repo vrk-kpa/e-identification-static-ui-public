@@ -1,53 +1,22 @@
 import React from 'react';
-
-import TimerMixin from 'react-timer-mixin';
+import browserHistory from 'react-router/lib/browserHistory';
 
 import Translated from '../Translated.js';
-import ThirdPartySP from './ThirdPartySP.js';
 import AuthSelection from './AuthSelection.js';
 import Disruption from './Disruption.js';
 import IDPLink from '../IDPLink.js';
+import * as Utils from '../utils.js';
+import CountrySelection from './CountrySelection.js';
+import AuthPageInfo from '../AuthPageInfo.js';
 
 let defaultDiscoTimeoutSecs = 295;
 
-var getMetadata = function updateMetadata(anEntityID) {
-    var entityID = encodeURIComponent(anEntityID);
-    var xhttp = new XMLHttpRequest();
-    xhttp.open('GET', '/api/metadata/' + entityID, false);
-    xhttp.send();
-    if (xhttp.status !== 200) {
-      return null;
-    } else {
-        var json;
-        try {
-          json = JSON.parse(xhttp.responseText);
-        } catch (e) {
-        return null;
-        }
-        return json;
-    }
-};
+let defaultApiProvidersPath =  '/api/metadata/?type=AUTHENTICATION_PROVIDER';
+let defaultApiCountryPath = '/api/country';
 
-let TimeOut = React.createClass({
-    mixins: [TimerMixin],
-    propTypes: {
-        millisecs: React.PropTypes.number.isRequired
-    },
-    contextTypes: {
-        url: React.PropTypes.string.isRequired
-    },
-    handleTimeout(e) {
-        window.location = this.context.url;
-    },
-    componentDidMount() {
-        this.setTimeout(this.handleTimeout, this.props.millisecs);
-    },
-    render() {
-        return (
-            <div/>
-        );
-    }
-});
+let countryList = null;
+let providers = null;
+let metadataService = null;
 
 // eslint-disable-next-line react/no-multi-comp
 let DiscoveryPage = React.createClass({
@@ -58,6 +27,16 @@ let DiscoveryPage = React.createClass({
         router: React.PropTypes.object.isRequired,
         queryParams: React.PropTypes.object.isRequired,
         lang: React.PropTypes.string.isRequired
+    },
+    getConfig() {
+        return window.IdentificationConfig;
+    },
+    getInitialState() {
+        return {
+            metadataFetched: false,
+            providersFetched: false,
+            countriesFetched: false,
+        };
     },
     getEntityId() {
         var entId = this.context.queryParams.entityId;
@@ -94,6 +73,29 @@ let DiscoveryPage = React.createClass({
             return '/sivut/500/';
         }
     },
+
+    getMetadata() {
+        metadataService = Utils.MetadataService.getInstance();
+        metadataService.loadMetadata(this.getEntityId(), () => { this.setState({metadataFetched: true}); });
+    },
+
+    getProviders: function() {
+        let config = this.getConfig();
+        let path = (config && config.apiProvidersPath) ? config.apiProvidersPath : defaultApiProvidersPath;
+
+        Utils.getJsonData(path, (data) => {
+            providers = data;
+            this.setState({providersFetched: true});
+        });
+    },
+    getCountries: function() {
+        let config = this.getConfig();
+        let path = (config && config.apiCountryPath) ? config.apiCountryPath : defaultApiCountryPath;
+        Utils.getJsonData(path, (data) => {
+            countryList = data;
+            this.setState({countriesFetched: true});
+        });
+    },
     componentWillMount: function() {
         if (!this.isIdentificationCancelled()) {
             if (this.canUseSessionStorage()) {
@@ -103,56 +105,104 @@ let DiscoveryPage = React.createClass({
             window.location.href = this.getCancelPath();
         }
     },
-    render() {
-        let theMetadataDisplayName = '';
-        let attributeLevelOfAssurance = '';
-        let entityId = this.getEntityId();
-        if (entityId) {
-            let theMetadata = getMetadata(entityId);
-            if (theMetadata && theMetadata.displayName) {
-                if (this.context.lang === 'en' && theMetadata.displayName.en) {
-                    theMetadataDisplayName = theMetadata.displayName.en;
-                } else if (this.context.lang === 'sv' && theMetadata.displayName.sv) {
-                    theMetadataDisplayName = theMetadata.displayName.sv;
-                } else if (theMetadata.displayName.fi) {
-                    theMetadataDisplayName = theMetadata.displayName.fi;
-                }
-            }
-            if (theMetadata) {
-                attributeLevelOfAssurance = theMetadata.attributeLevelOfAssurance;
-            }
+    componentDidMount: function() {
+        this.getMetadata();
+        this.getProviders();
+        if (this.props.location.pathname === '/sivut/country-selection/' && countryList === null) {
+            this.getCountries();
         }
+    },
+    componentWillReceiveProps: function(nextProps) {
+        if (nextProps.location.pathname === '/sivut/country-selection/' && countryList === null) {
+            this.getCountries();
+        }
+    },
+    getInfoElement: function() {
+        return (
+            <div className="row">
+                <div className="col-xs-12 col-md-8">
+                    <div className="sign-in-info">
+                        <Translated tag="p" id="valinta__suomifi-tunnistaminen-roadmap" className="small" />
+                    </div>
+                </div>
+            </div>
+        );
+    },
+    getDiscoPageContent: function(attributeLevelOfAssurance, serviceDisplayName, eidasSupport) {
+        return (
+            <div className="row">
+                <div className="selection-title">
+                    <Translated tag="h3" id="valinta__vaihtoehto__otsokko" />
+                </div>
+                <AuthSelection requestedAuthMethods={this.context.queryParams.authMethdReq}
+                                attributeLevelOfAssurance={attributeLevelOfAssurance}
+                                serviceDisplayName={serviceDisplayName}
+                                availableProviders={providers}
+                                discoQueryParams={this.context.queryParams}
+                                config={this.getConfig()}
+                                eidasSupport={eidasSupport} />
+                <div className="row">
+                    <IDPLink status="cancel">
+                        <Translated tag="span" id="valinta__return-link" />
+                    </IDPLink>
+                </div>
+                { this.getInfoElement() }
+            </div>
+        );
+    },
+    getFlagPageContent: function() {
+        return (
+            <div className="row">
+                <div className="selection-title">
+                    <Translated tag="h3" id="valinta__vaihtoehto__otsikko_valitse_maa" />
+                </div>
+                <CountrySelection availableCountries={countryList}/>
+                <div className="row">
+                    <a onClick={browserHistory.goBack} className="go-back">
+                        <Translated tag="span" id="valinta__palaa_tunnistajan_valintaan" />
+                    </a>
+                </div>
+                { this.getInfoElement() }
+            </div>
+        );
+    },
+
+    render() {
+        let onDiscoPage = true;
+        if (this.props.location.pathname === '/sivut/country-selection/') {
+            onDiscoPage = false;
+        }
+        // Check that needed data from backend has been loaded before rendering
+        if (onDiscoPage && !this.state.metadataFetched || !this.state.providersFetched) {
+            return null;
+        } else if (!onDiscoPage && !this.state.countriesFetched) {
+            return null;
+        }
+
+        var discoTimer = Utils.DiscoTimer.getInstance();
+        if (!discoTimer.isTimerOn()) {
+            discoTimer.addTimerListener((timerContext) => {
+                let url = '/idp/authn/External?status=timeout';
+                url = timerContext.tid ? url + '&tid=' + timerContext.tid : url;
+                url = timerContext.pid ? url + '&pid=' + timerContext.pid : url;
+                url = timerContext.tag ? url + '&tag=' + timerContext.tag : url;
+                window.location = url;
+            }, {tid: this.context.queryParams.tid, pid: this.context.queryParams.pid, tag: this.context.queryParams.tag});
+            discoTimer.startTimer(this.getTimeout());
+        }
+
+        let attributeLevelOfAssurance = metadataService.getAttributeLevelOfAssurance();
+        let eidasSupport = metadataService.getEidasSupport();
+        let serviceDisplayName = metadataService.getServiceDisplayName(this.context.lang);
 
         return (
             <main id="main" role="main" name="main">
                 <div className="main">
                     <div className="container">
-                        <div className="row">
-                            <div className="col-xs-12 identification-info">
-                                <Translated tag="span" id="valinta__olet_tunnistautumassa_palveluun" />
-                                <ThirdPartySP tag="h2" id="displayName" metadataDisplayName={theMetadataDisplayName} />
-                                <Disruption />
-                                <Translated tag="h3" id="valinta__vaihtoehto__otsokko" />
-                            </div>
-                        </div>
-                        <div className="row">
-                            <IDPLink status="timeout" visible={false}>
-                                <TimeOut millisecs={this.getTimeout()} />
-                            </IDPLink>
-                            <AuthSelection requestedAuthMethods={this.context.queryParams.authMethdReq} attributeLevelOfAssurance={attributeLevelOfAssurance} />
-                            <div className="row">
-                                <IDPLink status="cancel">
-                                    <Translated tag="span" id="valinta__return-link" />
-                                </IDPLink>
-                            </div>
-                            <div className="row">
-                                <div className="col-xs-12 col-md-8">
-                                    <div className="sign-in-info">
-                                        <Translated tag="p" id="valinta__suomifi-tunnistaminen-roadmap" className="small" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <AuthPageInfo serviceDisplayName={serviceDisplayName}>
+                            <Disruption />
+                        </AuthPageInfo>
+                        { (onDiscoPage) ? this.getDiscoPageContent(attributeLevelOfAssurance, serviceDisplayName, eidasSupport) : this.getFlagPageContent() }
                     </div>
                 </div>
             </main>

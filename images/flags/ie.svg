@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="508px" height="508px" viewBox="0 0 508 508" style="enable-background:new 0 0 508 508;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#ireland-b_1_);}
+	.st3{fill:#4DB472;}
+	.st4{fill:#F2F2F2;}
+	.st5{fill:#F78D42;}
+</style>
+<g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="-2" y="-7" width="512" height="521.1">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="-2" y="-7" width="512" height="521.1" id="ireland-b_1_">
+		<g class="st0">
+			<circle id="ireland-a_1_" class="st1" cx="254" cy="254" r="254"/>
+		</g>
+	</mask>
+	<g class="st2">
+		<g transform="translate(-2 -7)">
+			<rect y="0" class="st3" width="170.7" height="521.1"/>
+			<rect x="170.7" y="0" class="st4" width="170.7" height="521.1"/>
+			<rect x="341.3" y="0" class="st5" width="170.7" height="521.1"/>
+		</g>
+	</g>
+</g>
+</svg>

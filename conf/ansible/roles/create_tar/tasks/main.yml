@@ -22,6 +22,9 @@
 - name: Copy service-idp-metadata.xml
   copy: src={{ confdir }}/metadata/service-idp-metadata.xml dest={{ tempdir }}/filled/metadata/
 
+- name: Copy Middleware Metadata / mw_de-metadata.xml
+  copy: src={{ confdir }}/metadata/mw_de-metadata.xml dest={{ tempdir }}/filled/metadata/
+
 - name: Copy core SP metadata
   copy: src={{ conf_root }}/certs/{{ shibgen_core_sp_id }}/sp-metadata.xml dest={{ tempdir }}/filled/metadata/sp-metadata.xml
 

@@ -1,6 +1,5 @@
 {
   "testword": "SV_kala",
-  "valinta__olet_tunnistautumassa_palveluun": "Du skall identifiera dig i tjänsten",
   "valinta__return-link": "Återvänd till tjänsten",
   "valinta__suomifi-tunnistaminen-roadmap": "Suomi.fi-identifiering är den gemensamma identifieringstjänsten för den offentliga förvaltningens e-tjänster. Det är enkelt och tryggt att identifiera sig. Du väljer själv vilken identifieringsmetod du vill använda.",
   "valinta__toisten_maiden_tunnistautumistavat": "Använd identifieringstjänsten för ett annat EU-land",
@@ -15,9 +14,14 @@
   "valinta__vaihtoehto__oma_saastopankki": "Oma Säästöpankki",
   "valinta__vaihtoehto__osuuspankki": "Andelsbanken",
   "valinta__vaihtoehto__otsokko": "Välj identifieringssätt",
+  "valinta__vaihtoehto__otsikko_valitse_maa": "Välj eIDAS-land (elektronisk identifiering över gränserna)",
   "valinta__vaihtoehto__pop_pankki": "POP Banken",
   "valinta__vaihtoehto__saastopankki": "Sparbanken",
   "valinta__vaihtoehto__spankki": "S-Banken",
   "valinta__vaihtoehto__varmennekortti": "Certifikatkort",
-  "valinta__vaihtoehto__eIDAS_CEF": "eIDAS CEF test"
+  "valinta__vaihtoehto__eIDAS_CEF": "eIDAS CEF test",
+  "valinta__vaihtoehto__eIDAS": "Övriga europeiska identifieringssätt (eIDAS)",
+  "valinta__vaihtoehto__testidp": "Test IdP (fLoA3)",
+  "valinta__vaihtoehto__vetupas2": "Test IdP",
+  "valinta__palaa_tunnistajan_valintaan": "Annulera och gå tillbaka till val av identifieringssätt"
 }

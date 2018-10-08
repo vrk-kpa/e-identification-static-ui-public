@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="508" height="508" viewBox="0 0 508 508">
+  <defs>
+    <circle id="czech_republic-a" cx="254" cy="254" r="254"/>
+    <path id="czech_republic-c" d="M977.566,475.707 C977.566,497.761 959.522,515.807 937.465,515.807 L40.532,515.807 C18.477,515.807 0.433,497.761 0.433,475.707 L0.433,40.293 C0.433,18.237 18.477,0.193 40.532,0.193 L937.465,0.193 C959.522,0.193 977.566,18.237 977.566,40.293 L977.566,475.707 Z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="czech_republic-b" fill="#fff">
+      <use xlink:href="#czech_republic-a"/>
+    </mask>
+    <g mask="url(#czech_republic-b)">
+      <g transform="translate(-235 -4)">
+        <mask id="czech_republic-d" fill="#fff">
+          <use xlink:href="#czech_republic-c"/>
+        </mask>
+        <g fill-rule="nonzero" mask="url(#czech_republic-d)">
+          <g transform="translate(-52 -16)">
+            <polygon fill="#C7463D" points="50.029 531.807 1034.306 531.807 1034.306 275.452 516.093 275.452"/>
+            <polygon fill="#F2F2F2" points=".703 1.471 516.093 275.452 1034.306 275.452 1034.306 .02"/>
+            <polygon fill="#24467C" points="47.213 199.176 50.029 532.652 542.168 275.452"/>
+            <polygon fill="#24467C" points="50.029 16.193 50.029 275.452 542.168 275.452"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

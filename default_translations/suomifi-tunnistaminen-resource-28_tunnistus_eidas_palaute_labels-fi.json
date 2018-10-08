@@ -1,0 +1,23 @@
+{
+  "testword": "FI_kala",
+  "eidasform__pagetitle": "Lähetä palvelupyyntö",
+  "eidasform__lomake_otsikko": "Lähetä palvelupyyntö",
+  "eidasform__lomake_teksti1": "Tällä lomakkeella voit lähettää palvelupyynnön asiointipalvelusta vastaavalle organisaatiolle. Vastaanottava organisaatio käsittelee viestisi omien palveluaikojensa mukaisesti.",
+  "eidasform__lomake_teksti2": "Viesti välittyy sähköpostitse. Jos asiasi on kiireellinen tai sisältää erityisiä henkilötietoja, ole yhteydessä suoraan asiointipalvelusta vastaavaan organisaatioon.",
+  "eidasform__viesti_label": "Viestisi",
+  "eidasform__lomake__pakollinen": "(pakollinen tieto)",
+  "eidasform__virhe__viesti_puuttuu": "Tarkista, että olet kirjoittanut viestin",
+  "eidasform__lomake_submit": "Lähetä pyyntö",
+  "eidasform__peruuta_linkki": "Keskeytä",
+  "eidasform__yhteystiedot_email_label": "Sähköpostiosoitteesi",
+  "eidasform__virhe__email_vaarin": "Tarkista sähköpostiosoite",
+  "eidasform__yhteystiedot_puhelinnumero_label": "Puhelinnumerosi",
+  "eidasform__virhe__puhelinnumero_vaarin": "Tarkista puhelinnumero",
+  "eidasform__bulletin-title": "Huom!",
+  "eidasform__bulletin-content1": "Tätä asiointipalvelua voi käyttää ainoastaan suomalaisella tunnistusvälineellä. Asiointipalvelulla on käytössä eIDAS-tunnistautuneille alla oleva lomake, jonka avulla voit saattaa asiasi organisaation tietoon.",
+  "eidasform__bulletin-content2": "Tunnistetietosi eivät välity lomakkeen mukana. Voit olla yhteydessä suoraan asiointipalvelusta vastaavaan organisaatioon tai lähettää palvelupyynnön alla olevalla lomakkeella.",
+  "eidasform_cancel__pagetitle": "Viestiä ei lähetetty",
+  "eidasform_cancel__info_1": "Viestin lähetys on peruutettu eikä sen tietoja ole tallennettu.",
+  "eidasform_sent__pagetitle": "Viestisi on lähetetty",
+  "eidasform_sent__info_1": "Viestisi on lähetetty onnistuneesti."
+}
