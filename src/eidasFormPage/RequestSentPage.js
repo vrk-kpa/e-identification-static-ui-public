@@ -13,8 +13,8 @@ export default class RequestSentPage extends React.Component {
                 <div className="main">
                     <div className="container">
                         <div className="row">
-                            <div className="col-xs-12 col-md-8 thanks-page">
-                                <Translated tag="h2" id="eidasform_sent__pagetitle"/>
+                            <div className="col-xs-12 col-md-8 thanks-page eidas-page">
+                                <Translated tag="h1" id="eidasform_sent__pagetitle"/>
                                 <Translated tag="p" id="eidasform_sent__info_1"/>
                             </div>
                         </div>

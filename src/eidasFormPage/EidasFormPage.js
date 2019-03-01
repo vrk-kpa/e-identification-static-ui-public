@@ -1,9 +1,10 @@
 import React from 'react';
-import {translate} from 'react-i18next';
+import PropTypes from 'prop-types';
+import {withNamespaces} from 'react-i18next';
 import Translated from '../Translated.js';
 import TranslatedLink from '../TranslatedLink.js';
 import TranslatedTitle from '../TranslatedTitle.js';
-import AuthPageInfo from '../AuthPageInfo.js';
+import AuthPageFrame from '../AuthPageFrame.js';
 import * as Utils from '../utils.js';
 import Bulletin from '../Bulletin';
 
@@ -117,13 +118,13 @@ class EidasFormPage extends React.Component {
             <main id="main" role="main" name="main" className="eidas-form-page">
                 <div className="main">
                     <div className="container">
-                        <AuthPageInfo serviceDisplayName={metadataService.getServiceDisplayName(this.context.lang)}>
+                        <AuthPageFrame serviceDisplayName={metadataService.getServiceDisplayName(this.context.lang)}>
                             <Bulletin heading={this.props.t('eidasform__bulletin-title')} content={[this.props.t('eidasform__bulletin-content1'), this.props.t('eidasform__bulletin-content2')]}/>
-                        </AuthPageInfo>
+                        </AuthPageFrame>
                         <div className="feedback-form-wrapper">
                             <div className="col-xs-12 col-md-10">
                                 <div className="form-info">
-                                    <Translated tag="h3" id="eidasform__lomake_otsikko"/>
+                                    <Translated tag="h2" id="eidasform__lomake_otsikko"/>
                                     <Translated tag="p" id="eidasform__lomake_teksti1"/>
                                     <Translated tag="p" id="eidasform__lomake_teksti2"/>
                                 </div>
@@ -161,13 +162,13 @@ class EidasFormPage extends React.Component {
 }
 
 EidasFormPage.contextTypes = {
-    router: React.PropTypes.object.isRequired,
-    lang: React.PropTypes.string.isRequired
+    router: PropTypes.object.isRequired,
+    lang: PropTypes.string.isRequired
 };
 
 EidasFormPage.propTypes = {
-    location: React.PropTypes.object.isRequired,
-    t: React.PropTypes.any
+    location: PropTypes.object.isRequired,
+    t: PropTypes.any
 };
 
-export default translate('translation')(EidasFormPage);
+export default withNamespaces('translation')(EidasFormPage);

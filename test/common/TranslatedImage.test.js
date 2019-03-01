@@ -1,20 +1,18 @@
-import { expect } from 'chai';
-import { test as sinonClosure, stub, spy, match } from 'sinon';
+import {expect} from 'chai';
+//import { test as sinonClosure, stub, spy, match } from 'sinon';
+import sinon from 'sinon';
 import i18n from 'i18next';
-
-
-
 import React from 'react';
-import ReactTestUtils from 'react-addons-test-utils';
+import ShallowRenderer from 'react-test-renderer/shallow';
 
 import TranslatedImage from '../../src/TranslatedImage.js';
 
 describe('TranslatedImage', function() {
 
-    it("is tested in cleanup closure", sinonClosure(function() {
+    it('is tested in cleanup closure', function() {
         let translate;
         before(function() {
-            translate = this.stub(i18n, 't');
+            translate = sinon.stub(i18n, 't');
             translate.withArgs('testImageId').returns('testLocalisedImage');
             translate.withArgs('testAltId').returns('testLocalisedAltText');
         });
@@ -22,7 +20,7 @@ describe('TranslatedImage', function() {
         describe('should produce img-element when all ok', function() {
 
             it('should show the img-element', function() {
-                let renderer = ReactTestUtils.createRenderer();
+                let renderer = ShallowRenderer.createRenderer();
                 renderer.render(
                     <TranslatedImage srcKey="testImageId" altKey="testAltId"/>
                 );
@@ -32,16 +30,16 @@ describe('TranslatedImage', function() {
             });
 
             it('should have data-i18n attribute', function() {
-                let renderer = ReactTestUtils.createRenderer();
+                let renderer = ShallowRenderer.createRenderer();
                 renderer.render(
                     <TranslatedImage srcKey="testImageId" altKey="testAltId"/>
                 );
 
                 let result = renderer.getRenderOutput();
-                expect(result.props["data-i18n"]).to.equal('testImageId');
+                expect(result.props['data-i18n']).to.equal('testImageId');
             });
 
         });
-    }));
+    });
 
 });

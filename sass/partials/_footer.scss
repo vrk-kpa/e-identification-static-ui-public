@@ -94,6 +94,15 @@
             margin-left: 1em;
           }
         }
+        a.disabled-link {
+          color: $color-harmaa-k20;
+        
+          &:hover, &:focus, &:active {
+            color: $color-harmaa-k20;
+            text-decoration: none;
+          }
+        }
+        
       }
     }
     .footer-links-feedback {

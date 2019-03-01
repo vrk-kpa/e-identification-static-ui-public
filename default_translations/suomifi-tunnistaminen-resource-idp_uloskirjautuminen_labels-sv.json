@@ -22,6 +22,6 @@
   "logout__sessiot__uloskirjautuminen__odottaa": "Väntar...",
   "logout__sessiot__uloskirjautuminen__valmis": "Du har loggats ut",
   "logout__uloskirjautunut": "Du har loggat ut från den följande tjänsten:",
-  "logout__uloskirjautunut_kaikista": "Du har loggat ut från de alla tjänsterna.",
+  "logout__uloskirjautunut_kaikista": "Du har loggat ut från alla tjänsterna.",
   "testword": "SV_kala"
 }

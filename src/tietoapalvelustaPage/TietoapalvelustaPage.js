@@ -11,10 +11,10 @@ class TietoapalvelustaPage extends React.Component {
     render() {
         return (
             <div className="col-xs-12 col-md-10 service-info">
-                <Translated tag="h2" id="tietoapalvelusta__otsikko"/>
+                <Translated tag="h1" id="tietoapalvelusta__otsikko"/>
                 <Translated tag="p" id="tietoapalvelusta__1"/>
                 <Translated tag="p" id="tietoapalvelusta__2"/>
-                <Translated tag="h4" id="tietoapalvelusta__perusasioita__otsikko"/>
+                <Translated tag="h2" id="tietoapalvelusta__perusasioita__otsikko"/>
                 <Translated tag="p" id="tietoapalvelusta__perusasioita__p1"/>
                 <Translated tag="p" id="tietoapalvelusta__perusasioita__p2"/>
                 <p>
@@ -24,7 +24,7 @@ class TietoapalvelustaPage extends React.Component {
                 </p>
                 <Translated tag="p" id="tietoapalvelusta__perusasioita__p4"/>
                 <Translated tag="p" id="tietoapalvelusta__perusasioita__p5"/>
-                <Translated tag="h4" id="tietoapalvelusta__tekniset_vaatimukset__otsikko"/>
+                <Translated tag="h2" id="tietoapalvelusta__tekniset_vaatimukset__otsikko"/>
                 <Translated tag="p" id="tietoapalvelusta__tekniset_vaatimukset__p1"/>
                 <Translated tag="p" id="tietoapalvelusta__tekniset_vaatimukset__p2"/>
                 <ul className="bulleted-list">
@@ -33,7 +33,7 @@ class TietoapalvelustaPage extends React.Component {
                   <Translated tag="li" id="tietoapalvelusta__tekniset_vaatimukset__javascript"/>
                 </ul>
                 <Translated tag="p" id="tietoapalvelusta__tekniset_vaatimukset__html5"/>
-                <Translated tag="h4" id="tietoapalvelusta__kansalaisneuvonta__otsikko"/>
+                <Translated tag="h2" id="tietoapalvelusta__kansalaisneuvonta__otsikko"/>
                 <Translated tag="p" id="tietoapalvelusta__kansalaisneuvonta__p1"/>
                 <p>
                   <Translated tag="span" id="tietoapalvelusta__kansalaisneuvonta__palaute_1_space"/>
@@ -41,7 +41,7 @@ class TietoapalvelustaPage extends React.Component {
                   <Translated tag="span" id="tietoapalvelusta__kansalaisneuvonta__palaute_3_spaces"/>
                   <TranslatedPaddedLink id="tietoapalvelusta__kansalaisneuvonta__palaute_4_linkki" content_i18n_id="tietoapalvelusta__kansalaisneuvonta__palaute_4_linkki" link_i18n_id="tietoapalvelusta__kansalaisneuvonta__palaute_4_linkki_url"/>
                 </p>
-                <Translated tag="h4" id="tietoapalvelusta__vastuutahot__otsikko"/>
+                <Translated tag="h2" id="tietoapalvelusta__vastuutahot__otsikko"/>
                 <ul className="bulleted-list"><Translated tag="li" id="tietoapalvelusta__vastuutahot__vrk"/>
                 <Translated tag="li" id="tietoapalvelusta__vastuutahot__kansalaisneuvonta"/>
                 <Translated tag="li" id="tietoapalvelusta__vastuutahot__pankkitunnisteet"/>

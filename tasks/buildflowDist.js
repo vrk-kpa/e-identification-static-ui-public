@@ -10,12 +10,11 @@
 
 // Stuff from node we require, load the node_modules up:
 var gulp = require('gulp');
-var gutil = require('gulp-util');
+var log = require('fancy-log');
 var rimraf = require('rimraf');
 var mkdirp = require('mkdirp');
 var merge = require('merge-stream');
 var sass = require('gulp-ruby-sass');
-var runSequence = require('run-sequence');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var sass = require('gulp-ruby-sass');
@@ -40,33 +39,21 @@ var filePath = {
 };
 
 //----clean&init----:
-// (clean, init)
 
-// rimraf - probable etymology: "rm -rf" which is linuxspeak for:
-// "forcibly remove stuff inc. from all child folders, recursively".
-// i.e. we want an empty, clean place before we do our (re-)build:
+// Remove dist dir
 gulp.task('dist:clean', function (cb) {
     rimraf(filePath.distPath, cb);
 });
 
-// mkdirp - probable etymology: "mkdir -p" i.e. "make the folder structure":
-// [must happen after dev:clean, ensured by the calling task's runSequence]
-gulp.task('dist:init', function () {
-    // Create dist dir
-    mkdirp.sync(filePath.distPath);
+// Create dist dir (must happen after dist:clean, ensured by the calling task's series)
+gulp.task('dist:init', function (cb) {
+    mkdirp(filePath.distPath, null, cb);
 });
 //----clean&init----}
 
-//----main dist-build----:
-// (sass, pages, resources, js)
-// A main-task runs the 4 sub-tasks in sequence:
-gulp.task('dist:build-dist-files', function() {
-    filePath.root = filePath.distPath;
-    return runSequence('dist:sass', 'dist:pages', 'dist:resources', 'dist:js');
-});
 
 function sassError(error) {
-  gutil.log('sass ERROR: ' + error);
+  log('sass ERROR: ' + error);
   process.exit(1);
 }
 
@@ -98,46 +85,9 @@ gulp.task('dist:pages', function () {
 
     // Create pages dir
     mkdirp.sync(pagesPath);
-
-    var notFound = gulp.src('06_tunnistus_virhesivu.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.notFoundDir));
-    var internalError = gulp.src('07_tunnistus_virhesivu2.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.internalErrorDir));
-    var disco = gulp.src('03_tunnistus_valinta_vaihtoehto.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.discopageDir));
-    var info = gulp.src('20_tunnistus_tietoapalvelusta.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.infoDir));
-    var feedback = gulp.src('22_tunnistus_palaute.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.feedbackDir));
-    var feedbackResponse = gulp.src('24_tunnistus_palaute_kiitos.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.feedbackResponseDir));
-    var privacystatement = gulp.src('21_tunnistus_tietosuojaseloste.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.privacystatementDir));
-    var timeout = gulp.src('25_tunnistus_istunto_vanhentunut.html', {base: '.'})
-        .pipe(replace('{{ resource_path }}', '/resources/'))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest(pagesPath + '/' + filePath.timeoutDir));
-
-    var localised = gulp.src('00_tunnistus_lokalisoitu.html', {base: '.'})
+    return gulp.src('00_tunnistus_lokalisoitu.html', {base: '.'})
         .pipe(rename('index.html'))
         .pipe(gulp.dest(filePath.root + '/' + filePath.localisedPagesDir));
-
-    return merge(notFound, internalError, disco, localised, info,
-        feedback, feedbackResponse, privacystatement, timeout);
 });
 
 gulp.task('dist:resources', function () {
@@ -169,4 +119,14 @@ gulp.task('dist:js', function () {
         .pipe(gulp.dest(filePath.root + '/' + filePath.resourcesDir));
     return merge(ourJsFiles, clean);
 });
+
+
+//----main dist-build----:
+// (sass, pages, resources, js)
+// A main-task runs the 4 sub-tasks in sequence:
+filePath.root = filePath.distPath;
+const distBuildFiles = gulp.series('dist:sass', 'dist:pages', 'dist:resources', 'dist:js');
+gulp.task('dist:build-dist-files', (done) => { distBuildFiles(done); });
+
+
 //----main dist-build----}

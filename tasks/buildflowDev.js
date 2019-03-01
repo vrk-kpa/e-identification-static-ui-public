@@ -9,12 +9,11 @@
 
 // Stuff from node we require, load the node_modules up:
 var gulp = require('gulp');
-var gutil = require('gulp-util');
+var log = require('fancy-log');
 var rimraf = require('rimraf');
 var mkdirp = require('mkdirp');
 var merge = require('merge-stream');
 var sass = require('gulp-ruby-sass');
-var runSequence = require('run-sequence');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var sass = require('gulp-ruby-sass');
@@ -29,43 +28,23 @@ var filePath = {
 };
 
 //----clean&init----:
-// (clean, init)
 
-// rimraf - probable etymology: "rm -rf" which is linuxspeak for:
-// "forcibly remove stuff inc. from all child folders, recursively".
-// i.e. we want an empty, clean place before we do our (re-)build:
+// Remove 'dev' dir
 gulp.task('dev:clean', function (cb) {
     rimraf(filePath.devPath, cb);
 });
 
-// mkdirp - probable etymology: "mkdir -p" i.e. "make the folder structure":
-// [must happen after dev:clean, ensured using the declaration in square-brackets]
-gulp.task('dev:init', ['dev:clean'], function (cb) {
-    // Create dev dir
-    mkdirp.sync(filePath.devPath);
-    cb();
+// Create 'dev' dir (must happen after dev:clean, ensured by the calling task's series)
+gulp.task('dev:init', function (cb) {
+    mkdirp(filePath.devPath, null, cb);
 });
+
 //----clean&init----}
 
 //----main dev-build----:
-// (local test files, then sass, pages, resources, js)
-// A main-task runs the 4 sub-tasks in sequence:
-gulp.task('dev:build-dev-files', function () {
-    var fixture = gulp.src([
-        'fixture/**/*'], {base: "fixture"})
-            .pipe(gulp.dest(filePath.devPath));
-    var defaultTranslations = gulp.src([
-        'default_translations/*'], {base: "default_translations"})
-            .pipe(gulp.dest(filePath.devPath + '/static/localisation'));
-    var disruptionData = gulp.src([
-        './js/disruption_data/*',], {base: "./js/disruption_data"})
-            .pipe(gulp.dest(filePath.devPath + '/disruption/'));
-
-    return runSequence('dev:sass', 'dev:pages', 'dev:fonts', 'dev:images', 'dev:js');
-});
 
 function sassError(error) {
-  gutil.log('sass ERROR: ' + error);
+  log('sass ERROR: ' + error);
   process.exit(1);
 }
 
@@ -132,4 +111,20 @@ gulp.task('dev:js', function () {
         .pipe(gulp.dest(filePath.devPath + '/' + filePath.resourcesDir));
     return merge(ourJsFiles, vendor);
 });
+
+gulp.task('dev:copy-dev-files', function() {
+    var fixture = gulp.src([
+        'fixture/**/*'], {base: "fixture"})
+            .pipe(gulp.dest(filePath.devPath));
+    var defaultTranslations = gulp.src([
+        'default_translations/*'], {base: "default_translations"})
+            .pipe(gulp.dest(filePath.devPath + '/static/localisation'));
+    var disruptionData = gulp.src([
+        './js/disruption_data/*',], {base: "./js/disruption_data"})
+            .pipe(gulp.dest(filePath.devPath + '/disruption/'));
+    return merge(fixture, defaultTranslations, disruptionData);
+});
+
+gulp.task('dev:build-dev-files', gulp.series('dev:copy-dev-files', 'dev:sass', 'dev:pages', 'dev:fonts', 'dev:images', 'dev:js'));
+
 //----main dev-build----}

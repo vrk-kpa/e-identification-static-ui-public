@@ -113,7 +113,8 @@
     "jsx": true
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "mocha": true
   },
   "globals": {
     "TRANSLATIONS": true

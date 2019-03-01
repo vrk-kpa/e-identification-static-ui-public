@@ -13,15 +13,18 @@
   "valinta__vaihtoehto__nordea": "Nordea",
   "valinta__vaihtoehto__oma_saastopankki": "Oma Säästöpankki",
   "valinta__vaihtoehto__osuuspankki": "Andelsbanken",
+  "valinta__vaihtoehto__osuuspankki_telia": "Andelsbanken (Telia)",
   "valinta__vaihtoehto__otsokko": "Välj identifieringssätt",
   "valinta__vaihtoehto__otsikko_valitse_maa": "Välj eIDAS-land (elektronisk identifiering över gränserna)",
   "valinta__vaihtoehto__pop_pankki": "POP Banken",
   "valinta__vaihtoehto__saastopankki": "Sparbanken",
   "valinta__vaihtoehto__spankki": "S-Banken",
   "valinta__vaihtoehto__varmennekortti": "Certifikatkort",
-  "valinta__vaihtoehto__eIDAS_CEF": "eIDAS CEF test",
-  "valinta__vaihtoehto__eIDAS": "Övriga europeiska identifieringssätt (eIDAS)",
+  "valinta__vaihtoehto__eIDAS_title": "Övrig europeisk identifiering",
+  "valinta__vaihtoehto__eIDAS_text": "Den sameuropeiska identifikationen eller <1>eIDAS-identifikationen</1> gör det möjligt att använda den offentliga förvaltningens e-tjänster i Europa över landsgränserna.",
+  "valinta__vaihtoehto__eIDAS_link": "Fortsätt till eIDAS-identifiering",
   "valinta__vaihtoehto__testidp": "Test IdP (fLoA3)",
   "valinta__vaihtoehto__vetupas2": "Test IdP",
-  "valinta__palaa_tunnistajan_valintaan": "Annulera och gå tillbaka till val av identifieringssätt"
+  "valinta__palaa_tunnistajan_valintaan": "Annulera och gå tillbaka till val av identifieringssätt",
+  "valinta__eidas-tietosuojaseloste-linkki": "Dataskyddsbeskrivning"
 }

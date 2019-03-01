@@ -1,15 +1,7 @@
 .identification-info {
-  span {
-    display: block;
-    font-family: SourceSansProSemibold;
-    @include rem(font-size, 16px);
-    @include rem(line-height, 18px);
-    @include rem(margin-bottom, 10px);
-  }
-
-  h2 {
-    @include rem(line-height, 42px);
-    @include rem(margin, 0 0 23px 0);
+  
+  h1 {
+    margin: 0.5em 0 0.5em 0;
   }
 
   .alert-box {
@@ -19,40 +11,33 @@
       @include rem(font-size, 16px);
     }
   }
-
-  h3 {
-    font-family: SourceSansProSemibold;
-    @include rem(font-size, 20px);
-    @include rem(line-height, 22px);
-    @include rem(margin, 23px 0 12px 0);
-  }
 }
 
-.selection-title {
-  h3 {
-    font-family: SourceSansProSemibold;
-    @include rem(font-size, 20px);
-    @include rem(line-height, 22px);
-    @include rem(margin, 0 0 12px 0);
-  }
-}
+.sign-in-options h2 {
+  @include rem(font-size, 18px);
+  @include rem(line-height, 20px);
+  @include rem(margin, 20px 10px 12px 10px);
 
-@media (max-width: $breakpoint-2) {
-  .identification-info {
-    span {
-      margin-bottom: 0;
-      @include rem(font-size, 14px);
-    }
+  @media (max-width: $breakpoint-2) {
+    text-align: center;
+    @include rem(font-size, 16px);
+    @include rem(line-height, 18px);
+    @include rem(margin, 15px 5px 15px 5px);
   }
 }
 
 .sign-in-option-list-countries,
-.sign-in-option-list,
-.sign-in-option-eidas, {
+.sign-in-options {
   background-color: $color-valkea;
   border: 1px solid $color-harmaa-60;
   @include flexbox();
   @include flex-wrap(wrap);
+  @include rem(padding-bottom, 25px);
+  .col-xs-12 {
+    float: none;
+    margin: 0 auto;
+    width: 95%;
+  }
 
   li {
     display: inline-block;
@@ -60,7 +45,7 @@
     width: 25%;
   }
 
-  a {
+  .button-style-link {
     display: block;
     min-height: 96px;
     width: 100%;
@@ -131,39 +116,53 @@
     word-break: break-word;
     word-wrap: break-word;
   }
+  
+  .eidas-tietosuojaseloste-link-container {
+    text-align: right;
+    @include rem(margin, 6px 0 0 0);
+  }
 }
 
 .sign-in-option-eidas {
-  @include rem(margin-top, 15px);
   padding: 0;
-
-  a {
-    height: 120px;
+  .button-style-link {
     padding: 0;
     @include flexbox();
   }
-  .organization-logo {
-    width: calc(25% / 2 + 35px);
-    min-width: 85px;
+  .eidas-logo {
+    width: calc(15% / 2 + 35px);
+    min-width: 100px;
+    max-width: 120px;
+    height: 100px;
     text-align: right;
     float: left;
-    @include rem(padding, 15px 0);
+    @include rem(padding, 20px 0);
 
     img {
       margin: 0;
       @include rem(min-height, 0);
     }
   }
-  .organization-name-container {
+  .eidas-text-container {
     display: table;
     @include flexbox();
     height: 100%;
+    width: 100%;
     @include flex-direction(column);
     @include justify-content(center);
-    @include rem(padding-left, 30px);
+    @include rem(margin, 18px 30px 18px 40px);
+    @include rem(max-width, 800px);
+    color: $color-musta;
+    h2 {
+      @include rem(margin, 0 0 10px 0);
+    }
+    .eidas-link {
+      color: $color-jarvi;
+    }
+
   }
 
-  .organization-name {
+  .eidas-link {
     display: table-cell;
     vertical-align: middle;
   }
@@ -171,8 +170,14 @@
 
 @media (max-width: $breakpoint-2) {
   .sign-in-option-list-countries,
-  .sign-in-option-list {
+  .sign-in-options {
     display: block;
+    @include rem(padding-bottom, 10px);
+    .col-xs-12 {
+      float: none;
+      width: unset;
+      @include rem(margin, 0 10px 0 10px);
+    }
 
     .country-image,
     .organization-logo {
@@ -182,63 +187,71 @@
     }
 
     li {
-      display: block;
       width: 100%;
       padding: 0;
 
-      a {
+      .button-style-link {
         padding: 16px;
       }
+    }
+    .eidas-tietosuojaseloste-link-container {
+      text-align: center;
+      @include rem(margin, 20px 0);
     }
   }
   .sign-in-option-eidas {
 
-    a {
+    .button-style-link {
       @include flex-direction(column);
+      @include align-items(center);
       height: auto;
     }
 
-    .organization-logo {
+    .eidas-logo {
       display: block;
       text-align: center;
       width: 100%;
+      max-width: 100%;
+      height: 95px;
       @include rem(padding-bottom, 10px);
     }
-    .organization-name-container {
+    .eidas-text-container {
       display: block;
       @include flexbox();
-      padding: 0;
+      @include rem(padding, 10px);
+      text-align: center;
+      @include rem(margin, 10px 10px 10px 10px);
     }
-    .organization-name {
+    .eidas-link {
       display: block;
-      @include rem(margin, 0 20px 20px 20px);
+      @include rem(margin, 0 10px 10px 10px);
     }
   }
 }
 
 @media (min-width: $breakpoint-2) and (max-width: $breakpoint-4) {
   .sign-in-option-list-countries,
-  .sign-in-option-list {
+  .sign-in-options {
     li {
       width: 50%;
     }
   }
   .sign-in-option-eidas {
-    .organization-logo {
-      width: calc(50% / 2 + 35px);
+    .eidas-logo {
+      width: calc(15% / 2 + 35px);
     }
   }
 }
 
 @media (min-width: $breakpoint-4) and (max-width: $breakpoint-5) {
   .sign-in-option-list-countries,
-  .sign-in-option-list {
+  .sign-in-options {
     li {
       width: 33.333%;
     }
   }
   .sign-in-option-eidas {
-    .organization-logo {
+    .eidas-logo {
       width: calc(33.333% / 2 + 35px);
     }
   }

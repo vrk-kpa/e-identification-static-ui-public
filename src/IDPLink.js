@@ -1,45 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import * as Utils from './utils.js';
 
-let IDPLink = React.createClass({
-    contextTypes: {
-        queryParams: React.PropTypes.object.isRequired
-    },
-    childContextTypes: {
-        url: React.PropTypes.string,
-    },
-    getChildContext: function() {
+class IDPLink extends React.Component {
+
+    getChildContext() {
         return {
             url: this.getUrl()
         };
-    },
-    propTypes: {
-        children: React.PropTypes.element,
-        conversation: React.PropTypes.string,
-        status: React.PropTypes.string.isRequired,
-        visible: React.PropTypes.bool
-    },
-    getDefaultProps() {
-        return {
-            visible: true
-        };
-    },
+    }
     getUrl() {
-        let url = '/idp/authn/External?status=' + this.props.status;
-        url = this.props.conversation ? url + '&conversation=' + this.props.conversation : url;
-        let tid = this.context.queryParams.tid;
-        url = tid ? url + '&tid=' + tid : url;
-        let pid = this.context.queryParams.pid;
-        url = pid ? url + '&pid=' + pid : url;
-        let tag = this.context.queryParams.tag;
-        url = tag ? url + '&tag=' + tag : url;
-        return url;
-    },
+        return Utils.getReturnLinkUrl(this.props.status, this.context.queryParams);
+    }
     getClass() {
         return 'go-back' + (this.props.visible ? '' : ' visuallyhidden');
-    },
+    }
     getAriaHidden() {
         return (this.props.visible ? 'false' : 'true');
-    },
+    }
     render() {
         return (
             <a href={this.getUrl()} className={this.getClass()} aria-hidden={this.getAriaHidden()}>
@@ -47,6 +25,25 @@ let IDPLink = React.createClass({
             </a>
         );
     }
-});
+}
+
+IDPLink.defaultProps = {
+    visible: true
+};
+
+IDPLink.contextTypes = {
+    queryParams: PropTypes.object.isRequired
+};
+
+IDPLink.childContextTypes = {
+    url: PropTypes.string,
+};
+
+IDPLink.propTypes = {
+    children: PropTypes.element,
+    conversation: PropTypes.string,
+    status: PropTypes.string.isRequired,
+    visible: PropTypes.bool
+};
 
 export default IDPLink;

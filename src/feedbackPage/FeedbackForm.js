@@ -1,18 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Translated from '../Translated.js';
 import TranslatedTitle from '../TranslatedTitle.js';
-import TranslatedLink from '../TranslatedLink.js';
 
-var FeedbackForm = React.createClass({
-    propTypes: {
-        onFormSubmit: React.PropTypes.func.isRequired
-    },
-    componentDidMount: function() {
-        document.title = TranslatedTitle.getTitle('palaute__otsikko');
-    },
-    getInitialState: function() {
-        return {
+class FeedbackForm extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
             isValid: {
                 message: true,
                 email: true
@@ -22,35 +18,47 @@ var FeedbackForm = React.createClass({
             email: '',
             loading: false
         };
-    },
-    handleMessageChange: function(e) {
+
+        this.handleMessageChange = this.handleMessageChange.bind(this);
+        this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleResponseRequest = this.handleResponseRequest.bind(this);
+        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleAbort = this.handleAbort.bind(this);
+    }
+
+    componentDidMount() {
+        document.title = TranslatedTitle.getTitle('palaute__otsikko');
+    }
+
+    handleMessageChange(e) {
         this.setState({
             message: e.target.value
         });
-    },
-    handleNameChange: function(e) {
+    }
+    handleNameChange(e) {
         this.setState({
             name: e.target.value
         });
-    },
-    handleResponseRequest: function(e) {
+    }
+    handleResponseRequest(e) {
         this.setState({
             responseRequest: e.target.value
         });
-    },
-    handleEmailChange: function(e) {
+    }
+    handleEmailChange(e) {
         this.setState({
             email: e.target.value
         });
-    },
-    toggleLoading: function(callback) {
+    }
+    toggleLoading(callback) {
         function noop() {};
         callback = callback || noop;
         this.setState({
             loading: !this.state.loading
         }, callback);
-    },
-    hasValidContent: function(callback) {
+    }
+    hasValidContent(callback) {
         const testEmailRegex = new RegExp(/^[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i);
         let revalidation = {
             message: true,
@@ -73,8 +81,8 @@ var FeedbackForm = React.createClass({
             }
             callback(this.state.isValid.message && this.state.isValid.email);
         });
-    },
-    handleSubmit: function(e) {
+    }
+    handleSubmit(e) {
         e.preventDefault();
         this.toggleLoading(() => {
             this.hasValidContent((validContent) => {
@@ -91,11 +99,14 @@ var FeedbackForm = React.createClass({
                 }
             });
         });
-    },
-    render: function() {
+    }
+    handleAbort(e) {
+        this.props.onFormAbort();
+    }
+    render() {
         return (
             <div className="col-xs-12 col-md-8 feedback-page">
-                <Translated tag="h2" id="palaute__otsikko"/>
+                <Translated tag="h1" id="palaute__otsikko"/>
                 <div className="feedback-form-wrapper">
                     <div className="col-xs-12 col-md-10">
                         <div className="form-group" ref="messageValidationError">
@@ -130,14 +141,29 @@ var FeedbackForm = React.createClass({
                             }
                         </fieldset>
 
-                        <button id="feedback-submit" onClick={this.handleSubmit} disabled={this.state.loading ? true : false}><span className="button-loader" style={{display: this.state.loading ? '' : 'none'}}/><Translated tag="span" id="palaute__lomake__submit">Lähetä palaute</Translated></button>
-                        <TranslatedLink link_i18n_id="/sivut/info/palaute/peruuta/" target="_self" id="palaute__peruutalinkki" content_i18n_id="palaute__peruutalinkki" className="button-cancel"/>
+                        <button id="feedback-submit" onClick={this.handleSubmit} disabled={this.state.loading ? true : false}>
+                            <span className="button-loader" style={{display: this.state.loading ? '' : 'none'}}/>
+                            <Translated tag="span" id="palaute__lomake__submit">Lähetä palaute</Translated>
+                        </button>
+                        <button id="feedback-cancel" className="button-cancel" onClick={this.handleAbort}>
+                            <Translated tag="span" id="palaute__peruutalinkki">Keskeytä</Translated>
+                        </button>
                         <Translated tag="p" className="feedback-info" id="palaute__info"/>
                     </div>
                 </div>
             </div>
         );
     }
-});
+}
+
+FeedbackForm.propTypes = {
+    onFormAbort: PropTypes.func,
+    onFormSubmit: PropTypes.func,
+};
+
+FeedbackForm.defaultProps = {
+    onFormAbort: () => {},
+    onFormSubmit: () => {}
+};
 
 export default FeedbackForm;

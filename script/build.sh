@@ -68,18 +68,9 @@ NODE_ARCHIVE=${NODE_RELEASE}.tar.xz
 NODE_INSTALLED_VERSION=`node -v`
 if [ "$no_clean" != "1" ]; then
     rm -rf node_modules
-fi
-if [ "$NODE_INSTALLED_VERSION" == "$NODE_VERSION" ]; then
-    npm install && npm run-script dist
+    npm ci && npm run-script dist
 else
-    if [ ! -f ${NODE_ARCHIVE} ]; then
-        wget https://nodejs.org/dist/${NODE_VERSION}/${NODE_ARCHIVE} -O ${NODE_ARCHIVE}
-    fi
-    tar xf ${NODE_ARCHIVE}
-
-    # fetch dependencies and build UI project
-    ( PATH=${NODE_RELEASE}/bin:$PATH && npm install && npm run-script dist )
-    rm -fr ${NODE_RELEASE}
+    npm run-script dist
 fi
 
 IMAGE_NAME=e-identification-docker-virtual.vrk-artifactory-01.eden.csc.fi/${PROJECTNAME}:${TARGET_ENV}

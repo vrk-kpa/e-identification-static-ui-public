@@ -1,43 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Translated from '../Translated.js';
 
 /* Takes in a method key(this.props?) and uses its method config to return an href, an image(source),
  * and a Translated text with span tag.
  */
-let AuthMethod = React.createClass({
-    contextTypes: {
-        queryParams: React.PropTypes.object.isRequired,
-        lang: React.PropTypes.string.isRequired
-    },
-    propTypes: {
-        countryCode: React.PropTypes.string,
-        id: React.PropTypes.string.isRequired,
-        imgSrc: React.PropTypes.string.isRequired,
-        levelOfAssurance: React.PropTypes.string,
-        localisationId: React.PropTypes.string,
-        localisedText: React.PropTypes.string,
-        loginContext: React.PropTypes.string.isRequired,
-    },
-    getUrl: function() {
-        let loginContext = this.props.loginContext;
-        let levelOfAssurance = this.props.levelOfAssurance;
-        let lang = this.context.lang;
-        let targetParam = '/sp-secured?' +
-            'tid=' + this.context.queryParams.tid +
+class AuthMethod extends React.Component {
+
+    getUrl() {
+        let targetParam =
+            '&tid=' + this.context.queryParams.tid +
             '&pid=' + this.context.queryParams.pid +
-            '&tag=' + this.context.queryParams.tag;
-        let hrefLink = loginContext + ((levelOfAssurance) ? levelOfAssurance : '');
-        if (!this.props.countryCode) { /* This is temporary fix. Lang parameter is not need after KAPA-4646 merge */
-            hrefLink += '/' + lang;
-        }
-        hrefLink += '?SAMLDS=1';
+            '&tag=' + this.context.queryParams.tag +
+            ((this.props.entityId) ? '&entityId=' + encodeURIComponent(this.props.entityId) : '');
+        let hrefLink =  '/idp/authn/External?conversation=' + this.context.queryParams.conversation;
         hrefLink += ((this.props.countryCode) ? '&countryCode=' + this.props.countryCode : '');
-        hrefLink += '&target=';
-        return hrefLink + encodeURIComponent(targetParam);
-    },
-    render: function() {
+        return hrefLink + targetParam;
+    }
+
+    render() {
         return (
-            <a href={this.getUrl()} id={this.props.id}>
+            <a href={this.getUrl()} id={this.props.id} className="button-style-link">
                 <span className="organization-logo"><img src={this.props.imgSrc} alt=""/></span>
                 <div className="organization-name-container">
                 {(this.props.localisationId && this.props.localisationId !== '') ?
@@ -48,6 +31,20 @@ let AuthMethod = React.createClass({
             </a>
         );
     }
-});
+}
+
+AuthMethod.contextTypes = {
+    queryParams: PropTypes.object.isRequired,
+    lang: PropTypes.string.isRequired
+};
+AuthMethod.propTypes = {
+    countryCode: PropTypes.string,
+    entityId: PropTypes.string,
+    id: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string.isRequired,
+    levelOfAssurance: PropTypes.string,
+    localisationId: PropTypes.string,
+    localisedText: PropTypes.string,
+};
 
 export default AuthMethod;

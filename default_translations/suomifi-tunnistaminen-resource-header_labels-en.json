@@ -5,5 +5,7 @@
   "header__suomifi-tunnistaminen": "Suomi.fi identification",
   "header__suurenna_tekstikokoa": "Zoom in",
   "valinta__olet_tunnistautumassa_palveluun": "You are identifying yourself to the service",
+  "common__linkki-palaa-tunnistukseen": "Return to identification",
+  "common__linkki-palaa": "Return",
   "testword": "EN_kala"
 }

@@ -4,10 +4,6 @@ import Translated from '../Translated.js';
 import TranslatedLink from '../TranslatedLink.js';
 import TranslatedTitle from '../TranslatedTitle.js';
 
-const listStyleNone = {
-    listStyle: 'none'
-};
-
 class TietosuojaselostePageMain extends React.Component {
     componentDidMount() {
         document.title = TranslatedTitle.getTitle('tietosuojaseloste__tietosuojaseloste_h2_otsikko');
@@ -15,46 +11,46 @@ class TietosuojaselostePageMain extends React.Component {
     render() {
         return (
             <div className="col-xs-12 col-md-10 description-of-file">
-                <Translated tag="h2" id="tietosuojaseloste__tietosuojaseloste_h2_otsikko"/>
+                <Translated tag="h1" id="tietosuojaseloste__tietosuojaseloste_h2_otsikko"/>
                 <p>
                 <Translated tag="span" id="tietosuojaseloste__henkilotietolain_mukainen_tietosuojaseloste"/><br/>
                 <Translated tag="span" id="tietosuojaseloste__seloste_laadittu"/>
                 </p>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_rekisterin_nimi"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_rekisterin_nimi"/>
                 <Translated tag="p" id="tietosuojaseloste__suomifi_tunnistuksen_tapahtumatietorekisteri"/>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_rekisterinpitaja"/>
-                <ul style={listStyleNone}>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_rekisterinpitaja"/>
+                <ul className="unstyled-list">
                     <Translated tag="li" id="tietosuojaseloste__rekisterinpitaja_vaestorekisterikeskus" />
                     <Translated tag="li" id="tietosuojaseloste__rekisterinpitaja_osoite" />
                     <Translated tag="li" id="tietosuojaseloste__rekisterinpitaja_puhelin_sahkoposti" />
                 </ul>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_yhteyshenkilo_rekisteria_koskevissa_asioissa"/>
-                <ul style={listStyleNone}>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_yhteyshenkilo_rekisteria_koskevissa_asioissa"/>
+                <ul className="unstyled-list">
                     <Translated tag="li" id="tietosuojaseloste__yhteyshenkilo_nimi" />
                     <Translated tag="li" id="tietosuojaseloste__yhteyshenkilo_osoite" />
                     <Translated tag="li" id="tietosuojaseloste__yhteyshenkilo_puhelin_sahkoposti" />
                 </ul>
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_tietosuojavastaava"/>
-                <ul style={listStyleNone}>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_tietosuojavastaava"/>
+                <ul className="unstyled-list">
                     <Translated tag="li" id="tietosuojaseloste__tietosuojavastaava_nimi" />
                     <Translated tag="li" id="tietosuojaseloste__tietosuojavastaava_osoite" />
                     <Translated tag="li" id="tietosuojaseloste__tietosuojavastaava_puhelin_sahkoposti" />
                 </ul>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_henkilorekisterin_sisaltamien_henkilotietojen_sailytysaika"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_henkilorekisterin_sisaltamien_henkilotietojen_sailytysaika"/>
                 <Translated tag="p" id="tietosuojaseloste__rekisterinpitaja_sailyttaa_rekisterin_tiedot"/>
                 <Translated tag="p" id="tietosuojaseloste__rekisterinpitaja_sailyttaa_rekisterin_tiedot__eidas"/>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_henkilotietojen_kasittelyn_tarkoitus_ja_oikeusperuste"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_henkilotietojen_kasittelyn_tarkoitus_ja_oikeusperuste"/>
                 <Translated tag="p" id="tietosuojaseloste__rekisteri_on_suomifi_tunnistuksen_tapahtumatietorekisteri"/>
                 <Translated tag="p" id="tietosuojaseloste__rekisteriin_tallennettuja_tietoja_kaytetaan_suomifi_tunnistuksen_kayton_seurantaan"/>
                 <Translated tag="p" id="tietosuojaseloste__otsikko_henkilotietojen_kasittelyn_tarkoitus_ja_oikeusperuste__eidas1"/>
                 <Translated tag="p" id="tietosuojaseloste__otsikko_henkilotietojen_kasittelyn_tarkoitus_ja_oikeusperuste__eidas2"/>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_rekisterin_tietosisalto"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_rekisterin_tietosisalto"/>
                 <Translated tag="p" id="tietosuojaseloste__tapahtumatietorekisteriin_tallennetaan_tietoja_suomifi_tunnistuksen_kaytosta"/>
                 <ul className="bulleted-list">
                     <Translated tag="li" id="tietosuojaseloste__tieto_tunnistusta_pyytaneesta_asiointipalvelusta" />
@@ -109,7 +105,7 @@ class TietosuojaselostePageMain extends React.Component {
                     <Translated tag="li" id="tietosuojaseloste__otsikko_rekisterin_tietosisalto__eidas_list10" />
                 </ul>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_saannonmukaiset_tietolahteet"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_saannonmukaiset_tietolahteet"/>
                 <Translated tag="p" id="tietosuojaseloste__rekisterin_tietolahteet_ovat"/>
                 <ul className="bulleted-list">
                     <Translated tag="li" id="tietosuojaseloste__vaestotietojarjestelma" />
@@ -120,7 +116,7 @@ class TietosuojaselostePageMain extends React.Component {
                     <Translated tag="li" id="tietosuojaseloste__otsikko_saannonmukaiset_tietolahteet__eidas" />
                 </ul>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_tietojen_saannonmukaiset_luovutukset"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_tietojen_saannonmukaiset_luovutukset"/>
                 <Translated tag="p" id="tietosuojaseloste__rekisterinpitaja_voi_luovuttaa_rekisterin_tietoja"/>
                 <ul className="bulleted-list">
                     <Translated tag="li" id="tietosuojaseloste__asiointipalvelunsa_toimivuuden_varmistamista_tai_parantamista_varten" />
@@ -137,34 +133,34 @@ class TietosuojaselostePageMain extends React.Component {
                 <Translated tag="p" id="tietosuojaseloste__tietoja_voidaan_luovuttaa_myos_tilastoina_tai_muutoin_siten"/>
                 <Translated tag="p" id="tietosuojaseloste__lisaksi_tietoja_voidaan_muutoin_luovuttaa_lain_nojalla"/>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_tietojen_siirto_eun_tai_etan_ulkopuolelle"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_tietojen_siirto_eun_tai_etan_ulkopuolelle"/>
                 <Translated tag="p" id="tietosuojaseloste__henkilotietoja_ei_luovuteta_eu_eta_alueen_ulkopuolelle"/>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_rekisterin_suojauksen_periaatteet"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_rekisterin_suojauksen_periaatteet"/>
                 <Translated tag="p" id="tietosuojaseloste__tietoaineisto_on_suojattu_tietoturvallisuudesta_ja_paasynhallinnasta_huolehtien"/>
                 <Translated tag="p" id="tietosuojaseloste__rekisteri_ei_sisalla_manuaalista_aineistoa_selvitystilanteissa"/>
                 <Translated tag="p" id="tietosuojaseloste__rekisterin_tietojen_kasittely_on_mahdollista_vain_henkiloille"/>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_mahdollisen_automaattisen_paatoksenteon_olemassaolo"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_mahdollisen_automaattisen_paatoksenteon_olemassaolo"/>
                 <Translated tag="p" id="tietosuojaseloste__henkilorekisterin_tietojen_perusteella_ei_suoriteta_automaattista_paatoksentekoa_tai_profilointia"/>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_tarkastusoikeus"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_tarkastusoikeus"/>
                 <Translated tag="p" id="tietosuojaseloste__rekisteroidylla_on_oikeus_pyytaa_rekisterinpitajalta_paasya_hanta_itseaan_koskeviin_henkilotietoihin"/>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_oikeus_vaatia_tiedon_korjaamista"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_oikeus_vaatia_tiedon_korjaamista"/>
                 <Translated tag="p" id="tietosuojaseloste__ei_oikeutta_tapahtumatietojen_korjaamiseen"/>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_rekisteroidyn_suostumuksen_peruuttaminen"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_rekisteroidyn_suostumuksen_peruuttaminen"/>
                 <Translated tag="p" id="tietosuojaseloste__henkilotietojen_kasittely_ei_perustu_suostumukseen"/>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_muut_henkilotietojen_kasittelyyn_liittyvat_rekisteroidyn_oikeudet"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_muut_henkilotietojen_kasittelyyn_liittyvat_rekisteroidyn_oikeudet"/>
                 <Translated tag="p" id="tietosuojaseloste__rekisteroidylla_ei_ole_oikeutta_pyytaa_tietojensa_poistamista"/>
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_rekisteroidyn_valitusoikeus_valvontaviranomaiselle"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_rekisteroidyn_valitusoikeus_valvontaviranomaiselle"/>
                 <Translated tag="p" id="tietosuojaseloste__rekisteroidylla_on_oikeus_tehda_valitus_valvontaviranomaiselle_henkilotietojen_kasittelyyn_liittyen"/>
 
 
-                <Translated tag="h4" id="tietosuojaseloste__otsikko_muu_informaatio"/>
+                <Translated tag="h2" id="tietosuojaseloste__otsikko_muu_informaatio"/>
                 <p>
                     <Translated tag="span" id="tietosuojaseloste__tietosuojaseloste_on_nahtavilla_osoitteessa" />
                     <TranslatedLink id="tietosuojaseloste__tietosuojaseloste_on_nahtavilla_url" link_i18n_id="tietosuojaseloste__tietosuojaseloste_on_nahtavilla_url" content_i18n_id="tietosuojaseloste__tietosuojaseloste_on_nahtavilla_url" />

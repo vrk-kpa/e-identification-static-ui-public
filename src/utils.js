@@ -72,6 +72,17 @@ var postFormData = function(url, formdata, successCallback, errorCallback) {
     xhttp.send(JSON.stringify(formdata));
 };
 
+var getReturnLinkUrl = function(status, queryParams) {
+    const defaultidpAuthnPath = '/idp/authn/External';
+    let authnPath = (window.IdentificationConfig && window.IdentificationConfig.idpAuthnPath) ? window.IdentificationConfig.idpAuthnPath : defaultidpAuthnPath;
+    let url = authnPath + '?status=' + status;
+    url = queryParams.conversation ? url + '&conversation=' + queryParams.conversation : url;
+    url = queryParams.tid ? url + '&tid=' + queryParams.tid : url;
+    url = queryParams.pid ? url + '&pid=' + queryParams.pid : url;
+    url = queryParams.tag ? url + '&tag=' + queryParams.tag : url;
+    return url;
+};
+
 var MetadataService = (function() {
     var instance;
 
@@ -80,13 +91,49 @@ var MetadataService = (function() {
         let metadata = null;
 
         return {
-            loadMetadata: function(entityId, loadReadyListener) {
+            fetchMetadata: function(entityId, callback) {
                 let config = window.IdentificationConfig;
                 let path = (config && config.apiMetadataPath) ? config.apiMetadataPath : defaultApiMetadataPath;
                 getJsonData(path + encodeURIComponent(entityId), (data) => {
+                    callback(data);
+                });
+            },
+
+            loadMetadata: function(entityId, loadReadyListener) {
+                this.fetchMetadata(entityId, (data) => {
                     metadata = data;
                     loadReadyListener();
                 });
+            },
+
+            getAllowedAuthMethods: function(authMethodRequestString) {
+                if (!metadata || !metadata.attributeLevelOfAssurance) {
+                    return null;
+                }
+                const metadataAuthMethods = metadata.attributeLevelOfAssurance.split(';');
+                let requestedMethods = authMethodRequestString.split(';');
+                let allowedAuthMethods = [];
+                requestedMethods.forEach(m => {
+                    if (metadataAuthMethods.indexOf(m) >= 0) {
+                        allowedAuthMethods.push(m);
+                    }
+                });
+                return allowedAuthMethods;
+            },
+
+            mapMethodsToProviderEntityIds(authMethods, providers) {
+                let allowedProviders = [];
+                authMethods.forEach(m => {
+                    let tmp = providers.filter(function(p) {
+                        return p.levelOfAssurance === m;
+                    });
+                    allowedProviders = allowedProviders.concat(tmp.map(p => p.entityId));
+                });
+                return allowedProviders;
+            },
+
+            getAllowedAuthProviders: function(authMethodRequestString, providers) {
+                return this.mapMethodsToProviderEntityIds(this.getAllowedAuthMethods(authMethodRequestString), providers);
             },
 
             getServiceDisplayName: function(lang) {
@@ -96,9 +143,7 @@ var MetadataService = (function() {
                 }
                 return theMetadataDisplayName;
             },
-            getAttributeLevelOfAssurance: function() {
-                return (metadata && metadata.attributeLevelOfAssurance) ? metadata.attributeLevelOfAssurance : '';
-            },
+
             getEidasSupport: function() {
                 return (metadata && metadata.eidasSupport) ? metadata.eidasSupport : '';
             }
@@ -116,4 +161,4 @@ var MetadataService = (function() {
 })();
 
 
-export {DiscoTimer, getJsonData, postFormData, MetadataService};
+export {DiscoTimer, getJsonData, postFormData, getReturnLinkUrl, MetadataService};

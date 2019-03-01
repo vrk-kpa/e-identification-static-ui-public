@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import {I18nextProvider} from 'react-i18next';
 import i18n from 'i18next';
 import objectAssign from 'object-assign';
@@ -26,6 +27,7 @@ import CookiesDisabledPage from './cookiesDisabledPage/CookiesDisabledPage.js';
 import EidasFormPage from './eidasFormPage/EidasFormPage.js';
 import EidasCancelledPage from './eidasFormPage/RequestCancelledPage';
 import EidasSentPage from './eidasFormPage/RequestSentPage';
+import EidasTietosuojaselostePage from './eidasTietosuojaselostePage/EidasTietosuojaselostePage';
 
 const serverLangCookieName = 'E-Identification-Lang';
 const fallbackLanguage = 'fi';
@@ -44,7 +46,8 @@ const translationResources = {
     '/sivut/eidas-form/cancel/': '28_tunnistus_eidas_palaute_labels',
     '/sivut/eidas-form/sent/': '28_tunnistus_eidas_palaute_labels',
     '/sivut/info/tietoapalvelusta/': '20_tunnistus_tietoapalvelusta_labels',
-    '/sivut/info/tietosuojaseloste/': '21_tunnistus_tietosuojaseloste_labels'
+    '/sivut/info/tietosuojaseloste/': '21_tunnistus_tietosuojaseloste_labels',
+    '/sivut/info/eidas-tietosuojaseloste/': '29_eidas_tietosuojaseloste_labels'
 };
 
 
@@ -82,23 +85,34 @@ function loadDoc(filename) {
 // languages-parameter and the Finnish translations *should always be* found)
 
 // Use this to get the translations for query-specified language or translations for fallback language(Finnish)
-let Lang = React.createClass({
-    propTypes: {
-        children: React.PropTypes.object.isRequired,
-        location: React.PropTypes.object.isRequired,
-        params: React.PropTypes.object.isRequired
-    },
-    childContextTypes: {
-        queryParams: React.PropTypes.object,
-        lang: React.PropTypes.string.isRequired
-    },
-    getChildContext: function() {
+class Lang extends React.Component {
+    constructor(props) {
+        super(props);
+        let language = this.getLanguageFromCookie();
+        let sessionContextMissing = false;
+        if (this.props.location.pathname.indexOf('404') >= 0 ||
+                this.props.location.pathname.indexOf('500') >= 0 ||
+                this.props.location.pathname.indexOf('cookie') >= 0 ||
+                this.props.location.pathname.indexOf('timeout') >= 0) {
+                sessionContextMissing = true;
+        }
+        this.state = {
+            lang: language ? language : fallbackLanguage,
+            sessionContextMissing: sessionContextMissing
+        };
+    }
+
+    componentDidUpdate() {
+        window.scrollTo(0, 0);
+    }
+
+    getChildContext() {
         return {
             queryParams: this.props.location.query,
             lang: this.state.lang
         };
-    },
-    getLanguageFromCookie: function() {
+    }
+    getLanguageFromCookie() {
         let cookies = document.cookie ? document.cookie.split('; ') : [];
         let language = null;
         let twoLetterWordPattern = new RegExp('^[a-z]{2}$');
@@ -112,17 +126,11 @@ let Lang = React.createClass({
             }
         }
         return language;
-    },
-    getInitialState: function() {
-        let language = this.getLanguageFromCookie();
-        return {
-            lang: language ? language : fallbackLanguage
-        };
-    },
-    setLanguage: function(language) {
+    }
+    setLanguage(language) {
         this.setState({lang: language});
-    },
-    getTranslations: function(translationResource, languages) {
+    }
+    getTranslations(translationResource, languages) {
         let translations = {};
         for (let i = 0; i < languages.length; i++) {
             let language = languages[i];
@@ -135,17 +143,17 @@ let Lang = React.createClass({
             }
         }
         return translations;
-    },
-    preventRootPage: function() {
+    }
+    preventRootPage() {
         // refuse to display page from domain root, eg https://<host>
         if (!this.props.children) {
             browserHistory.push('/sivut/404');
         }
-    },
-    componentWillMount: function() {
+    }
+    componentWillMount() {
         this.preventRootPage();
-    },
-    render: function() {
+    }
+    render() {
         var translations =  {};
         var languages = [fallbackLanguage];   // we always include the defaultLanguage for the call to getTranslations
         if (this.state.lang !== fallbackLanguage) {
@@ -164,12 +172,23 @@ let Lang = React.createClass({
                 <div>
                     <Header />
                     {this.props.children}
-                    <Footer />
+                    <Footer sessionContextMissing={this.state.sessionContextMissing} location={this.props.location}/>
                 </div>
             </I18nextProvider>
             );
     }
-});
+}
+
+Lang.propTypes = {
+    children: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    params: PropTypes.object.isRequired
+};
+
+Lang.childContextTypes = {
+    queryParams: PropTypes.object,
+    lang: PropTypes.string.isRequired
+};
 
 // Container for the React-Routing logic
 let routes = (
@@ -201,6 +220,7 @@ let routes = (
                 <Route path="palaute/peruuta/" component={CancelledPage} />
                 <Route path="tietoapalvelusta/" component={TietoapalvelustaPage} />
                 <Route path="tietosuojaseloste/" component={TietosuojaselostePageMain} />
+                <Route path="eidas-tietosuojaseloste/" component={EidasTietosuojaselostePage} />
             </Route>
             <Route path="404/" component={NotFoundPage} />
             <Route path="500/" component={InternalErrorPage} />

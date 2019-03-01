@@ -15,11 +15,11 @@ class CookiesDisabledPage extends React.Component {
                         <div className="row">
                             <div className="col-xs-12 col-md-8">
                                 <div className="error-box" lang="fi">
-                                    <Translated tag="h2" id="virhesivu__evasteet_estetty_otsikko_fi"/>
+                                    <Translated tag="h1" id="virhesivu__evasteet_estetty_otsikko_fi"/>
                                     <Translated tag="p" id="virhesivu__evasteet_estetty_fi"/> <br/>
-                                    <Translated tag="h2" id="virhesivu__evasteet_estetty_otsikko_sv"/>
+                                    <Translated tag="h1" id="virhesivu__evasteet_estetty_otsikko_sv"/>
                                     <Translated tag="p" id="virhesivu__evasteet_estetty_sv"/> <br/>
-                                    <Translated tag="h2" id="virhesivu__evasteet_estetty_otsikko_en"/>
+                                    <Translated tag="h1" id="virhesivu__evasteet_estetty_otsikko_en"/>
                                     <Translated tag="p" id="virhesivu__evasteet_estetty_en"/>
                                     <div id="error-code"></div>
                                 </div>

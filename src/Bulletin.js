@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Bulletin extends React.Component {
     render() {
@@ -16,12 +17,12 @@ class Bulletin extends React.Component {
 }
 
 Bulletin.propTypes = {
-    content: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
-    heading: React.PropTypes.string.isRequired
+    content: PropTypes.arrayOf(PropTypes.string).isRequired,
+    heading: PropTypes.string.isRequired
 };
 
 Bulletin.contextTypes = {
-    lang: React.PropTypes.string.isRequired,
+    lang: PropTypes.string.isRequired,
 };
 
 export default Bulletin;

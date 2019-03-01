@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import browserHistory from 'react-router/lib/browserHistory';
 
 import Translated from '../Translated.js';
@@ -7,7 +8,7 @@ import Disruption from './Disruption.js';
 import IDPLink from '../IDPLink.js';
 import * as Utils from '../utils.js';
 import CountrySelection from './CountrySelection.js';
-import AuthPageInfo from '../AuthPageInfo.js';
+import AuthPageFrame from '../AuthPageFrame.js';
 
 let defaultDiscoTimeoutSecs = 295;
 
@@ -19,37 +20,32 @@ let providers = null;
 let metadataService = null;
 
 // eslint-disable-next-line react/no-multi-comp
-let DiscoveryPage = React.createClass({
-    propTypes: {
-        location: React.PropTypes.object
-    },
-    contextTypes: {
-        router: React.PropTypes.object.isRequired,
-        queryParams: React.PropTypes.object.isRequired,
-        lang: React.PropTypes.string.isRequired
-    },
+class DiscoveryPage extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            metadataFetched: metadataService ? true : false,
+            providersFetched: providers ? true : false,
+            countriesFetched: countryList ? true : false,
+        };
+    }
+
     getConfig() {
         return window.IdentificationConfig;
-    },
-    getInitialState() {
-        return {
-            metadataFetched: false,
-            providersFetched: false,
-            countriesFetched: false,
-        };
-    },
+    }
     getEntityId() {
         var entId = this.context.queryParams.entityId;
         return entId;
-    },
-    getTimeout: function() {
+    }
+    getTimeout() {
         let timeout = this.context.queryParams.timeout || defaultDiscoTimeoutSecs;
         return timeout * 1000;
-    },
-    isIdentificationCancelled: function() {
+    }
+    isIdentificationCancelled() {
         return this.context.queryParams.msg === 'cancel';
-    },
-    canUseSessionStorage: function() {
+    }
+    canUseSessionStorage() {
         try {
             sessionStorage.setItem('__storeTest__', '__storeTest__');
             sessionStorage.removeItem('__storeTest__');
@@ -57,29 +53,29 @@ let DiscoveryPage = React.createClass({
         } catch (e) {
             return false;
         }
-    },
-    storeCancelPath: function(cancelPath) {
+    }
+    storeCancelPath(cancelPath) {
         sessionStorage.setItem('cancelStorage', cancelPath);
-    },
-    getAndClearCancelPath: function() {
+    }
+    getAndClearCancelPath() {
         let path = sessionStorage.getItem('cancelStorage');
         sessionStorage.removeItem('cancelStorage');
         return path;
-    },
-    getCancelPath: function() {
+    }
+    getCancelPath() {
         if (this.canUseSessionStorage()) {
             return this.getAndClearCancelPath() || '/sivut/500/';
         } else {
             return '/sivut/500/';
         }
-    },
+    }
 
     getMetadata() {
         metadataService = Utils.MetadataService.getInstance();
         metadataService.loadMetadata(this.getEntityId(), () => { this.setState({metadataFetched: true}); });
-    },
+    }
 
-    getProviders: function() {
+    getProviders() {
         let config = this.getConfig();
         let path = (config && config.apiProvidersPath) ? config.apiProvidersPath : defaultApiProvidersPath;
 
@@ -87,16 +83,16 @@ let DiscoveryPage = React.createClass({
             providers = data;
             this.setState({providersFetched: true});
         });
-    },
-    getCountries: function() {
+    }
+    getCountries() {
         let config = this.getConfig();
         let path = (config && config.apiCountryPath) ? config.apiCountryPath : defaultApiCountryPath;
         Utils.getJsonData(path, (data) => {
             countryList = data;
             this.setState({countriesFetched: true});
         });
-    },
-    componentWillMount: function() {
+    }
+    componentWillMount() {
         if (!this.isIdentificationCancelled()) {
             if (this.canUseSessionStorage()) {
                 this.storeCancelPath(this.props.location.search);
@@ -104,20 +100,28 @@ let DiscoveryPage = React.createClass({
         } else {
             window.location.href = this.getCancelPath();
         }
-    },
-    componentDidMount: function() {
-        this.getMetadata();
-        this.getProviders();
-        if (this.props.location.pathname === '/sivut/country-selection/' && countryList === null) {
-            this.getCountries();
+    }
+    componentDidMount() {
+        if (!this.isIdentificationCancelled()) {
+            if (!this.state.metadataFetched) {
+                this.getMetadata();
+            }
+            if (!this.state.providersFetched) {
+                this.getProviders();
+            }
+            if (this.props.location.pathname === '/sivut/country-selection/') {
+                if (!this.state.countriesFetched) {
+                    this.getCountries();
+                }
+            }
         }
-    },
-    componentWillReceiveProps: function(nextProps) {
+    }
+    componentWillReceiveProps(nextProps) {
         if (nextProps.location.pathname === '/sivut/country-selection/' && countryList === null) {
             this.getCountries();
         }
-    },
-    getInfoElement: function() {
+    }
+    getInfoElement() {
         return (
             <div className="row">
                 <div className="col-xs-12 col-md-8">
@@ -127,18 +131,18 @@ let DiscoveryPage = React.createClass({
                 </div>
             </div>
         );
-    },
-    getDiscoPageContent: function(attributeLevelOfAssurance, serviceDisplayName, eidasSupport) {
+    }
+
+    cancelAndReturnToService() {
+        let path = Utils.getReturnLinkUrl('cancel', this.context.queryParams);
+        window.location = path;
+    }
+
+    getDiscoPageContent(allowedProviderEntityIds, eidasSupport) {
         return (
             <div className="row">
-                <div className="selection-title">
-                    <Translated tag="h3" id="valinta__vaihtoehto__otsokko" />
-                </div>
-                <AuthSelection requestedAuthMethods={this.context.queryParams.authMethdReq}
-                                attributeLevelOfAssurance={attributeLevelOfAssurance}
-                                serviceDisplayName={serviceDisplayName}
+                <AuthSelection authMethods={allowedProviderEntityIds}
                                 availableProviders={providers}
-                                discoQueryParams={this.context.queryParams}
                                 config={this.getConfig()}
                                 eidasSupport={eidasSupport} />
                 <div className="row">
@@ -149,13 +153,10 @@ let DiscoveryPage = React.createClass({
                 { this.getInfoElement() }
             </div>
         );
-    },
-    getFlagPageContent: function() {
+    }
+    getFlagPageContent() {
         return (
             <div className="row">
-                <div className="selection-title">
-                    <Translated tag="h3" id="valinta__vaihtoehto__otsikko_valitse_maa" />
-                </div>
                 <CountrySelection availableCountries={countryList}/>
                 <div className="row">
                     <a onClick={browserHistory.goBack} className="go-back">
@@ -165,7 +166,7 @@ let DiscoveryPage = React.createClass({
                 { this.getInfoElement() }
             </div>
         );
-    },
+    }
 
     render() {
         let onDiscoPage = true;
@@ -173,9 +174,17 @@ let DiscoveryPage = React.createClass({
             onDiscoPage = false;
         }
         // Check that needed data from backend has been loaded before rendering
-        if (onDiscoPage && !this.state.metadataFetched || !this.state.providersFetched) {
+        if (onDiscoPage && (!this.state.metadataFetched || !this.state.providersFetched)) {
             return null;
         } else if (!onDiscoPage && !this.state.countriesFetched) {
+            return null;
+        }
+
+        let eidasSupport = metadataService.getEidasSupport();
+        let serviceDisplayName = metadataService.getServiceDisplayName(this.context.lang);
+        let allowedAuthProviders = metadataService.getAllowedAuthProviders(this.context.queryParams.authMethdReq, providers);
+        if (allowedAuthProviders.length === 0) {
+            this.cancelAndReturnToService();
             return null;
         }
 
@@ -186,28 +195,36 @@ let DiscoveryPage = React.createClass({
                 url = timerContext.tid ? url + '&tid=' + timerContext.tid : url;
                 url = timerContext.pid ? url + '&pid=' + timerContext.pid : url;
                 url = timerContext.tag ? url + '&tag=' + timerContext.tag : url;
+                url = timerContext.conversation ? url + '&conversation=' + timerContext.conversation : url;
                 window.location = url;
-            }, {tid: this.context.queryParams.tid, pid: this.context.queryParams.pid, tag: this.context.queryParams.tag});
+            }, {tid: this.context.queryParams.tid, pid: this.context.queryParams.pid, tag: this.context.queryParams.tag, conversation: this.context.queryParams.conversation});
             discoTimer.startTimer(this.getTimeout());
         }
 
-        let attributeLevelOfAssurance = metadataService.getAttributeLevelOfAssurance();
-        let eidasSupport = metadataService.getEidasSupport();
-        let serviceDisplayName = metadataService.getServiceDisplayName(this.context.lang);
 
         return (
             <main id="main" role="main" name="main">
                 <div className="main">
                     <div className="container">
-                        <AuthPageInfo serviceDisplayName={serviceDisplayName}>
+                        <AuthPageFrame serviceDisplayName={serviceDisplayName}>
                             <Disruption />
-                        </AuthPageInfo>
-                        { (onDiscoPage) ? this.getDiscoPageContent(attributeLevelOfAssurance, serviceDisplayName, eidasSupport) : this.getFlagPageContent() }
+                        </AuthPageFrame>
+                        { (onDiscoPage) ? this.getDiscoPageContent(allowedAuthProviders, eidasSupport) : this.getFlagPageContent() }
                     </div>
                 </div>
             </main>
         );
     }
-});
+}
+
+DiscoveryPage.propTypes = {
+    location: PropTypes.object
+};
+
+DiscoveryPage.contextTypes = {
+    router: PropTypes.object.isRequired,
+    queryParams: PropTypes.object.isRequired,
+    lang: PropTypes.string.isRequired
+};
 
 export default DiscoveryPage;

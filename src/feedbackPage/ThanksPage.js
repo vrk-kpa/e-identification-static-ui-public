@@ -11,7 +11,7 @@ class ThanksPage extends React.Component {
     render() {
         return (
             <div className="col-xs-12 col-md-8 thanks-page">
-                <Translated tag="h2" id="palaute_kiitos__otsikko"/>
+                <Translated tag="h1" id="palaute_kiitos__otsikko"/>
                 <Translated tag="p" id="palaute_kiitos__info_1"/>
                 <TranslatedLink id="palaute_kiitos__linkki" content_i18n_id="palaute_kiitos__linkki" link_i18n_id="palaute_kiitos__linkki_url" />
             </div>

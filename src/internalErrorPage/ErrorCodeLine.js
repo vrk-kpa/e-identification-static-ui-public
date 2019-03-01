@@ -1,13 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Translated from '../Translated.js';
 
-let ErrorCodeLine = React.createClass({
-    propTypes: {
-        errorCode: React.PropTypes.string.isRequired,
-        errorMessage: React.PropTypes.string.isRequired
-    },
-    render: function() {
+class ErrorCodeLine extends React.Component {
+
+    render() {
         if (this.props.errorCode && this.props.errorMessage) {
             return (
                 <p>
@@ -20,6 +18,11 @@ let ErrorCodeLine = React.createClass({
             return null;
         }
     }
-});
+}
+
+ErrorCodeLine.propTypes = {
+    errorCode: PropTypes.string.isRequired,
+    errorMessage: PropTypes.string.isRequired
+};
 
 export default ErrorCodeLine;

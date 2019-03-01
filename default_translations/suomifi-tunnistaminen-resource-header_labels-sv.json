@@ -5,5 +5,7 @@
   "header__suomifi-tunnistaminen": "Suomi.fi-identifiering",
   "header__suurenna_tekstikokoa": "Gör texten större",
   "valinta__olet_tunnistautumassa_palveluun": "Du skall identifiera dig i tjänsten",
+  "common__linkki-palaa-tunnistukseen": "Gå tillbaka till identifieringen",
+  "common__linkki-palaa": "Gå tillbaka",
   "testword": "SV_kala"
 }

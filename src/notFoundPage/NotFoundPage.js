@@ -1,13 +1,20 @@
 import React from 'react';
+import {Link} from 'react-router';
+import i18n from 'i18next';
 
 import Translated from '../Translated.js';
-import TranslatedLink from '../TranslatedLink.js';
 import TranslatedTitle from '../TranslatedTitle.js';
 
 class NotFoundPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {errorTime: new Date()};
+    }
+
     componentDidMount() {
         document.title = TranslatedTitle.getTitle('virhesivu__ei_loytynyt');
     }
+
     render() {
         return (
             <main id="main" role="main" name="main">
@@ -16,9 +23,18 @@ class NotFoundPage extends React.Component {
                         <div className="row">
                             <div className="col-xs-12 col-md-8">
                                 <div className="error-box" lang="fi">
-                                    <Translated tag="h2" id="virhesivu__ei_loytynyt"/>
+                                    <Translated tag="h1" id="virhesivu__ei_loytynyt"/>
                                     <Translated tag="p" id="virhesivu__palautepyynto"/>
-                                    <TranslatedLink link_i18n_id="/sivut/info/virhepalaute/" id="virhesivu__palautelinkki" content_i18n_id="virhesivu__palautelinkki" className="button-secondary"/>
+                                    <Link to={{
+                                            pathname: '/sivut/info/virhepalaute/',
+                                            query: {time: this.state.errorTime.valueOf(), frompage: '404'},
+                                            state: {sessionContextMissing: true}
+                                        }}
+                                        id="virhesivu__palautelinkki"
+                                        className="button-secondary"
+                                    >
+                                        {i18n.t('virhesivu__palautelinkki')}
+                                    </Link>
                                     <div id="error-code"></div>
                                 </div>
                             </div>

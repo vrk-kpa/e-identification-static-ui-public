@@ -1,12 +1,11 @@
 var gulp = require('gulp');
-var gutil = require('gulp-util');
+var log = require('fancy-log');
+var colors = require('ansi-colors');
 var notify = require("gulp-notify");
 var browserify = require('browserify');
 var babelify = require('babelify');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream');
-var lint = require('gulp-eslint');
-
 
 function handleErrors() {
     var args = Array.prototype.slice.call(arguments);
@@ -19,8 +18,7 @@ function handleErrors() {
 
 // Note that this is the task that bundles the modern (reactJS) set of files
 // into an app.js (using src/main.js as our entrypoint):
-gulp.task('browserify', ['eslint'], function() {
-
+gulp.task('browserify', function() {
     var props = {
         cache: {}, packageCache: {},
         // Specify the entry point of your app
@@ -34,7 +32,7 @@ gulp.task('browserify', ['eslint'], function() {
 
     var bundler = browserify(props);
 
-    bundler = bundler.transform(babelify, {presets: ["es2015", "react"]});
+    bundler = bundler.transform(babelify, {presets: ["env", "react"]});
 
     var bundle = function() {
         var stream = bundler.bundle();
@@ -42,8 +40,8 @@ gulp.task('browserify', ['eslint'], function() {
             stream = stream.on('error', handleErrors);
         } else {
             stream = stream.on('error', function(err) {
-                gutil.log(
-                    gutil.colors.red('Browserify compile error:'),
+                log(
+                    colors.red('Browserify compile error:'),
                     err.message
                 );
             });
@@ -57,12 +55,12 @@ gulp.task('browserify', ['eslint'], function() {
 
     // If watchify in use
     if (global.isWatching) {
-        gutil.log("watchify enabled");
+        log("watchify enabled");
         // Rebundle with watchify on changes.
         bundler.on('update', function() {
-            gutil.log("Rebundle");
+            log("Rebundle");
             bundle();
-            gutil.log("Ready!");
+            log("Ready!");
         });
     }
 

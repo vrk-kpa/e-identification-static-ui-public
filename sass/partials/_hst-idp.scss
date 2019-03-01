@@ -1,11 +1,12 @@
 .hst-idp-page {
-  h2:first-of-type {
-    margin-top: 0;
+  h1:first-of-type {
+    @include rem(margin-top, 15px);
   }
 
   .hst-identification-info {
     border: 1px solid $color-harmaa-60;
     position: relative;
+    @include rem(margin, 0);
 
     .numbered-list {
       font-family: SourceSansProSemibold, SourceSansProRegular, 'Helvetica Neue', Arial;

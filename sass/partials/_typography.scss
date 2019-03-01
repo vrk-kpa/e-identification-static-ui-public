@@ -11,24 +11,42 @@ body {
 }
 
 h1 {
-  font-family: SourceSansProSemibold, SourceSansProRegular, 'Helvetica Neue', Arial;
-  @include rem(font-size, 40px);
-  @include rem(line-height, 52px);
-
-  @media (max-width: $breakpoint-2) {
-    @include rem(font-size, 32px);
-    @include rem(line-height, 40px);
-  }
-}
-
-h2 {
   font-family: SourceSansProLight, SourceSansProRegular, 'Helvetica Neue', Arial;
   @include rem(font-size, 40px);
   @include rem(line-height, 52px);
+  @include rem(margin, 5px 0 0 0);
+}
 
-  @media (max-width: $breakpoint-2) {
+h1 .small {
+  font-family: SourceSansProSemibold, SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 18px);
+  @include rem(line-height, 20px);
+}
+
+@media (max-width: $breakpoint-2) {
+  h1 { 
+    @include rem(font-size, 32px);
+    @include rem(line-height, 40px);
+  }
+  h1 .small {
+    @include rem(font-size, 16px);
+    @include rem(line-height, 18px);
+  }
+  h1 .big-light {
     @include rem(font-size, 28px);
     @include rem(line-height, 38px);
+  }
+}
+
+
+h2 {
+  font-family: SourceSansProSemibold, SourceSansProRegular, 'Helvetica Neue', Arial;
+  @include rem(font-size, 20px);
+  @include rem(line-height, 26px);
+
+  @media (max-width: $breakpoint-2) {
+    @include rem(font-size, 16px);
+    @include rem(line-height, 18px);
   }
 }
 
@@ -56,17 +74,26 @@ h6 {
   @include rem(line-height, 20px);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
   margin-top: 2.5em;
   margin-bottom: 0.5em;
 
   @media (max-width: $breakpoint-1) {
     word-break: break-word;
+    margin-top: 2em;
+    margin-bottom: 0.3em;
   }
 }
 
-h4, h5, h6 {
+h2, h3, h4, h5, h6 {
+  margin-top: 2.5em;
   margin-bottom: 1.25em;
+  
+  @media (max-width: $breakpoint-1) {
+    word-break: break-word;
+    margin-top: 2em;
+    margin-bottom: 0.3em;
+  }
 }
 
 p {
@@ -142,6 +169,15 @@ a {
   }
 }
 
+a.disabled-link {
+  color: $color-harmaa-k20;
+
+  &:hover, &:focus, &:active {
+    color: $color-harmaa-k20;
+    text-decoration: none;
+  }
+}
+
 span.padded {
   &:before, &:after {
     content: ' ';
@@ -176,11 +212,19 @@ span.padded {
   list-style-type: decimal;
 }
 
+.unstyled-list {
+  list-style: none;
+  @include rem(font-size, 18px); 
+}
+
 @media (max-width: $breakpoint-2) {
   .bulleted-list,
   .numbered-list {
     @include rem(font-size, 16px);
     padding-left: 0.5em;
+  }
+  .unstyled-list {
+    @include rem(font-size, 16px);
   }
 }
 

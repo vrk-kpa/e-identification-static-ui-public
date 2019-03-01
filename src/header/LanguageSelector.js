@@ -1,11 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LanguageButton from './LanguageButton';
 
-var LanguageSelector = React.createClass({
-    contextTypes: {
-        lang: React.PropTypes.string.isRequired,
-    },
-    render: function() {
+class LanguageSelector extends React.Component {
+    render() {
         return (
         <ul className="language-selection">
             <li><LanguageButton selected={this.context.lang === 'fi'} buttonLanguage='fi' text='Suomeksi'/></li>
@@ -14,6 +12,10 @@ var LanguageSelector = React.createClass({
         </ul>
         );
     }
-});
+}
+
+LanguageSelector.contextTypes = {
+    lang: PropTypes.string.isRequired,
+};
 
 export default LanguageSelector;

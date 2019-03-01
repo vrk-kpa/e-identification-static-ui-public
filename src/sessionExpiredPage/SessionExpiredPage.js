@@ -1,20 +1,19 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Translated from '../Translated.js';
 import TranslatedTitle from '../TranslatedTitle.js';
 import IDPLink from '../IDPLink.js';
 
-let SessionExpiredPage = React.createClass({
-    contextTypes: {
-        queryParams: React.PropTypes.object.isRequired,
-    },
-    componentDidMount: function() {
+class SessionExpiredPage extends React.Component {
+
+    componentDidMount() {
         document.title = TranslatedTitle.getTitle('istunto_vanhentunut__istuntosi_on_vanhentunut_fi');
-    },
+    }
     getConversationId() {
         return this.context.queryParams.conversation;
-    },
+    }
     render() {
         return (
             <main id="main" role="main" name="main">
@@ -23,7 +22,7 @@ let SessionExpiredPage = React.createClass({
                         <div className="row">
                             <div className="col-xs-12 col-md-8 timeout-page">
                                 <div className="error-box">
-                                    <Translated tag="h2" id="istunto_vanhentunut__istuntosi_on_vanhentunut_fi"/>
+                                    <Translated tag="h1" id="istunto_vanhentunut__istuntosi_on_vanhentunut_fi"/>
                                     <IDPLink conversation={this.getConversationId()} status="return" >
                                         <Translated tag="span" id="istunto_vanhentunut__palaa_palveluun"/>
                                     </IDPLink>
@@ -36,6 +35,10 @@ let SessionExpiredPage = React.createClass({
             </main>
         );
     }
-});
+}
+
+SessionExpiredPage.contextTypes = {
+    queryParams: PropTypes.object.isRequired,
+};
 
 export default SessionExpiredPage;

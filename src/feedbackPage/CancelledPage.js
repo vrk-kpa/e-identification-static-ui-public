@@ -10,8 +10,7 @@ class CancelledPage extends React.Component {
     render() {
         return (
             <div className="col-xs-12 col-md-8 thanks-page">
-                <Translated tag="h2" id="palaute_peruuta__otsikko"/>
-                <Translated tag="p" id="palaute_peruuta__info_1"/>
+                <Translated tag="h1" id="palaute_peruuta__otsikko"/>
             </div>
         );
     }

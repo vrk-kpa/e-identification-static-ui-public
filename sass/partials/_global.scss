@@ -66,7 +66,19 @@ video, img {
 }
 
 hr {
-  @include rem(margin, 2px 0 18px 0);
+  display: block;
+  @include rem(margin, 10px auto);
+  height: 1px;
+  background-color: $color-harmaa-60;
+  color: $color-harmaa-60;
+  width: 95%;
+  border: 0;
+}
+
+@media (max-width: $breakpoint-2) {
+  hr {
+    width: 90%;
+  }
 }
 
 .left {
@@ -90,7 +102,6 @@ body {
 #main {
   background: $color-harmaa-5;
   position: static;
-  @include rem(padding, 32px 0);
 }
 
 .main {
@@ -108,12 +119,21 @@ main {
 .error-feedback-page,
 .thanks-page,
 .service-info,
-.description-of-file {
-  margin-bottom: 96px;
-
-  h2:first-child {
-    margin-top: 0;
+.description-of-file,
+.eidas-description-of-file {
+  margin-bottom: 32px;
+  h1:first-child {
+    @include rem(margin-top, 0);
   }
+}
+.eidas-description-of-file {
+  h2:first-of-type {
+    margin-top: 1.5em;
+  }
+}
+
+.eidas-page {
+  margin-top: 32px;
 }
 
 .go-back {
@@ -217,6 +237,10 @@ main {
     height: 50px;
     width: 50px;
     left: 40px;
+  }
+
+  h1 {
+    margin-top: 0;
   }
 }
 

@@ -1,14 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import i18n from 'i18next';
 
 /* Returns a tag (id) and the transĺated text for that tag (id) */
-var Translated = React.createClass({
-    propTypes: {
-        className: React.PropTypes.string,
-        id: React.PropTypes.string.isRequired,
-        tag: React.PropTypes.string.isRequired
-    },
-    render: function() {
+class Translated extends React.Component {
+    render() {
       // Pass along props that might have been given (e.g. className or htmlFor)
       function clone(obj, excluded) {
           if (obj === null || typeof obj !== 'object') return obj;
@@ -18,12 +14,18 @@ var Translated = React.createClass({
           }
           return copy;
       }
-      let propsCopy = clone(this.props, ['id', 'tag', 'children']);
+      let propsCopy = clone(this.props, ['tag', 'children']);
 
       return (
          <this.props.tag {...propsCopy} data-i18n={this.props.id}>{i18n.t(this.props.id)}</this.props.tag>
       );
     }
-});
+}
+
+Translated.propTypes = {
+    className: PropTypes.string,
+    id: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired
+};
 
 export default Translated;

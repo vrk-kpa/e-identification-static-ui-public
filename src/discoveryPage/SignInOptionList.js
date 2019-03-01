@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AuthMethod from './AuthMethod.js';
 
@@ -13,14 +14,9 @@ import AuthMethod from './AuthMethod.js';
         </ul>
       );
  */
-var SignInOptionList = React.createClass({
-    contextTypes: {
-        lang: React.PropTypes.string.isRequired
-    },
-    propTypes: {
-        allowedMethods: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
-    },
-    render: function() {
+class SignInOptionList extends React.Component {
+
+    render() {
         let allowedMethods = this.props.allowedMethods;
         let contextLang = this.context.lang;
         return (
@@ -38,7 +34,7 @@ var SignInOptionList = React.createClass({
                                         imgSrc={result.imgSrc}
                                         localisationId={result.loc_id}
                                         localisedText={displayName}
-                                        loginContext={result.loginContext ? result.loginContext : result.eidasLoginContext}
+                                        entityId={result.entityId}
                                         countryCode={result.countryCode}
                                         levelOfAssurance={result.levelOfAssurance}/>
                         </li>
@@ -47,6 +43,14 @@ var SignInOptionList = React.createClass({
             </ul>
         );
     }
-});
+}
+
+SignInOptionList.contextTypes = {
+    lang: PropTypes.string.isRequired
+};
+
+SignInOptionList.propTypes = {
+    allowedMethods: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default SignInOptionList;

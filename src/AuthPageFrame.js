@@ -1,5 +1,6 @@
 import React from 'react';
 import Translated from './Translated.js';
+import PropTypes from 'prop-types';
 
 class AuthPageFrame extends React.Component {
    render() {
@@ -7,8 +8,10 @@ class AuthPageFrame extends React.Component {
 
             <div className="row">
                 <div className="col-xs-12 identification-info">
-                    <Translated tag="span" id="valinta__olet_tunnistautumassa_palveluun" />
-                    <h2 id="displayName">{this.props.serviceDisplayName}</h2>
+                    <h1>
+                        <Translated tag="div" id="valinta__olet_tunnistautumassa_palveluun" className="small" />
+                        <div id="displayName" className="service-display-name">{this.props.serviceDisplayName}</div>
+                    </h1>
                     {this.props.children}
                 </div>
             </div>
@@ -17,8 +20,8 @@ class AuthPageFrame extends React.Component {
 }
 
 AuthPageFrame.propTypes = {
-    children: React.PropTypes.element,
-    serviceDisplayName: React.PropTypes.string,
+    children: PropTypes.element,
+    serviceDisplayName: PropTypes.string,
 
 };
 

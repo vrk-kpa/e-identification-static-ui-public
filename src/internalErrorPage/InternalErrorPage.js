@@ -1,40 +1,29 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Translated from '../Translated.js';
-import TranslatedLink from '../TranslatedLink.js';
 import TranslatedTitle from '../TranslatedTitle.js';
 import ErrorCodeLine from './ErrorCodeLine.js';
 
-let InternalErrorPage = React.createClass({
-    propTypes: {
-        location: React.PropTypes.object.isRequired
-    },
-    componentDidMount: function() {
+class InternalErrorPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            errorTime: new Date()
+        };
+    }
+    componentDidMount() {
         document.title = TranslatedTitle.getTitle('virhesivu2__otsikko');
-    },
-    getErrorCode: function() {
-        return this.props.location.query.t;
-    },
-    getErrorMessage: function() {
+    }
+    getErrorMessage() {
         return this.props.location.query.m;
-    },
-    getCombinedError: function() {
-      let combined = '';
-      let code = this.getErrorCode();
-      let message = this.getErrorMessage();
+    }
+    getErrorCode() {
+        return this.props.location.query.t;
+    }
 
-      if (code !== undefined) {
-        combined = code;
-        if (message !== undefined) {
-          combined = combined + ' / ' + message;
-        }
-      } else if (message !== undefined) {
-        combined = message;
-      }
-      return encodeURIComponent(combined);
-    },
-    render: function() {
+    render() {
         return (
             <main id="main" role="main" name="main">
                 <div className="main">
@@ -42,7 +31,7 @@ let InternalErrorPage = React.createClass({
                         <div className="row">
                             <div className="col-xs-12 col-md-8">
                                 <div className="error-box">
-                                    <Translated tag="h2" id="virhesivu2__otsikko"/>
+                                    <Translated tag="h1" id="virhesivu2__otsikko"/>
                                     <Translated tag="p" id="virhesivu2__sisainen_virhe"/>
                                     <Translated tag="p" id="virhesivu2__ratkaisu"/>
                                     <ul className="bulleted-list">
@@ -50,8 +39,11 @@ let InternalErrorPage = React.createClass({
                                       <Translated tag="li" id="virhesivu2__ohje2"/>
                                     </ul>
                                     <Translated tag="p" id="virhesivu2__palautepyynto"/>
-                                    <TranslatedLink link_i18n_id={(this.getErrorMessage() || this.getErrorCode()) ? '/sivut/info/virhepalaute/?error=' + this.getCombinedError() : '/sivut/info/virhepalaute/'} id="virhesivu2__palalutelinkki" content_i18n_id="virhesivu2__palalutelinkki" className="button-secondary"/>
+
+                                    { this.getErrorMessage() && this.getErrorCode() ?
                                     <ErrorCodeLine errorMessage={this.getErrorMessage()} errorCode={this.getErrorCode()}/>
+                                    : ''
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -60,6 +52,10 @@ let InternalErrorPage = React.createClass({
             </main>
         );
     }
-});
+}
+
+InternalErrorPage.propTypes = {
+    location: PropTypes.object.isRequired
+};
 
 export default InternalErrorPage;

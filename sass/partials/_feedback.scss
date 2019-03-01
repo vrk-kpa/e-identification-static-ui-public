@@ -1,3 +1,7 @@
+#feedbackpage-main {
+  @include rem(padding, 0);
+}
+
 .feedback-page, .error-feedback-page, .eidas-form-page {
   .feedback-form-wrapper {
     @extend .box;
@@ -13,12 +17,15 @@
       }
     }
 
-    h3 {
+    h2 {
+      @include rem(font-size, 26px);
+      @include rem(line-height, 34px);
       word-break: break-word;
+      margin: 0.5em 0 0.5em 0;
     }
 
     .form-info {
-      h3 {
+      h2 {
         margin-top: 15px;
       }
     }
@@ -43,8 +50,9 @@
         }
       }
 
-      h3 {
+      h2 {
         @include rem(font-size, 20px);
+        @include rem(line-height, 22px);
       }
     }
   }

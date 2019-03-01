@@ -5,4 +5,5 @@ var IdentificationConfig = {
     apiMetadataPath: "/api/metadata/",
     apiProvidersPath: "/api/metadata/?type=AUTHENTICATION_PROVIDER",
     apiCountryPath: "/api/country/",
-}
+    idpAuthnPath: "/idp/authn/External",
+};

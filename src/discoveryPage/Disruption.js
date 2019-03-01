@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-var Disruption = React.createClass({
-    contextTypes: {
-        lang: React.PropTypes.string.isRequired,
-    },
-    getInitialState: function() {
-        return {
+class Disruption extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
             display: false,
             fi: {
                 message: '',
@@ -20,11 +20,13 @@ var Disruption = React.createClass({
                 date: ''
             }
         };
-    },
-    componentWillMount: function() {
+    }
+
+    componentWillMount() {
         this.getDisruption();
-    },
-    getDisruption: function() {
+    }
+
+    getDisruption() {
         let setState = this.setState.bind(this);
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -39,8 +41,9 @@ var Disruption = React.createClass({
         };
         xhttp.open('GET', '/disruption/disruption_message.json');
         xhttp.send();
-    },
-    render: function() {
+    }
+
+    render() {
         if (this.state.display) {
             let localised = this.state[this.context.lang];
             if (localised) {
@@ -58,6 +61,10 @@ var Disruption = React.createClass({
             return false;
         }
     }
-});
+}
+
+Disruption.contextTypes = {
+    lang: PropTypes.string.isRequired,
+};
 
 export default Disruption;

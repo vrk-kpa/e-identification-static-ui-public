@@ -13,15 +13,18 @@
   "valinta__vaihtoehto__nordea": "Nordea",
   "valinta__vaihtoehto__oma_saastopankki": "Oma Säästöpankki",
   "valinta__vaihtoehto__osuuspankki": "Osuuspankki",
+  "valinta__vaihtoehto__osuuspankki_telia": "Osuuspankki (Telia)",
   "valinta__vaihtoehto__otsokko": "Valitse tunnistustapa",
   "valinta__vaihtoehto__otsikko_valitse_maa": "Valitse yhteiseurooppalaisen tunnistautumisen (eIDAS) maa",
   "valinta__vaihtoehto__pop_pankki": "POP Pankki",
   "valinta__vaihtoehto__saastopankki": "Säästöpankki",
   "valinta__vaihtoehto__spankki": "S-Pankki",
   "valinta__vaihtoehto__varmennekortti": "Varmennekortti",
-  "valinta__vaihtoehto__eIDAS_CEF": "eIDAS CEF test",
-  "valinta__vaihtoehto__eIDAS": "Muut eurooppalaiset tunnistustavat (eIDAS)",
+  "valinta__vaihtoehto__eIDAS_title": "Muu eurooppalainen tunnistaminen",
+  "valinta__vaihtoehto__eIDAS_text": "Yhteiseurooppalainen tunnistautuminen eli <1>eIDAS-tunnistautuminen</1> mahdollistaa julkishallinnon asiointipalvelujen käytön Euroopassa yli maarajojen.",
+  "valinta__vaihtoehto__eIDAS_link": "Siirry käyttämään eIDAS-tunnistautumista",
   "valinta__vaihtoehto__testidp": "Test IdP (fLoA3)",
   "valinta__vaihtoehto__vetupas2": "Testitunnistaja",
-  "valinta__palaa_tunnistajan_valintaan": "Palaa tunnistusvälineen valintaan"
+  "valinta__palaa_tunnistajan_valintaan": "Palaa tunnistusvälineen valintaan",
+  "valinta__eidas-tietosuojaseloste-linkki": "Tietosuojaseloste"
 }
