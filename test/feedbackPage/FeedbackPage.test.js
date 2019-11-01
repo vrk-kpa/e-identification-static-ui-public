@@ -9,13 +9,20 @@ import FeedbackForm from '../../src/feedbackPage/FeedbackForm.js';
 
 describe('FeedbackPage', function() {
 
+    const defaultFeedbackParams = {
+        location: {
+            sessionContextMissing: false,
+            displaySingleBackLink: true
+        }
+    }
+
     it('should show the form', function() {
         let renderer = ShallowRenderer.createRenderer();
         let router = {
             push: sinon.spy()
         };
         renderer.render(
-            <FeedbackPage>
+            <FeedbackPage {...defaultFeedbackParams} >
                 <FeedbackForm />
             </FeedbackPage>,
             {

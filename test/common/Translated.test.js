@@ -51,15 +51,20 @@ describe('Translated, when all ok,', function() {
         expect(result.props['style']).to.equal('color: red;');
     });
 
-    it('should should not add tag or id as an attribute', function() {
+    it('should should not add tag or tagId as an attribute', function() {
         let renderer = ShallowRenderer.createRenderer();
         renderer.render(
-            <Translated tag="label" id="testContentId" className="testClassName" htmlFor="foo" />
+            <Translated
+                tag="label"
+                id="testContentId"
+                className="testClassName"
+                htmlFor="foo"
+                tagId="testTagId" />
         );
 
         let result = renderer.getRenderOutput();
         expect(result.props['tag']).to.be.undefined;
-        expect(result.props['id']).to.be.undefined;
+        expect(result.props['tagId']).to.be.undefined;
     });
 
     it('should translate the content', function() {
@@ -70,5 +75,26 @@ describe('Translated, when all ok,', function() {
 
         let result = renderer.getRenderOutput();
         expect(result.props.children).to.equal('testLocalisedContent');
+        expect(result.props.id).to.equal('testContentId');
+    });
+
+    it('should replace id with provided tagId', function() {
+        let renderer = ShallowRenderer.createRenderer();
+        renderer.render(
+            <Translated tag="p" tagId="testTagId" id="testContentId" className="testClassName" />
+        );
+
+        let result = renderer.getRenderOutput();
+        expect(result.props.id).to.equal('testTagId');
+    });
+
+    it('should omit empty tagId', function() {
+        let renderer = ShallowRenderer.createRenderer();
+        renderer.render(
+            <Translated tag="p" tagId="" id="testContentId" className="testClassName" />
+        );
+
+        let result = renderer.getRenderOutput();
+        expect(result.props.id).to.equal('testContentId');
     });
 });

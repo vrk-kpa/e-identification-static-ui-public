@@ -32,19 +32,23 @@ var DiscoTimer = (function() {
     };
 })();
 
-var getJsonData = function(url, dataHandler) {
+var getJsonData = function(url, dataHandler, errorHandler) {
     var xhttp = new XMLHttpRequest();
-    xhttp.addEventListener('error', () => {console.log('An error occurred while fetching data from ', url);});
+    xhttp.addEventListener('error', () => {
+        console.log('An error occurred while fetching data from ', url);
+        errorHandler();
+    });
     xhttp.addEventListener('load', () => {
         var json;
         if (xhttp.status !== 200) {
-            return null;
+            errorHandler(new Error('Unexpected xhttp status from:' + url + ':' + xhttp.status));
         } else {
             try {
                 json = JSON.parse(xhttp.responseText);
                 dataHandler(json);
             } catch (e) {
-                console.log('Caught exception when parsing response to json');
+                console.log('Caught exception when parsing response to json', e);
+                errorHandler(e);
             }
         }
     });
@@ -83,82 +87,4 @@ var getReturnLinkUrl = function(status, queryParams) {
     return url;
 };
 
-var MetadataService = (function() {
-    var instance;
-
-    function init() {
-        let defaultApiMetadataPath =  '/api/metadata/';
-        let metadata = null;
-
-        return {
-            fetchMetadata: function(entityId, callback) {
-                let config = window.IdentificationConfig;
-                let path = (config && config.apiMetadataPath) ? config.apiMetadataPath : defaultApiMetadataPath;
-                getJsonData(path + encodeURIComponent(entityId), (data) => {
-                    callback(data);
-                });
-            },
-
-            loadMetadata: function(entityId, loadReadyListener) {
-                this.fetchMetadata(entityId, (data) => {
-                    metadata = data;
-                    loadReadyListener();
-                });
-            },
-
-            getAllowedAuthMethods: function(authMethodRequestString) {
-                if (!metadata || !metadata.attributeLevelOfAssurance) {
-                    return null;
-                }
-                const metadataAuthMethods = metadata.attributeLevelOfAssurance.split(';');
-                let requestedMethods = authMethodRequestString.split(';');
-                let allowedAuthMethods = [];
-                requestedMethods.forEach(m => {
-                    if (metadataAuthMethods.indexOf(m) >= 0) {
-                        allowedAuthMethods.push(m);
-                    }
-                });
-                return allowedAuthMethods;
-            },
-
-            mapMethodsToProviderEntityIds(authMethods, providers) {
-                let allowedProviders = [];
-                authMethods.forEach(m => {
-                    let tmp = providers.filter(function(p) {
-                        return p.levelOfAssurance === m;
-                    });
-                    allowedProviders = allowedProviders.concat(tmp.map(p => p.entityId));
-                });
-                return allowedProviders;
-            },
-
-            getAllowedAuthProviders: function(authMethodRequestString, providers) {
-                return this.mapMethodsToProviderEntityIds(this.getAllowedAuthMethods(authMethodRequestString), providers);
-            },
-
-            getServiceDisplayName: function(lang) {
-                let theMetadataDisplayName = '';
-                if (metadata && metadata.displayName) {
-                    theMetadataDisplayName = metadata.displayName[lang] ? metadata.displayName[lang] : (metadata.displayName['fi'] ? metadata.displayName['fi'] : '');
-                }
-                return theMetadataDisplayName;
-            },
-
-            getEidasSupport: function() {
-                return (metadata && metadata.eidasSupport) ? metadata.eidasSupport : '';
-            }
-        };
-    };
-
-    return {
-        getInstance: function() {
-            if (!instance) {
-                instance = init();
-            }
-            return instance;
-        }
-    };
-})();
-
-
-export {DiscoTimer, getJsonData, postFormData, getReturnLinkUrl, MetadataService};
+export {DiscoTimer, getJsonData, postFormData, getReturnLinkUrl};

@@ -12,6 +12,7 @@
   "attribute__osoite": "Lähiosoite:",
   "attribute__otsikko": "Olet tunnistautumassa palveluun",
   "attribute__personid": "Tunniste:",
+  "attribute__foreignpersonid": "Ulkomaalaisen tunniste:",
   "attribute__sukunimi": "Sukunimi:",
   "attribute__syntymaaika": "Syntymäaika",
   "attribute__tietolahde": "Henkilötietosi on haettu Väestötietojärjestelmästä.",

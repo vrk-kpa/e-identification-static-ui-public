@@ -1,7 +1,7 @@
 {
   "istunto_vanhentunut__henkilotietolain_mukainen_tietosuojaseloste": "Dataskyddsbeskrivning i enlighet med personuppgiftslagen",
   "istunto_vanhentunut__ilmoita_virheesta_tai_anna_palautetta": "Anmäl fel eller skicka respons",
-  "istunto_vanhentunut__istuntosi_on_vanhentunut_fi": "Din session har gått. Klicka på länken nedan för att återvända till e-tjänsten.",
+  "istunto_vanhentunut__istuntosi_on_vanhentunut_fi": "Din session har gått ut. Klicka på länken nedan för att återvända till e-tjänsten.",
   "istunto_vanhentunut__otsikko": "Suomi.fi-identifiering",
   "istunto_vanhentunut__palaa_palveluun": "Återvänd till tjänsten",
   "istunto_vanhentunut__pienenna_tekstikokoa": "Gör texten mindre",

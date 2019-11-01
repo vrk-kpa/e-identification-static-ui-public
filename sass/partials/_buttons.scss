@@ -122,6 +122,11 @@ button,
   }
 }
 
+.button-cancel-error-feedback {
+  @extend .button-cancel;
+  @include rem(margin-left, 0);
+}
+
 a.button,
 a.button-secondary,
 a.cancel-button {

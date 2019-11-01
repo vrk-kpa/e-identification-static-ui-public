@@ -26,10 +26,8 @@
   "tietoapalvelusta__tekniset_vaatimukset__p2": "Användning av tjänsten kräver att man i webbläsarens inställningar tillåter:",
   "tietoapalvelusta__tekniset_vaatimukset__tls": "kryptering med TSL",
   "tietoapalvelusta__vastuutahot__asiointipalvelu": "För e-tjänster som använder tjänsten Suomi.fi-identifiering ansvarar deras leverantör.",
-  "tietoapalvelusta__vastuutahot__kansalaisneuvonta": "Medborgarrådgivningen ansvarar för tjänstens användarsupport.",
-  "tietoapalvelusta__vastuutahot__mobiilivarmenne": "För identifiering med mobilcertifikat ansvarar respektive operatör.",
   "tietoapalvelusta__vastuutahot__otsikko": "Ansvariga instanser",
-  "tietoapalvelusta__vastuutahot__pankkitunnisteet": "För identifiering med bankkoder ansvarar respektive bank.",
+  "tietoapalvelusta__vastuutahot__pankkitunnisteet": "För identifiering med bankkoder och mobilcertifikat ansvarar respektive bank eller operatör samt den eventuella förmedlingsservicen för identifieringen.",
   "tietoapalvelusta__vastuutahot__varmennekortti": "Befolkningsregistercentralen ansvarar för funktionen av certifikat som finns på certifikatkort.",
-  "tietoapalvelusta__vastuutahot__vrk": "Befolkningsregistercentralen producerar tjänsten och ansvarar för dess utveckling."
+  "tietoapalvelusta__vastuutahot__vrk": "Befolkningsregistercentralen producerar tjänsten och ansvarar för dess utveckling och för dess kundsupport (se Medborgarrådgivningen ovan)."
 }

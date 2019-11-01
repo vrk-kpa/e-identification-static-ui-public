@@ -26,10 +26,8 @@
   "tietoapalvelusta__tekniset_vaatimukset__p2": "In order to use the service, the following must be enabled in the browser:",
   "tietoapalvelusta__tekniset_vaatimukset__tls": "TLS data encryption",
   "tietoapalvelusta__vastuutahot__asiointipalvelu": "Responsibility for e-services using Suomi.fi identification rests with each service provider.",
-  "tietoapalvelusta__vastuutahot__kansalaisneuvonta": "User support is provided by Public Service Info.",
-  "tietoapalvelusta__vastuutahot__mobiilivarmenne": "Responsibility for mobile certificate identification rests with each operator.",
   "tietoapalvelusta__vastuutahot__otsikko": "Parties responsible for the service",
-  "tietoapalvelusta__vastuutahot__pankkitunnisteet": "Responsibility for identification with online banking IDs rests with each bank.",
+  "tietoapalvelusta__vastuutahot__pankkitunnisteet": "Each bank or operator, as well as any authentication service used, is responsible for authentication using a bank identification or mobile identification code.",
   "tietoapalvelusta__vastuutahot__varmennekortti": "The Population Register Centre is responsible for ensuring that the certificate on the certificate card works.",
-  "tietoapalvelusta__vastuutahot__vrk": "The Population Register Centre provides the service and is responsible for its development."
+  "tietoapalvelusta__vastuutahot__vrk": "The Population Register Centre provides the service and is responsible for its development and user support (see Public Service Info above)."
 }

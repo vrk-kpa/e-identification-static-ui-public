@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Translated from '../Translated.js';
 import TranslatedTitle from '../TranslatedTitle.js';
+import Disruption from '../discoveryPage/Disruption.js';
 
 class FeedbackForm extends React.Component {
 
@@ -107,6 +108,7 @@ class FeedbackForm extends React.Component {
         return (
             <div className="col-xs-12 col-md-8 feedback-page">
                 <Translated tag="h1" id="palaute__otsikko"/>
+                <Disruption />
                 <div className="feedback-form-wrapper">
                     <div className="col-xs-12 col-md-10">
                         <div className="form-group" ref="messageValidationError">

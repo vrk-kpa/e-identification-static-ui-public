@@ -28,6 +28,8 @@ import EidasFormPage from './eidasFormPage/EidasFormPage.js';
 import EidasCancelledPage from './eidasFormPage/RequestCancelledPage';
 import EidasSentPage from './eidasFormPage/RequestSentPage';
 import EidasTietosuojaselostePage from './eidasTietosuojaselostePage/EidasTietosuojaselostePage';
+import BookmarkedPage from './bookmarkedPage/BookmarkedPage.js';
+import ParameterMissingPage from './parameterMissingPage/ParameterMissingPage.js';
 
 const serverLangCookieName = 'E-Identification-Lang';
 const fallbackLanguage = 'fi';
@@ -42,6 +44,8 @@ const translationResources = {
     '/sivut/500/': '07_tunnistus_virhesivu2_labels',
     '/sivut/timeout/': '25_tunnistus_istunto_vanhentunut_labels',
     '/sivut/cookie/': '27_tunnistus_evasteet_estetty_labels',
+    '/sivut/bookmark/': '29_tunnistus_kirjanmerkitty_disco_labels',
+    '/sivut/parameter/': '30_tunnistus_tuplaklikkaus_pankki_labels',
     '/sivut/eidas-form/': '28_tunnistus_eidas_palaute_labels',
     '/sivut/eidas-form/cancel/': '28_tunnistus_eidas_palaute_labels',
     '/sivut/eidas-form/sent/': '28_tunnistus_eidas_palaute_labels',
@@ -204,6 +208,8 @@ let routes = (
             <Redirect from="eidasForm/index.html" to="eidas-form/" />
             <Redirect from="discovery-page/index.html" to="discovery-page/" />
             <Redirect from="country-selection/index.html" to="country-selection/" />
+            <Redirect from="bookmark/index.html" to="bookmark/" />
+            <Redirect from="parameter/index.html" to="parameter/" />
             <Route path="discovery-page/" component={DiscoveryPage} />
             <Route path="country-selection/" component={DiscoveryPage} />
             <Redirect from="info" to="/sivut/404/" />
@@ -229,6 +235,8 @@ let routes = (
             <Route path="eidas-form/" component={EidasFormPage} />
             <Route path="eidas-form/cancel" component={EidasCancelledPage} />
             <Route path="eidas-form/sent" component={EidasSentPage} />
+            <Route path="bookmark/" component={BookmarkedPage} />
+            <Route path="parameter/" component={ParameterMissingPage} />
             <Redirect from="*" to="404/" />
         </Route>
         <Redirect from="*" to="/sivut/404/" />

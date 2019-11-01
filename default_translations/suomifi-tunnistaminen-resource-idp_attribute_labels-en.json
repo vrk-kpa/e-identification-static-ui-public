@@ -12,6 +12,7 @@
   "attribute__osoite": "Postal address:",
   "attribute__otsikko": "You are identifying yourself to the service",
   "attribute__personid": "Identifier:",
+  "attribute__foreignpersonid": "Foreign identifier:",
   "attribute__sukunimi": "Last name:",
   "attribute__syntymaaika": "Date of Birth",
   "attribute__tietolahde": "Your personal data has been retrieved from the Population Information System.",

@@ -6,6 +6,7 @@ import TranslatedLink from '../TranslatedLink.js';
 import TranslatedTitle from '../TranslatedTitle.js';
 import AuthPageFrame from '../AuthPageFrame.js';
 import * as Utils from '../utils.js';
+import {MetadataService} from '../MetadataService.js';
 import Bulletin from '../Bulletin';
 
 let metadataService = null;
@@ -46,7 +47,7 @@ class EidasFormPage extends React.Component {
     }
 
     getMetadata() {
-        metadataService = Utils.MetadataService.getInstance();
+        metadataService = MetadataService.getInstance();
         metadataService.loadMetadata(this.state.entityID, () => { this.setState({metadataLoaded: true}); });
     }
 

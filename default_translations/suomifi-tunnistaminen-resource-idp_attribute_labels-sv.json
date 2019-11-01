@@ -12,6 +12,7 @@
   "attribute__osoite": "Adress för boende:",
   "attribute__otsikko": "Du skall identifiera dig i tjänsten",
   "attribute__personid": "Identifierare:",
+  "attribute__foreignpersonid": "Utlänsk identifierare:",
   "attribute__sukunimi": "Efternamn:",
   "attribute__syntymaaika": "Födelsedatum",
   "attribute__tietolahde": "Dina personuppgifter har sökts i befolkningsdatasystemet.",

@@ -14,7 +14,11 @@ class Translated extends React.Component {
           }
           return copy;
       }
-      let propsCopy = clone(this.props, ['tag', 'children']);
+      let propsCopy = clone(this.props, ['tag', 'children', 'tagId']);
+
+      if (this.props.tagId) {
+        propsCopy.id = this.props.tagId;
+      }
 
       return (
          <this.props.tag {...propsCopy} data-i18n={this.props.id}>{i18n.t(this.props.id)}</this.props.tag>
@@ -25,7 +29,8 @@ class Translated extends React.Component {
 Translated.propTypes = {
     className: PropTypes.string,
     id: PropTypes.string.isRequired,
-    tag: PropTypes.string.isRequired
+    tag: PropTypes.string.isRequired,
+    tagId: PropTypes.string
 };
 
 export default Translated;

@@ -68,8 +68,11 @@ NODE_ARCHIVE=${NODE_RELEASE}.tar.xz
 NODE_INSTALLED_VERSION=`node -v`
 if [ "$no_clean" != "1" ]; then
     rm -rf node_modules
-    npm ci && npm run-script dist
+    npm ci
+    npm run test
+    npm run-script dist
 else
+    npm run test
     npm run-script dist
 fi
 

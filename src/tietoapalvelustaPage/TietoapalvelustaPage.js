@@ -42,12 +42,12 @@ class TietoapalvelustaPage extends React.Component {
                   <TranslatedPaddedLink id="tietoapalvelusta__kansalaisneuvonta__palaute_4_linkki" content_i18n_id="tietoapalvelusta__kansalaisneuvonta__palaute_4_linkki" link_i18n_id="tietoapalvelusta__kansalaisneuvonta__palaute_4_linkki_url"/>
                 </p>
                 <Translated tag="h2" id="tietoapalvelusta__vastuutahot__otsikko"/>
-                <ul className="bulleted-list"><Translated tag="li" id="tietoapalvelusta__vastuutahot__vrk"/>
-                <Translated tag="li" id="tietoapalvelusta__vastuutahot__kansalaisneuvonta"/>
-                <Translated tag="li" id="tietoapalvelusta__vastuutahot__pankkitunnisteet"/>
-                <Translated tag="li" id="tietoapalvelusta__vastuutahot__varmennekortti"/>
-                <Translated tag="li" id="tietoapalvelusta__vastuutahot__mobiilivarmenne"/>
-                <Translated tag="li" id="tietoapalvelusta__vastuutahot__asiointipalvelu"/></ul>
+                <ul className="bulleted-list">
+                  <Translated tag="li" id="tietoapalvelusta__vastuutahot__vrk"/>
+                  <Translated tag="li" id="tietoapalvelusta__vastuutahot__pankkitunnisteet"/>
+                  <Translated tag="li" id="tietoapalvelusta__vastuutahot__varmennekortti"/>
+                  <Translated tag="li" id="tietoapalvelusta__vastuutahot__asiointipalvelu"/>
+                </ul>
             </div>
         );
     };

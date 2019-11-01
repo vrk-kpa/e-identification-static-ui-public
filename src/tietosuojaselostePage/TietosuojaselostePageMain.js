@@ -12,10 +12,8 @@ class TietosuojaselostePageMain extends React.Component {
         return (
             <div className="col-xs-12 col-md-10 description-of-file">
                 <Translated tag="h1" id="tietosuojaseloste__tietosuojaseloste_h2_otsikko"/>
-                <p>
-                <Translated tag="span" id="tietosuojaseloste__henkilotietolain_mukainen_tietosuojaseloste"/><br/>
-                <Translated tag="span" id="tietosuojaseloste__seloste_laadittu"/>
-                </p>
+
+                <Translated tag="p" id="tietosuojaseloste__yleisen_tietosuojaasetuksen_mukainen_informointi"/>
 
                 <Translated tag="h2" id="tietosuojaseloste__otsikko_rekisterin_nimi"/>
                 <Translated tag="p" id="tietosuojaseloste__suomifi_tunnistuksen_tapahtumatietorekisteri"/>

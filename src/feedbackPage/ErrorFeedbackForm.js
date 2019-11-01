@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Translated from '../Translated.js';
 import TranslatedTitle from '../TranslatedTitle.js';
 import UAParser from 'ua-parser-js';
+import Disruption from '../discoveryPage/Disruption.js';
 
 var uaParser = new UAParser(window.navigator.userAgent);
 
@@ -251,7 +252,11 @@ class ErrorFeedbackForm extends React.Component {
         return (
             <div className="col-xs-12 col-md-9 error-feedback-page">
                 <Translated tag="h1" id="virhepalaute__otsikko"/>
+                <Disruption />
                 <div className="feedback-form-wrapper">
+                    <button id="error-feedback-cancel" className="button-cancel-error-feedback" onClick={this.handleAbort}>
+                        <Translated tag="span" id="virhepalaute__peruutalinkki" tagId="error-feedback-cancel-text-top">Keskeytä</Translated>
+                    </button>
                     <Translated tag="p" id="virhepalaute__p1"/>
                     <Translated tag="h2" id="virhepalaute__lomake__taustatiedot__header"/>
 
@@ -403,7 +408,7 @@ class ErrorFeedbackForm extends React.Component {
                             <Translated tag="span" id="virhepalaute__lomake__submit"/>
                         </button>
                         <button id="feedback-cancel" className="button-cancel" onClick={this.handleAbort}>
-                            <Translated tag="span" id="virhepalaute__peruutalinkki">Keskeytä</Translated>
+                            <Translated tag="span" id="virhepalaute__peruutalinkki" tagId="error-feedback-cancel-text-bottom">Keskeytä</Translated>
                         </button>
                         <Translated tag="p" className="feedback-info" id="virhepalaute__info"/>
                     </div>

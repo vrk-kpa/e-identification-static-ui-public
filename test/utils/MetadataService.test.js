@@ -1,16 +1,15 @@
 import {expect} from 'chai';
 import sinon from 'sinon';
-import * as Utils from '../../src/utils.js';
+import {MetadataService} from '../../src/MetadataService';
 
 describe('MetadataService', function() {
     let sandbox;
     let metadataService;
 
-
     beforeEach(function() {
         sandbox = sinon.createSandbox();
         //sandbox = sinonSandbox.create();
-        metadataService = Utils.MetadataService.getInstance();
+        metadataService = MetadataService.getInstance();
     });
 
     afterEach(function() {
@@ -27,23 +26,24 @@ describe('MetadataService', function() {
             attributeLevelOfAssurance: "KATSOOTP;KATSOPWD;EIDAS1;TESTI;EIDAS_LOA2;fLoA3;fLoA2;eLoA3;eLoA2",
             eidasSupport:"form"
         };
- 
+
+        let fetchMetadataStub;
+
         beforeEach(function() {
-            let fakeLoader = sinon.fake.yields(metadata);
-            sinon.replace(metadataService, 'fetchMetadata', fakeLoader);
-            
+            fetchMetadataStub = sinon.stub(metadataService, 'fetchMetadata');
+            fetchMetadataStub.callsArgWith(1, metadata);
         });
-    
+
         afterEach(function() {
             sinon.restore();
-        });    
+        });
 
         it('should call metadata ready callback', function() {
-            let spy = sinon.spy()
+            let spy = sinon.spy();
             metadataService.loadMetadata('entityid', spy);
             sinon.assert.calledOnce(spy);
         });
-        
+
         it('should return service display name with correct language', function() {
             metadataService.loadMetadata('entityid', () => {});
             expect(metadataService.getServiceDisplayName('fi')).to.equal('Palvelu');
@@ -63,16 +63,18 @@ describe('MetadataService', function() {
             attributeLevelOfAssurance: "KATSOOTP;KATSOPWD;EIDAS1;TESTI;EIDAS_LOA2;fLoA3;fLoA2;eLoA3;eLoA2",
             eidasSupport:"form"
         };
- 
+
+        let fetchMetadataStub;
+
         beforeEach(function() {
-            let fakeLoader = sinon.fake.yields(metadata);
-            sinon.replace(metadataService, 'fetchMetadata', fakeLoader);     
+            fetchMetadataStub = sinon.stub(metadataService, 'fetchMetadata');
+            fetchMetadataStub.callsArgWith(1, metadata);
             metadataService.loadMetadata('entityid', () => {});
         });
-    
+
         afterEach(function() {
             sinon.restore();
-        });    
+        });
 
         it('should return all auth methods when all are listed in metadata and request', function() {
             let authMethods = metadataService.getAllowedAuthMethods('KATSOOTP;KATSOPWD;EIDAS1;TESTI;EIDAS_LOA2;fLoA3;fLoA2;eLoA3;eLoA2');
@@ -100,16 +102,18 @@ describe('MetadataService', function() {
             attributeLevelOfAssurance: "fLoA3;fLoA2;eLoA3;eLoA2",
             eidasSupport:"form"
         };
- 
+
+        let fetchMetadataStub;
+
         beforeEach(function() {
-            let fakeLoader = sinon.fake.yields(metadata);
-            sinon.replace(metadataService, 'fetchMetadata', fakeLoader);
-            metadataService.loadMetadata('entityid', () => {});  
+            fetchMetadataStub = sinon.stub(metadataService, 'fetchMetadata');
+            fetchMetadataStub.callsArgWith(1, metadata);
+            metadataService.loadMetadata('entityid', () => {});
         });
-    
+
         afterEach(function() {
             sinon.restore();
-        });    
+        });
 
         it('should return all loa levels when all are listed in metadata and request', function() {
             let authMethods = metadataService.getAllowedAuthMethods('fLoA3;fLoA2;eLoA3;eLoA2');
@@ -161,15 +165,17 @@ describe('MetadataService', function() {
             {entityId:"eidassubstantial",levelOfAssurance:"eLoA2",}
         ];
 
+        let fetchMetadataStub
+
         beforeEach(function() {
-            let fakeLoader = sinon.fake.yields(metadata);
-            sinon.replace(metadataService, 'fetchMetadata', fakeLoader);
+            fetchMetadataStub = sinon.stub(metadataService, 'fetchMetadata');
+            fetchMetadataStub.callsArgWith(1, metadata);
             metadataService.loadMetadata('entityid', () => {});
         });
-    
+
         afterEach(function() {
             sinon.restore();
-        });    
+        });
 
         it('should return all providers when called with all methods and levels', function() {
             let authMethods = ['KATSOOTP','KATSOPWD','fLoA3','fLoA2','eLoA3','eLoA2'];
@@ -186,6 +192,31 @@ describe('MetadataService', function() {
             expect(entityIds.indexOf('nordea')).to.not.equal(-1);
             expect(entityIds.indexOf('katsootp')).to.equal(-1);
         });
+    });
+
+    describe('when fetchMetadata fails, metadataService', function() {
+
+        let fetchMetadataStub;
+        const error = new Error("oh no, error");
+
+        beforeEach(function() {
+            fetchMetadataStub = sinon.stub(metadataService, 'fetchMetadata');
+            fetchMetadataStub.callsArgWith(2, error);
+        });
+
+        afterEach(function() {
+            sinon.restore();
+        });
+
+        it('should call proper error callback', function() {
+            const successSpy = sinon.spy();
+            const errorSpy = sinon.spy();
+            metadataService.loadMetadata('entityid', successSpy, errorSpy);
+            sinon.assert.notCalled(successSpy);
+            sinon.assert.calledOnce(errorSpy);
+            sinon.assert.calledWith(errorSpy, error);
+        });
+
     });
 
 });
