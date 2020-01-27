@@ -20,7 +20,7 @@ class AuthMethod extends React.Component {
 
     render() {
         return (
-            <a href={this.getUrl()} id={this.props.id} className="button-style-link">
+            <a href={this.getUrl()} id={this.props.id} className="button-style-link" rel="noreferrer noopener">
                 <span className="organization-logo"><img src={this.props.imgSrc} alt=""/></span>
                 <div className="organization-name-container">
                 {(this.props.localisationId && this.props.localisationId !== '') ?

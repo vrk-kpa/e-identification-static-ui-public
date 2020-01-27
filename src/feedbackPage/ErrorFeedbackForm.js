@@ -6,6 +6,8 @@ import TranslatedTitle from '../TranslatedTitle.js';
 import UAParser from 'ua-parser-js';
 import Disruption from '../discoveryPage/Disruption.js';
 
+import {parseEntityIdFromQuery} from './utils.js';
+
 var uaParser = new UAParser(window.navigator.userAgent);
 
 function padLeft(nr, n, str) {
@@ -24,7 +26,7 @@ class ErrorFeedbackForm extends React.Component {
                 errorCode: true,
                 errorMessage: true
             },
-            service: '',
+            service: this.getInitialServiceName(),
             serviceAdditional: '',
             agentData: uaParser.getResult(),
             browserGiven: '',
@@ -41,7 +43,8 @@ class ErrorFeedbackForm extends React.Component {
             errorRepeats: 'virhe_ei_toistu',
             email: '',
             responseRequest: 'anonymous',
-            loading: false
+            loading: false,
+            entityId: parseEntityIdFromQuery(this.getCancelStorageContents())
         };
 
         this.state = this.initialState;
@@ -91,6 +94,26 @@ class ErrorFeedbackForm extends React.Component {
     }
     getErrorCode() {
       return this.props.location.query.error ? decodeURIComponent(this.props.location.query.error) : '';
+    }
+
+    getInitialServiceName() {
+        return this.getStoredServiceDisplayName();
+    }
+
+    getCancelStorageContents() {
+        if (window.sessionStorage) {
+            return sessionStorage.getItem('cancelStorage') || '';
+        } else {
+            return '';
+        }
+    }
+
+    getStoredServiceDisplayName() {
+        if (window.sessionStorage) {
+            return sessionStorage.getItem('serviceDisplayNameForFeedback') || '';
+        } else {
+            return '';
+        }
     }
     displayDate() {
         // Finnish format
@@ -235,7 +258,8 @@ class ErrorFeedbackForm extends React.Component {
                             time: this.state.errorTime.trim(),
                             errorDescription: this.state.errorDescription.trim(),
                             errorRepeats: this.state.errorRepeats,
-                            email: this.state.email.trim()
+                            email: this.state.email.trim(),
+                            entityId: this.state.entityId
                         }
                     });
                     this.setState(this.initialState);
@@ -403,6 +427,7 @@ class ErrorFeedbackForm extends React.Component {
                                 : ''
                             }
                         </fieldset>
+                        <input id="feedback-entity-id" type="hidden" name="entityId" value={this.state.entityId !== '' ? this.state.entityId : 'ei-tiedossa'}/>
                         <button id="feedback-submit" onClick={this.handleSubmit} disabled={this.state.loading ? true : false}>
                             <span className="button-loader" style={{display: this.state.loading ? '' : 'none'}}/>
                             <Translated tag="span" id="virhepalaute__lomake__submit"/>

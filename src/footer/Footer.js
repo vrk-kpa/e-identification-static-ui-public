@@ -52,9 +52,11 @@ class Footer extends React.Component {
             if (knownType !== null) {
                 query.frompage = knownType;
             }
+
         }
         return query;
     }
+
 
     render() {
         const errorFeedbackQuery =  this.createErrorFeedbackQuery();

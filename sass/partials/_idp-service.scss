@@ -24,16 +24,6 @@
       @include rem(margin, 0 0 16px 57px);
     }
 
-    &:before {
-      display: block;
-      position: absolute;
-      content: ' ';
-      background: url('/resources/img/vrk_logo.svg') no-repeat;
-      background-size: contain;
-      height: 32px;
-      width: 42px;
-      margin-top: 3px;
-    }
   }
 }
 

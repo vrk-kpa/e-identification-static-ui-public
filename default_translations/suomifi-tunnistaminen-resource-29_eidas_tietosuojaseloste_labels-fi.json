@@ -5,7 +5,7 @@
   "eidas-tietosuojaseloste__rekisterin-nimi_otsikko": "1. Rekisterin nimi",
   "eidas-tietosuojaseloste__rekisterin-nimi_kappale": "Rajat ylittävien tunnisteiden tapahtumatietorekisteri",
   "eidas-tietosuojaseloste__rekisterinpitaja_otsikko": "2. Rekisterinpitäjä",
-  "eidas-tietosuojaseloste__rekisterinpitaja_vrk": "Väestörekisterikeskus",
+  "eidas-tietosuojaseloste__rekisterinpitaja_vrk": "Digi- ja väestötietovirasto",
   "eidas-tietosuojaseloste__rekisterinpitaja_vrk-osoite": "Lintulahdenkuja 4, 00530 Helsinki ",
   "eidas-tietosuojaseloste__rekisterinpitaja_vrk-yhteystiedot": "Puhelin (vaihde) 0295 535 001, sähköposti kirjaamo(a)vrk.fi",
   "eidas-tietosuojaseloste__yhteyshenkilo_otsikko": "3. Yhteyshenkilö rekisteriä koskevissa asioissa",
@@ -20,8 +20,8 @@
   "eidas-tietosuojaseloste__sailytysaika_kappale": "Rekisterinpitäjä säilyttää rekisterin tiedot viisi vuotta tunnistustapahtumaa seuraavan kalenterivuoden alusta lukien.",
   "eidas-tietosuojaseloste__sailytyksen-tarkoitus_otsikko": "6. Henkilötietojen käsittelyn tarkoitus ja oikeusperuste",
   "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale1": "Rekisteri on Kansallisen solmupisteen (Solmupiste) rajat ylittävien tunnistustapahtumien tapahtumatietorekisteri tunnistauduttaessa suomalaisiin verkkopalveluihin. Solmupistettä tuotetaan ns. eIDAS-asetuksen nojalla (910/2014). Asetuksen mukaan julkishallinnon toimijoiden tulee vastavuoroisesti hyväksyä muiden EU-maiden kansalaisten vahva sähköinen tunnistaminen asiointipalveluissaan, mikäli tunnistusväline on notifioitu asetuksen mukaisesti. ",
-  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale2": "Vahvasta sähköisestä tunnistamisesta ja sähköisistä luottamuspalveluista annetun lain (617/2009) 42 §:ssä on säädetty Solmupisteen tuottaminen Väestörekisterikeskuksen vastuulle. Henkilötietojen käsittely on tarpeen palvelussa tuotettavan vahvan sähköisen tunnistamisen toteuttamiseksi. Siten henkilötietoja käsitellään tietosuoja-asetuksen 6 artiklan 1-kohdan c alakohdan nojalla.",
-  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale3": "Rekisteriin tallennettuja tietoja käytetään Solmupisteen käytön seurantaan ja valvontaan, virhetilanteiden selvittämiseen sekä mahdollisten väärinkäytösten ja tietosuojaloukkausten selvittämiseen. Rekisteriin tallennettuja tapahtumatietoja käytetään myös tilastointitarpeisiin. ",
+  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale2": "Vahvasta sähköisestä tunnistamisesta ja sähköisistä luottamuspalveluista annetun lain (617/2009) 42 §:ssä on säädetty Solmupisteen tuottaminen Digi- ja väestötietoviraston vastuulle. Henkilötietojen käsittely on tarpeen palvelussa tuotettavan vahvan sähköisen tunnistamisen toteuttamiseksi. Siten henkilötietoja käsitellään tietosuoja-asetuksen 6 artiklan 1-kohdan c alakohdan nojalla.",
+  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale3": "Rekisteriin tallennettuja tietoja käytetään Solmupisteen käytön seurantaan ja valvontaan, virhetilanteiden selvittämiseen sekä mahdollisten väärinkäytösten ja tietosuojaloukkausten selvittämiseen. Rekisteriin tallennettuja tapahtumatietoja käytetään myös tilastointitarpeisiin sekä palvelun käytön analysointiin ja kehittämiseen.",
   "eidas-tietosuojaseloste__tietosisalto_otsikko": "7. Rekisterin tietosisältö",
   "eidas-tietosuojaseloste__tietosisalto_kappale1": "Vahvasti tunnistautuneesta henkilöstä välitettävät vähimmäisvaatimukset tulevat Solmupisteen täytäntöönpanoasetuksen (EU 2015/1501) liitteestä. Liitteen mukaan luonnollisen henkilön vähimmäistietojen on sisällettävä kaikki seuraavat pakolliset määreet: ",
   "eidas-tietosuojaseloste__tietosisalto_lista1-sukunimi": "nykyinen sukunimi (-nimet)",
@@ -49,7 +49,7 @@
   "eidas-tietosuojaseloste__automaattiset-paatokset_otsikko": "12. Mahdollisen automaattisen päätöksenteon olemassaolo",
   "eidas-tietosuojaseloste__automaattiset-paatokset_kappale": "Henkilörekisterin tietojen perusteella ei suoriteta automaattista päätöksentekoa tai profilointia.",
   "eidas-tietosuojaseloste__tarkastusoikeus_otsikko": "13. Tarkastusoikeus",
-  "eidas-tietosuojaseloste__tarkastusoikeus_kappale": "Rekisteröidyllä on oikeus pyytää rekisterinpitäjältä pääsyä häntä itseään koskeviin henkilötietoihin eli tarkastaa henkilörekisteriin talletetut tietonsa. Lisäksi jokaisella on oikeus tarkistaa, ettei hänestä ole rekisterissä tietoja. Tarkastuspyyntö tulee osoittaa kirjallisena Väestörekisterin kirjaamoon, jonka yhteystiedot löytyvät kohdasta 2.",
+  "eidas-tietosuojaseloste__tarkastusoikeus_kappale": "Rekisteröidyllä on oikeus pyytää rekisterinpitäjältä pääsyä häntä itseään koskeviin henkilötietoihin eli tarkastaa henkilörekisteriin talletetut tietonsa. Lisäksi jokaisella on oikeus tarkistaa, ettei hänestä ole rekisterissä tietoja. Tarkastuspyyntö tulee osoittaa kirjallisena Digi- ja väestötietoviraston kirjaamoon, jonka yhteystiedot löytyvät kohdasta 2.",
   "eidas-tietosuojaseloste__tiedon-korjaaminen_otsikko": "14. Oikeus vaatia tiedon korjaamista",
   "eidas-tietosuojaseloste__tiedon-korjaaminen_kappale": "Ei oikeutta tapahtumatietojen korjaamiseen.",
   "eidas-tietosuojaseloste__suostumuksen-peruuttaminen_otsikko": "15. Rekisteröidyn suostumuksen peruuttaminen",
@@ -61,5 +61,5 @@
   "eidas-tietosuojaseloste__muu-informaatio_otsikko": "18. Muu informaatio",
   "eidas-tietosuojaseloste__muu-informaatio_kappale-osa1": "Tietosuojaseloste on nähtävillä osoitteessa ",
   "eidas-tietosuojaseloste__muu-informaatio_url": "https://tunnistaminen.suomi.fi/sivut/info/eidas-tietosuojaseloste/",
-  "eidas-tietosuojaseloste__muu-informaatio_kappale-osa2": " sekä saatavilla Väestörekisterikeskuksen kirjaamosta."
+  "eidas-tietosuojaseloste__muu-informaatio_kappale-osa2": " sekä saatavilla Digi- ja väestötietoviraston kirjaamosta."
   }

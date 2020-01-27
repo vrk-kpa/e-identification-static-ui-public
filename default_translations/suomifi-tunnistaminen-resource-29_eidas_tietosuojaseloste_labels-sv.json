@@ -5,7 +5,7 @@
   "eidas-tietosuojaseloste__rekisterin-nimi_otsikko": "1. Registrets namn",
   "eidas-tietosuojaseloste__rekisterin-nimi_kappale": "Transaktionsregister för gränsöverskridande identifierare",
   "eidas-tietosuojaseloste__rekisterinpitaja_otsikko": "2. Personuppgiftsansvarig",
-  "eidas-tietosuojaseloste__rekisterinpitaja_vrk": "Befolkningsregistercentralen",
+  "eidas-tietosuojaseloste__rekisterinpitaja_vrk": "Myndigheten för digitalisering och befolkningsdata",
   "eidas-tietosuojaseloste__rekisterinpitaja_vrk-osoite": "Fågelviksgränden 4, 00530 Helsingfors",
   "eidas-tietosuojaseloste__rekisterinpitaja_vrk-yhteystiedot": "Telefon (växel) 0295 535 001, e-post kirjaamo(a)vrk.fi",
   "eidas-tietosuojaseloste__yhteyshenkilo_otsikko": "3. Kontaktperson i ärenden som gäller registret",
@@ -20,8 +20,8 @@
   "eidas-tietosuojaseloste__sailytysaika_kappale": "Den personuppgiftsansvarige ska bevara uppgifterna i registret i fem år räknat från ingången av det kalenderår som följer efter identifieringstransaktionen.",
   "eidas-tietosuojaseloste__sailytyksen-tarkoitus_otsikko": "6. Syfte med och rättslig grund för behandlingen av personuppgifter",
   "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale1": "Registret är ett transaktionsregister i den Nationella noden (Nod) för gränsöverskridande identifieringar i finländska webbtjänster. Noden produceras med stöd av den s.k. eIDAS-förordningen (910/2014). Enligt förordningen bör offentliga aktörer godkänna elektronisk identifiering av medborgare i andra EU-länder i sina e-tjänster om identifieringsverktyget har godkänts enligt förordningen.",
-  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale2": "Befolkningsregistercentralen producerar Noden i enlighet med 42 § i lagen om stark autentisering och betrodda elektroniska tjänster (617/2009). Behandlingen av personuppgifter behövs för att genomföra stark elektronisk identifiering i tjänsten. Personuppgifter behandlas enligt artikel 6 punkt 1 c i dataskyddsförordningen.",
-  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale3": "Uppgifter som sparats i registret används för uppföljning och övervakning av nodens användning samt för utredning av fel, eventuella missbruk och eventuella brott mot dataskydd. Transaktionsinformation som sparats i registret används också för statistikföring.",
+  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale2": "Myndigheten för digitalisering och befolkningsdata producerar Noden i enlighet med 42 § i lagen om stark autentisering och betrodda elektroniska tjänster (617/2009). Behandlingen av personuppgifter behövs för att genomföra stark elektronisk identifiering i tjänsten. Personuppgifter behandlas enligt artikel 6 punkt 1 c i dataskyddsförordningen.",
+  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale3": "Uppgifter som sparats i registret används för uppföljning och övervakning av nodens användning samt för utredning av fel, eventuella missbruk och eventuella brott mot dataskydd. Transaktionsinformation som sparats i registret används också för statistikföring samt för att analysera tjänstens användning och utveckla tjänsten.",
   "eidas-tietosuojaseloste__tietosisalto_otsikko": "7. Registrets datainnehåll",
   "eidas-tietosuojaseloste__tietosisalto_kappale1": "De minimikrav som förmedlas om starkt identifierade personer kommer från bilagan till Nodens genomförandeförordning (EU 2015/1501). Enligt bilagan måste minimiuppsättningen av uppgifter för en fysisk person innehålla följande obligatoriska attribut:",
   "eidas-tietosuojaseloste__tietosisalto_lista1-sukunimi": "nuvarande efternamn",
@@ -49,7 +49,7 @@
   "eidas-tietosuojaseloste__automaattiset-paatokset_otsikko": "12. Eventuellt automatiskt beslutsfattande",
   "eidas-tietosuojaseloste__automaattiset-paatokset_kappale": "Inget automatiskt beslutsfattande och ingen automatisk profilering görs utifrån uppgifterna i personregistret.",
   "eidas-tietosuojaseloste__tarkastusoikeus_otsikko": "13. Granskningsrätt",
-  "eidas-tietosuojaseloste__tarkastusoikeus_kappale": "Registrerade personer har rätt att be den personuppgiftsansvarige om tillgång till sina egna personuppgifter för att granska de uppgifter som finns om dem i personregistret. Dessutom har alla rätt att kontrollera att det inte finns uppgifter om dem i registret. En skriftlig begäran om granskning ska skickas till Befolkningsregistercentralens registratorskontor. Kontaktuppgifterna finns i punkt 2.",
+  "eidas-tietosuojaseloste__tarkastusoikeus_kappale": "Registrerade personer har rätt att be den personuppgiftsansvarige om tillgång till sina egna personuppgifter för att granska de uppgifter som finns om dem i personregistret. Dessutom har alla rätt att kontrollera att det inte finns uppgifter om dem i registret. En skriftlig begäran om granskning ska skickas till Myndigheten för digitalisering och befolkningsdatas registratorskontor. Kontaktuppgifterna finns i punkt 2.",
   "eidas-tietosuojaseloste__tiedon-korjaaminen_otsikko": "14. Rätt att yrka på ändring av uppgift",
   "eidas-tietosuojaseloste__tiedon-korjaaminen_kappale": "Rätt till ändring av transaktionsuppgifter föreligger inte.",
   "eidas-tietosuojaseloste__suostumuksen-peruuttaminen_otsikko": "15. Återkallande av samtycke",
@@ -61,5 +61,5 @@
   "eidas-tietosuojaseloste__muu-informaatio_otsikko": "18. Övrig information",
   "eidas-tietosuojaseloste__muu-informaatio_kappale-osa1": "Dataskyddsbeskrivningen finns på adressen ",
   "eidas-tietosuojaseloste__muu-informaatio_url": "https://tunnistaminen.suomi.fi/sivut/info/eidas-tietosuojaseloste/",
-  "eidas-tietosuojaseloste__muu-informaatio_kappale-osa2": " och kan även fås från Befolkningsregistercentralens registratorskontor."
+  "eidas-tietosuojaseloste__muu-informaatio_kappale-osa2": " och kan även fås från Myndigheten för digitalisering och befolkningsdatas registratorskontor."
   }

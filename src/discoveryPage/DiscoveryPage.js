@@ -179,6 +179,12 @@ class DiscoveryPage extends React.Component {
         );
     }
 
+    storeServiceDisplayNameForFeedback(serviceDisplayName) {
+        if (window.sessionStorage) {
+            sessionStorage.setItem('serviceDisplayNameForFeedback', serviceDisplayName);
+        }
+    }
+
     render() {
         let onDiscoPage = true;
         if (this.props.location.pathname === '/sivut/country-selection/') {
@@ -198,6 +204,8 @@ class DiscoveryPage extends React.Component {
             this.cancelAndReturnToService();
             return null;
         }
+
+        this.storeServiceDisplayNameForFeedback(serviceDisplayName);
 
         var discoTimer = Utils.DiscoTimer.getInstance();
         if (!discoTimer.isTimerOn()) {

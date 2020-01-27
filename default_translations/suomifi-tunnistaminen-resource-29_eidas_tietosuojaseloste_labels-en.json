@@ -5,7 +5,7 @@
   "eidas-tietosuojaseloste__rekisterin-nimi_otsikko": "1. Name of register",
   "eidas-tietosuojaseloste__rekisterin-nimi_kappale": "Event log file for cross-border identifiers",
   "eidas-tietosuojaseloste__rekisterinpitaja_otsikko": "2. Controller",
-  "eidas-tietosuojaseloste__rekisterinpitaja_vrk": "Population Register Centre",
+  "eidas-tietosuojaseloste__rekisterinpitaja_vrk": "Digital and Population Data Services Agency",
   "eidas-tietosuojaseloste__rekisterinpitaja_vrk-osoite": "Lintulahdenkuja 4, FI-00530 Helsinki ",
   "eidas-tietosuojaseloste__rekisterinpitaja_vrk-yhteystiedot": "Telephone (switchboard) +358 295 535 001, email kirjaamo(at)vrk.fi",
   "eidas-tietosuojaseloste__yhteyshenkilo_otsikko": "3. Contact person in register-related matters",
@@ -20,8 +20,8 @@
   "eidas-tietosuojaseloste__sailytysaika_kappale": "The controller will retain the registered data for a period of five years from the beginning of the calendar year following the identification event.",
   "eidas-tietosuojaseloste__sailytyksen-tarkoitus_otsikko": "6. Purpose and legal basis for pro-cessing of personal data",
   "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale1": "The register serves as the event log file of cross-border identification events for the National Node (Node) when users log into Finnish online services. The Node is based on the elDAS regulation (910/2014). Under the regulation, public administration actors must mutually recognise strong electronic identification of citizens of other EU Member States in their e-services, if the identification means used have been notified in accordance with the regulation.",
-  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale2": "Under section 42 of the Act on Strong Electronic Identification and Electronic Signatures (617/2009), the generation of the Node is the responsibility of the Population Register Centre. Processing of personal data is necessary so that the strong electronic identification generated in the service can be implemented. For this reason, the personal data is processed in accordance with Article 6(1)(c) of the General Data Protection Regulation.",
-  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale3": "The data entered in the register is used for the follow-up and monitoring of the Node use, fault investigation and investigation of any abuses and data security violations. The event log data entered in the register is also used for statistical purposes.",
+  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale2": "Under section 42 of the Act on Strong Electronic Identification and Electronic Signatures (617/2009), the generation of the Node is the responsibility of the Digital and Population Data Services Agency. Processing of personal data is necessary so that the strong electronic identification generated in the service can be implemented. For this reason, the personal data is processed in accordance with Article 6(1)(c) of the General Data Protection Regulation.",
+  "eidas-tietosuojaseloste__sailytyksen-tarkoitus_kappale3": "The data entered in the register is used for the follow-up and monitoring of the Node use, fault investigation and investigation of any abuses and data security violations. The event log data entered in the register is also used for statistical purposes, as well as for usage analysis and development of the service.",
   "eidas-tietosuojaseloste__tietosisalto_otsikko": "7. Register data content",
   "eidas-tietosuojaseloste__tietosisalto_kappale1": "The minimum data requirements for strongly identified persons are laid down in the Annex to the Node implementing regulation (EU 2015/1501). Under the Annex, the minimum data set for a natural person must contain all of the following mandatory attributes:",
   "eidas-tietosuojaseloste__tietosisalto_lista1-sukunimi": "current family name(s)",
@@ -49,7 +49,7 @@
   "eidas-tietosuojaseloste__automaattiset-paatokset_otsikko": "12. Existence of automated decision-making",
   "eidas-tietosuojaseloste__automaattiset-paatokset_kappale": "No automated decision-making or profiling is performed on the basis of the data from the personal data file.",
   "eidas-tietosuojaseloste__tarkastusoikeus_otsikko": "13. Right of inspection",
-  "eidas-tietosuojaseloste__tarkastusoikeus_kappale": "The data subject has the right to request that the controller provides them with access to their personal data (so that the data subject can check the information that is kept on them in the personal data file). Every person also has the right to check that there is no information on them in the register. A request for checking must be submitted in writing to the Population Register Centre's registry (see section 2 for contact information).",
+  "eidas-tietosuojaseloste__tarkastusoikeus_kappale": "The data subject has the right to request that the controller provides them with access to their personal data (so that the data subject can check the information that is kept on them in the personal data file). Every person also has the right to check that there is no information on them in the register. A request for checking must be submitted in writing to the Digital and Population Data Services Agency's registry (see section 2 for contact information).",
   "eidas-tietosuojaseloste__tiedon-korjaaminen_otsikko": "14. Right to demand data correction",
   "eidas-tietosuojaseloste__tiedon-korjaaminen_kappale": "No right to correct event logs.",
   "eidas-tietosuojaseloste__suostumuksen-peruuttaminen_otsikko": "15. Cancelling data subject’s consent",
@@ -61,5 +61,5 @@
   "eidas-tietosuojaseloste__muu-informaatio_otsikko": "18. Other information",
   "eidas-tietosuojaseloste__muu-informaatio_kappale-osa1": "The privacy statement is available at ",
   "eidas-tietosuojaseloste__muu-informaatio_url": "https://tunnistaminen.suomi.fi/sivut/info/eidas-tietosuojaseloste/ (in Finnish)",
-  "eidas-tietosuojaseloste__muu-informaatio_kappale-osa2": " or in the Population Register Centre's registry."
+  "eidas-tietosuojaseloste__muu-informaatio_kappale-osa2": " or in the Digital and Population Data Services Agency's registry."
   }
