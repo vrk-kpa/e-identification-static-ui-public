@@ -1,15 +1,5 @@
 {
-  "istunto_vanhentunut__henkilotietolain_mukainen_tietosuojaseloste": "Description of file in compliance with the Personal Data Act",
-  "istunto_vanhentunut__ilmoita_virheesta_tai_anna_palautetta": "Report an error or give feedback",
   "istunto_vanhentunut__istuntosi_on_vanhentunut_fi": "Your session has expired. You can use the link below to return to the service.",
-  "istunto_vanhentunut__otsikko": "Suomi.fi identification",
   "istunto_vanhentunut__palaa_palveluun": "Back to service",
-  "istunto_vanhentunut__pienenna_tekstikokoa": "Zoom out",
-  "istunto_vanhentunut__siirry_suoraan_sisaltoon": "Go directly to content",
-  "istunto_vanhentunut__suomifi_tunnistamisesta_vastaa": "Suomi.fi identification is the responsibility of the",
-  "istunto_vanhentunut__suurenna_tekstikokoa": "Zoom in",
-  "istunto_vanhentunut__tietoa_suomifi_tunnistamisesta": "Information on Suomi.fi identification",
-  "istunto_vanhentunut__vaestorekisterikeskus": "Population Register Centre",
-  "istunto_vanhentunut__vrk_logo__alt_text": "Population Register Centre logo",
   "testword": "EN_kala"
 }

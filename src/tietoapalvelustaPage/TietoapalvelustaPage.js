@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Translated from '../Translated.js';
+import TranslatedLink from '../TranslatedLink';
 import TranslatedPaddedLink from '../TranslatedPaddedLink.js';
 import TranslatedTitle from '../TranslatedTitle.js';
 
@@ -19,10 +20,12 @@ class TietoapalvelustaPage extends React.Component {
                 <Translated tag="p" id="tietoapalvelusta__perusasioita__p2"/>
                 <p>
                   <Translated tag="span" id="tietoapalvelusta__perusasioita__p3_1"/>
-                  <TranslatedPaddedLink link_i18n_id="/sivut/info/tietosuojaseloste/" id="tietoapalvelusta__perusasioita__p3_2_tietosuojalinkki" content_i18n_id="tietoapalvelusta__perusasioita__p3_2_tietosuojalinkki"/>
+                  <Translated tag="span" id="tietoapalvelusta__perusasioita__p3_2_tietosuojalinkki_prefix"/>
+                  <TranslatedLink link_i18n_id="tietoapalvelusta__perusasioita__p3_2_tietosuojalinkki_url" id="tietoapalvelusta__perusasioita__p3_2_tietosuojalinkki" content_i18n_id="tietoapalvelusta__perusasioita__p3_2_tietosuojalinkki"/>
                   <Translated tag="span" id="tietoapalvelusta__perusasioita__p3_3"/>
                 </p>
                 <Translated tag="p" id="tietoapalvelusta__perusasioita__p4"/>
+                <Translated tag="p" id="tietoapalvelusta__perusasioita__p4_1"/>
                 <Translated tag="p" id="tietoapalvelusta__perusasioita__p5"/>
                 <Translated tag="h2" id="tietoapalvelusta__tekniset_vaatimukset__otsikko"/>
                 <Translated tag="p" id="tietoapalvelusta__tekniset_vaatimukset__p1"/>

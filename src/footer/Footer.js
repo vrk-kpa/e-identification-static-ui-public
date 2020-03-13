@@ -5,6 +5,7 @@ import i18n from 'i18next';
 
 import Translated from '../Translated.js';
 import TranslatedImage from '../TranslatedImage.js';
+import TranslatedLink from '../TranslatedLink';
 
 class Footer extends React.Component {
     scrollToTop(e) {
@@ -76,9 +77,7 @@ class Footer extends React.Component {
                             </Link>
                         </li>
                         <li>
-                            <Link to={{pathname: '/sivut/info/tietosuojaseloste/', state: {sessionContextMissing: this.props.sessionContextMissing}}} id="footer__tietosuojaseloste">
-                                {i18n.t('footer__tietosuojaseloste')}
-                            </Link>
+                            <TranslatedLink link_i18n_id='footer__tietosuoja_link' content_i18n_id='footer__tietosuoja' id='footer__tietosuoja' />
                         </li>
                     </ul>
                     <ul className="footer-links-feedback">

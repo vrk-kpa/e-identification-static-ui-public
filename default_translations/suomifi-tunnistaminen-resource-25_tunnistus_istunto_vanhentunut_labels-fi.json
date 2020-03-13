@@ -1,15 +1,5 @@
 {
-  "istunto_vanhentunut__henkilotietolain_mukainen_tietosuojaseloste": "Henkilötietolain mukainen tietosuojaseloste",
-  "istunto_vanhentunut__ilmoita_virheesta_tai_anna_palautetta": "Ilmoita virheestä tai anna palautetta",
   "istunto_vanhentunut__istuntosi_on_vanhentunut_fi": "Istuntosi on vanhentunut, alla olevasta linkistä voit palata takaisin asiointipalveluun.",
-  "istunto_vanhentunut__otsikko": "Suomi.fi-tunnistus",
   "istunto_vanhentunut__palaa_palveluun": "Palaa palveluun",
-  "istunto_vanhentunut__pienenna_tekstikokoa": "Pienennä tekstikokoa",
-  "istunto_vanhentunut__siirry_suoraan_sisaltoon": "Siirry suoraan sisältöön",
-  "istunto_vanhentunut__suomifi_tunnistamisesta_vastaa": "Suomi.fi-tunnistuksesta vastaa",
-  "istunto_vanhentunut__suurenna_tekstikokoa": "Suurenna tekstikokoa",
-  "istunto_vanhentunut__tietoa_suomifi_tunnistamisesta": "Tietoa Suomi.fi-tunnistuksesta",
-  "istunto_vanhentunut__vaestorekisterikeskus": "Väestörekisterikeskus",
-  "istunto_vanhentunut__vrk_logo__alt_text": "Väestörekisterikeskus logo",
   "testword": "FI_kala"
 }

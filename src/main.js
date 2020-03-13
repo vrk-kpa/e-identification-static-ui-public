@@ -14,7 +14,6 @@ import Footer from './footer/Footer.js';
 
 import DiscoveryPage from './discoveryPage/Main.js';
 import TietoapalvelustaPage from './tietoapalvelustaPage/TietoapalvelustaPage.js';
-import TietosuojaselostePageMain from './tietosuojaselostePage/TietosuojaselostePageMain.js';
 import FeedbackPage from './feedbackPage/FeedbackPage.js';
 import FeedbackForm from './feedbackPage/FeedbackForm.js';
 import ErrorFeedbackForm from './feedbackPage/ErrorFeedbackForm.js';
@@ -27,7 +26,6 @@ import CookiesDisabledPage from './cookiesDisabledPage/CookiesDisabledPage.js';
 import EidasFormPage from './eidasFormPage/EidasFormPage.js';
 import EidasCancelledPage from './eidasFormPage/RequestCancelledPage';
 import EidasSentPage from './eidasFormPage/RequestSentPage';
-import EidasTietosuojaselostePage from './eidasTietosuojaselostePage/EidasTietosuojaselostePage';
 import BookmarkedPage from './bookmarkedPage/BookmarkedPage.js';
 import ParameterMissingPage from './parameterMissingPage/ParameterMissingPage.js';
 
@@ -50,8 +48,6 @@ const translationResources = {
     '/sivut/eidas-form/cancel/': '28_tunnistus_eidas_palaute_labels',
     '/sivut/eidas-form/sent/': '28_tunnistus_eidas_palaute_labels',
     '/sivut/info/tietoapalvelusta/': '20_tunnistus_tietoapalvelusta_labels',
-    '/sivut/info/tietosuojaseloste/': '21_tunnistus_tietosuojaseloste_labels',
-    '/sivut/info/eidas-tietosuojaseloste/': '29_eidas_tietosuojaseloste_labels'
 };
 
 
@@ -219,14 +215,11 @@ let routes = (
                 <Redirect from="palaute/kiitos/index.html" to="palaute/kiitos/" />
                 <Redirect from="palaute/peruuta/index.html" to="palaute/peruuta/" />
                 <Redirect from="tietoapalvelusta/index.html" to="tietoapalvelusta/" />
-                <Redirect from="tietosuojaseloste/index.html" to="tietosuojaseloste/" />
                 <Route path="palaute/" component={FeedbackForm} />
                 <Route path="virhepalaute/" component={ErrorFeedbackForm} />
                 <Route path="palaute/kiitos/" component={ThanksPage} />
                 <Route path="palaute/peruuta/" component={CancelledPage} />
                 <Route path="tietoapalvelusta/" component={TietoapalvelustaPage} />
-                <Route path="tietosuojaseloste/" component={TietosuojaselostePageMain} />
-                <Route path="eidas-tietosuojaseloste/" component={EidasTietosuojaselostePage} />
             </Route>
             <Route path="404/" component={NotFoundPage} />
             <Route path="500/" component={InternalErrorPage} />

@@ -12,7 +12,7 @@ let authMethodConfig = {
         'entityId': 'MOBIILI'
     },
     vrk: {
-        'imgSrc': '/resources/images/VRK_95x70.png',
+        'imgSrc': '/resources/images/DVV-logo.png',
         'id': 'varmennekortti',
         'loc_id': 'valinta__vaihtoehto__varmennekortti',
         'entityId': 'VARMENNEKORTTI'
@@ -54,7 +54,7 @@ let authMethodConfig = {
         'entityId': 'SPANKKI'
     },
     aktia: {
-        'imgSrc': '/resources/images/bank_buttons/aktia_button_60x70.png',
+        'imgSrc': '/resources/images/bank_buttons/Aktia20_logo.png',
         'id': 'aktia',
         'loc_id': 'valinta__vaihtoehto__aktia',
         'entityId': 'AKTIA'
