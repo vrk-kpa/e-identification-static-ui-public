@@ -1,0 +1,15 @@
+{
+  "display" : false,
+  "fi": {
+    "message": "Suomeksi, eidas error",
+    "date": "dd.mm.yyyy hh:mm"
+  },
+  "sv": {
+    "message": "På svenska, eidas error",
+    "date": "dd.mm.yyyy hh:mm"
+  },
+  "en": {
+    "message": "English, eidas error",
+    "date": "yyyy-mm-dd hh:mm"
+  }
+}

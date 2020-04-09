@@ -6,5 +6,7 @@ var IdentificationConfig = {
     apiCountryPath: "/api/country/",
     idpAuthnPath: "/idp/authn/External",
     tlsCheckUrl: "{{ discovery_page_tls_check_url}}",
-    showTLSWarning: "{{ discovery_page_show_tls_warning }}"
+    showTLSWarning: "{{ discovery_page_show_tls_warning }}",
+    disruptionUrl: "{{ disruption_message_url }}",
+    eidasDisruptionUrl: "{{ disruption_message_eidas_url }}"
 };

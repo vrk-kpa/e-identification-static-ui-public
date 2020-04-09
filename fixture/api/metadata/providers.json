@@ -1,6 +1,6 @@
 [
   {
-     "entityId":"https://solo3.nordea.fi/cgi-bin/SOLO3011",
+     "entityId":"NORDEA",
      "name":"Nordea",
      "acsAddress":"https://www.tunnistus.fi/ubitp/saml2/names/ac/tupas.nordea.3",
      "sloAddress":null,
@@ -29,7 +29,7 @@
      "loginContext":"/Shibboleth.sso/LoginNordea"
   },
   {
-     "entityId":"https://kultaraha.osuuspankki.fi/cgi-bin/krcgi",
+     "entityId":"OSUUSPANKKI",
      "name":"Osuuspankki",
      "acsAddress":"https://www.tunnistus.fi/ubitp/saml2/names/ac/tupas.oko.3",
      "sloAddress":null,
@@ -58,7 +58,7 @@
      "loginContext":"/Shibboleth.sso/LoginOsuuspankki"
   },
   {
-     "entityId":"https://tupas.saastopankki.fi",
+     "entityId":"SAASTOPANKKI",
      "name":"Saastopankki",
      "acsAddress":"https://www.tunnistus.fi/ubitp/saml2/names/ac/tupas.saastopankki.3",
      "sloAddress":null,
@@ -87,7 +87,7 @@
      "loginContext":"/Shibboleth.sso/LoginSaastopankki"
   },
   {
-     "entityId":"https://tunnistepalvelu.samlink.fi/TupasTunnistus/TupasServlet",
+     "entityId":"AKTIA",
      "name":"Aktia",
      "acsAddress":"https://www.tunnistus.fi/ubitp/saml2/names/ac/tupas.aktia.3",
      "sloAddress":null,
@@ -116,7 +116,7 @@
      "loginContext":"/Shibboleth.sso/LoginAktia"
   },
   {
-     "entityId":"https://online.alandsbanken.fi/service/identify",
+     "entityId":"ALANDSBANKEN",
      "name":"Alandsbanken",
      "acsAddress":"https://www.tunnistus.fi/ubitp/saml2/names/ac/tupas.alandsbanken.3",
      "sloAddress":null,
@@ -145,7 +145,7 @@
      "loginContext":"/Shibboleth.sso/LoginAlandsbanken"
   },
   {
-     "entityId":"https://online.s-pankki.fi/service/identify",
+     "entityId":"SPANKKI",
      "name":"S-pankki",
      "acsAddress":"https://www.tunnistus.fi/ubitp/saml2/names/ac/tupas.s-pankki.3",
      "sloAddress":null,
@@ -174,7 +174,7 @@
      "loginContext":"/Shibboleth.sso/LoginSpankki"
   },
   {
-     "entityId":"https://tupas.poppankki.fi",
+     "entityId":"POPPANKKI",
      "name":"Pop-pankki",
      "acsAddress":"https://www.tunnistus.fi/ubitp/saml2/names/ac/tupas.pop.3",
      "sloAddress":null,
@@ -203,7 +203,7 @@
      "loginContext":"/Shibboleth.sso/LoginPoppankki"
   },
   {
-     "entityId":"https://tupas.handelsbanken.fi",
+     "entityId":"HANDELSBANKEN",
      "name":"Handelsbanken",
      "acsAddress":"https://www.tunnistus.fi/ubitp/saml2/names/ac/tupas.handelsbanken.3",
      "sloAddress":null,
@@ -232,7 +232,7 @@
      "loginContext":"/Shibboleth.sso/LoginHandelsbanken"
   },
   {
-     "entityId":"https://verkkopankki.danskebank.fi/SP/tupaha/TupahaApp",
+     "entityId":"DANSKEBANK",
      "name":"Danske",
      "acsAddress":"https://www.tunnistus.fi/ubitp/saml2/names/ac/tupas.sampo.3",
      "sloAddress":null,
@@ -261,7 +261,7 @@
      "loginContext":"/Shibboleth.sso/LoginDanske-bank"
   },
   {
-     "entityId":"https://tupas.omasp.fi",
+     "entityId":"OMASAASTOPANKKI",
      "name":"OmaSP",
      "acsAddress":"https://www.tunnistus.fi/ubitp/saml2/names/ac/tupas.omasaastopankki.3",
      "sloAddress":null,
@@ -578,5 +578,34 @@
      "eidasContactAddress":"",
      "eidasSupport":"full",
      "loginContext":"/Shibboleth.sso/LoginTestIdP"
+  },
+  {
+    "entityId": "ULK_TUN",
+    "name": "ffitest",
+    "acsAddress": "urn:oid:1.2.246.517.3002.110.7",
+    "sloAddress": null,
+    "pubKey": null,
+    "userAttributes": null,
+    "providerType": "AUTHENTICATION_PROVIDER",
+    "dnsName": "suomi.fi",
+    "levelOfAssurance": "FFI",
+    "attributeLevelOfAssurance": "FFITEST",
+    "sessionProfile": "VETUMA_SAML2",
+    "ssoUrl": null,
+    "displayName": {
+      "fi": " ",
+      "en": " ",
+      "sv": " "
+    },
+    "organizationName": null,
+    "description": null,
+    "privacyStatement": null,
+    "administrativeContact": null,
+    "technicalContact": null,
+    "authenticationProviderDTOList": null,
+    "vtjVerificationRequired": true,
+    "eidasContactAddress": "",
+    "eidasSupport": "full",
+    "loginContext": "/Shibboleth.sso/LoginTestFFI"
   }
 ]

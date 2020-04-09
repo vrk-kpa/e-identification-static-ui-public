@@ -8,6 +8,21 @@
       "sv":"Estland"
     },
     "levelOfAssurance":"eLoA2",
+    "authProviderEntityId": "EIDAS_SUBSTANTIAL",
+    "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
+    "sortOrder":1,
+    "enabled":true
+  },
+  {
+    "countryCode":"EE",
+    "imgSrc":"/resources/images/flags/ee.svg",
+    "displayName":{
+      "fi":"Viro",
+      "en":"Estonia",
+      "sv":"Estland"
+    },
+    "levelOfAssurance":"eLoA3",
+    "authProviderEntityId": "EIDAS_HIGH",
     "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
     "sortOrder":1,
     "enabled":true
@@ -21,6 +36,7 @@
       "sv":"Tyskland"
     },
     "levelOfAssurance":"eLoA3",
+    "authProviderEntityId": "EIDAS_HIGH",
     "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
     "sortOrder":2,
     "enabled":true
@@ -34,6 +50,7 @@
       "sv":"Polen"
     },
     "levelOfAssurance":"eLoA2",
+    "authProviderEntityId": "EIDAS_SUBSTANTIAL",
     "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
     "sortOrder":3,
     "enabled":true
@@ -47,6 +64,7 @@
       "sv":"Frankrike"
     },
     "levelOfAssurance":"eLoA2",
+    "authProviderEntityId": "EIDAS_SUBSTANTIAL",
     "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
     "sortOrder":4,
     "enabled":true
@@ -59,7 +77,22 @@
       "en":"United Kingdom",
       "sv":"Förenade kungariket"
     },
+    "levelOfAssurance":"eLoA3",
+    "authProviderEntityId": "EIDAS_HIGH",
+    "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
+    "sortOrder":5,
+    "enabled":true
+  },
+  {
+    "countryCode":"UK",
+    "imgSrc":"/resources/images/flags/gb.svg",
+    "displayName":{
+      "fi":"Yhdistynyt kuningaskunta",
+      "en":"United Kingdom",
+      "sv":"Förenade kungariket"
+    },
     "levelOfAssurance":"eLoA2",
+    "authProviderEntityId": "EIDAS_SUBSTANTIAL",
     "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
     "sortOrder":5,
     "enabled":true
@@ -73,8 +106,24 @@
       "sv":"Land X"
     },
     "levelOfAssurance":"eLoA3",
+    "authProviderEntityId": "EIDAS_HIGH",
     "eidasLoginContext":"/Shibboleth.sso/LoginEIDAS1",
     "sortOrder":6,
     "enabled":true
+  },
+  {
+    "countryCode":"XU",
+    "imgSrc":"/resources/images/globe.png",
+    "displayName":{
+      "fi":"Finnish Authenticator -sovellus",
+      "en":"Finnish Authenticator app",
+      "sv":"Finnish Authenticator app"
+    },
+    "levelOfAssurance":"FFI",
+    "eidasLoginContext":"",
+    "sortOrder":7,
+    "enabled":true,
+    "authProviderEntityId":"ULK_TUN"
   }
+
 ]

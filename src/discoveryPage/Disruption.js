@@ -39,7 +39,7 @@ class Disruption extends React.Component {
                 }
             }
         };
-        xhttp.open('GET', '/disruption/disruption_message.json');
+        xhttp.open('GET', this.props.path);
         xhttp.send();
     }
 
@@ -48,9 +48,9 @@ class Disruption extends React.Component {
             let localised = this.state[this.context.lang];
             if (localised) {
                 return (
-                    <div id="disruption"  className="box alert-box">
-                        <div id="service-error-date" className="date">{localised.date}</div>
-                        <p id="service-error-text">{localised.message}</p>
+                    <div id={this.props.id} className="box alert-box">
+                        <div className="date">{localised.date}</div>
+                        <p>{localised.message}</p>
                     </div>
                 );
             } else {
@@ -65,6 +65,15 @@ class Disruption extends React.Component {
 
 Disruption.contextTypes = {
     lang: PropTypes.string.isRequired,
+};
+
+Disruption.propTypes = {
+    id: PropTypes.string,
+    path: PropTypes.string.isRequired,
+};
+
+Disruption.defaultProps = {
+    id: 'disruption'
 };
 
 export default Disruption;

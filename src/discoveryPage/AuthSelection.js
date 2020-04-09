@@ -119,23 +119,22 @@ let authMethodConfig = {
         'loc_id': 'valinta__vaihtoehto__eIDAS_link',
         'entityId': 'EIDAS_HIGH'
     },
+    ffi: {
+        'imgSrc': '/resources/images/eidas-ikoni.png',
+        'id': 'ffi',
+        'loc_id': 'valinta__vaihtoehto__eIDAS_link',
+        'entityId': 'ULK_TUN'
+    },
     testidp: {
         'imgSrc': '/resources/images/sfi_logo_70x70.png',
         'id': 'testidp',
         'loc_id': 'valinta__vaihtoehto__testidp',
         'entityId': 'urn:oid:1.2.246.517.3002.110.995'
-    },
-    ffi: {
-        'imgSrc': '/resources/images/globe.png',
-        'id': 'ffi',
-        'loc_id': 'valinta__vaihtoehto__ffi',
-        'entityId': 'ULK_TUN'
     }
 };
 
 let authMethodOrder = [
     authMethodConfig.vrk,
-    authMethodConfig.ffi,
     authMethodConfig.mobiilivarmenne,
     authMethodConfig.osuuspankki,
     authMethodConfig.nordea,
@@ -157,7 +156,8 @@ let authMethodOrder = [
 ];
 
 let eidasMethodOrder = [
-    authMethodConfig.eidashigh
+    authMethodConfig.eidashigh,
+    authMethodConfig.ffi
 ];
 /**
  * Process the authMethods for SignInOptionList
@@ -166,7 +166,7 @@ class AuthSelection extends React.Component {
 
     componentWillMount() {
         if (this.props.eidasSupport === 'none') {
-            eidasMethodOrder = [];
+            eidasMethodOrder = eidasMethodOrder.filter(item => item.id !== 'eidas_high');
         }
     }
 

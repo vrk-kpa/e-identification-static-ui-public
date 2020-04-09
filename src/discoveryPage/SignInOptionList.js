@@ -28,6 +28,10 @@ class SignInOptionList extends React.Component {
                     } else if (result.displayName && result.displayName.fi) {
                         displayName = result.displayName.fi;
                     }
+                     if (result.authProviderEntityId === 'ULK_TUN') {
+                        result.entityId = 'ULK_TUN';
+                        result.countryCode = null;
+                    }
                     return (
                         <li key={result.id ? result.id : result.countryCode}>
                             <AuthMethod id={result.id ? result.id : result.countryCode}

@@ -40,6 +40,11 @@ class DiscoveryPage extends React.Component {
         var entId = this.context.queryParams.entityId;
         return entId;
     }
+    getAuthMethods() {
+        var authMethods = this.context.queryParams.authMethdReq;
+        return authMethods;
+    }
+
     getTimeout() {
         let timeout = this.context.queryParams.timeout || defaultDiscoTimeoutSecs;
         return timeout * 1000;
@@ -131,17 +136,6 @@ class DiscoveryPage extends React.Component {
             this.getCountries();
         }
     }
-    getInfoElement() {
-        return (
-            <div className="row">
-                <div className="col-xs-12 col-md-8">
-                    <div className="sign-in-info">
-                        <Translated tag="p" id="valinta__suomifi-tunnistaminen-roadmap" className="small" />
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
     cancelAndReturnToService() {
         let path = Utils.getReturnLinkUrl('cancel', this.context.queryParams);
@@ -161,20 +155,20 @@ class DiscoveryPage extends React.Component {
                         <Translated tag="span" id="valinta__return-link" />
                     </IDPLink>
                 </div>
-                { this.getInfoElement() }
             </div>
         );
     }
     getFlagPageContent() {
         return (
             <div className="row">
-                <CountrySelection availableCountries={countryList}/>
+                <CountrySelection availableCountries={countryList}
+                                  authMethods={this.getAuthMethods()}
+                                  eidasSupport={metadataService.getEidasSupport()} />
                 <div className="row">
                     <a onClick={browserHistory.goBack} className="go-back">
                         <Translated tag="span" id="valinta__palaa_tunnistajan_valintaan" />
                     </a>
                 </div>
-                { this.getInfoElement() }
             </div>
         );
     }
@@ -187,8 +181,12 @@ class DiscoveryPage extends React.Component {
 
     render() {
         let onDiscoPage = true;
+        let onCountrySelection = false;
+        const {disruptionUrl, eidasDisruptionUrl} = this.getConfig();
+
         if (this.props.location.pathname === '/sivut/country-selection/') {
             onDiscoPage = false;
+            onCountrySelection = true;
         }
         // Check that needed data from backend has been loaded before rendering
         if (onDiscoPage && (!this.state.metadataFetched || !this.state.providersFetched)) {
@@ -226,7 +224,10 @@ class DiscoveryPage extends React.Component {
                 <div className="main">
                     <div className="container">
                         <AuthPageFrame serviceDisplayName={serviceDisplayName}>
-                            <Disruption />
+                            <div>
+                                <Disruption id='disruption' path={disruptionUrl}/>
+                                { onCountrySelection ? <Disruption id='disruption-eidas' path={eidasDisruptionUrl}/> : '' }
+                            </div>
                         </AuthPageFrame>
                         { (onDiscoPage) ? this.getDiscoPageContent(allowedAuthProviders, eidasSupport) : this.getFlagPageContent() }
                     </div>

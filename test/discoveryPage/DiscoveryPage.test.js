@@ -49,6 +49,12 @@ const testProviders = [
     {entityId:"eidassubstantial",levelOfAssurance:"eLoA2",}
 ];
 
+const config_js = {
+    disruptionUrl: "disruption-url-test-path",
+    eidasDisruptionUrl: "disruption-url-eidas-test-path"
+};
+
+
 describe('DiscoveryPage', function() {
 
     let windowObj;
@@ -60,7 +66,7 @@ describe('DiscoveryPage', function() {
 
     beforeEach(() => {
         getJsonDataStub = sinon.stub(Utils, 'getJsonData');
-        global.window = { location: { href: ''}};
+        global.window = { location: { href: ''}, IdentificationConfig: {...config_js}};
     });
 
     afterEach(() => {

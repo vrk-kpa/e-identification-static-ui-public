@@ -273,10 +273,13 @@ class ErrorFeedbackForm extends React.Component {
         this.props.onFormAbort();
     }
     render() {
+
+        const {disruptionUrl} = window.IdentificationConfig;
+
         return (
             <div className="col-xs-12 col-md-9 error-feedback-page">
                 <Translated tag="h1" id="virhepalaute__otsikko"/>
-                <Disruption />
+                <Disruption path={disruptionUrl}/>
                 <div className="feedback-form-wrapper">
                     <button id="error-feedback-cancel" className="button-cancel-error-feedback" onClick={this.handleAbort}>
                         <Translated tag="span" id="virhepalaute__peruutalinkki" tagId="error-feedback-cancel-text-top">Keskeytä</Translated>

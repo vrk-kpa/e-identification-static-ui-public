@@ -3,13 +3,33 @@ import PropTypes from 'prop-types';
 
 import SignInOptionList from './SignInOptionList.js';
 import Translated from '../Translated.js';
-import EidasPrivacyStatementLink from './EidasPrivacyStatementLink.js';
 
 class CountrySelection extends React.Component {
 
     getMethodsToShow(countries) {
+        let authMethods = this.props.authMethods.split(';');
         let methodsToShow = [];
-        countries.forEach((c) => {
+        let filteredCountries = [];
+
+        if (authMethods.indexOf('FFI') >= 0) {
+            filteredCountries = filteredCountries.concat(countries.filter(item => item.authProviderEntityId === 'ULK_TUN'));
+        }
+
+        if (authMethods.indexOf('eLoA2') >= 0 && this.props.eidasSupport !== 'none') {
+           filteredCountries = filteredCountries.concat(countries.filter(item => item.authProviderEntityId === 'EIDAS_SUBSTANTIAL'));
+        }
+
+        if (authMethods.indexOf('eLoA3') >= 0 && this.props.eidasSupport !== 'none') {
+           let tmpCountries = filteredCountries.concat(countries.filter(item => item.authProviderEntityId === 'EIDAS_HIGH'));
+           //Only add countries if not already added in the previous step
+           tmpCountries.forEach((c) => {
+               if (!filteredCountries.some(x => x.countryCode === c.countryCode)) {
+                   filteredCountries.push(c);
+               }
+           });
+        }
+
+        filteredCountries.forEach((c) => {
             if (c && c.enabled) {
                 methodsToShow.push(c);
             }
@@ -31,17 +51,15 @@ class CountrySelection extends React.Component {
                     <Translated tag="h2" id="valinta__vaihtoehto__otsikko_valitse_maa" />
                     <SignInOptionList allowedMethods={methodsToShow}/>
                 </div>
-                <hr></hr>
-                <div className="col-xs-12">
-                    <EidasPrivacyStatementLink/>
-                </div>
             </div>
         );
     }
 }
 
 CountrySelection.propTypes = {
-    availableCountries: PropTypes.array.isRequired
+    authMethods: PropTypes.string.isRequired,
+    availableCountries: PropTypes.array.isRequired,
+    eidasSupport: PropTypes.string.isRequired
 };
 
 export default CountrySelection;

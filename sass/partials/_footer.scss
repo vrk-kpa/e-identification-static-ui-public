@@ -45,11 +45,15 @@
   .site-logo {
     display: block;
     float: left;
-    max-width: 45%;
+    max-width: 50%;
     width: auto;
     margin: 0;
     padding: 40px 0;
     line-height: 0;
+
+    p {
+      margin: 3rem 0 0 0;
+    }
 
     img {
       @include rem(height, 55px);
@@ -111,6 +115,15 @@
   }
 }
 
+@media (max-width: $breakpoint-5) {
+  #footer-content {
+    .site-logo {
+      max-width: 45%;
+      padding: 20px 0;
+    }
+  }
+}
+
 @media (max-width: $breakpoint-3) {
   #footer-content {
     padding: 0 32px;
@@ -118,6 +131,7 @@
     .site-logo {
       float: none;
       max-width: 100%;
+      padding: 20px 0;
     }
 
     .footer-links {

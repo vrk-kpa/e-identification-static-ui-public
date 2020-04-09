@@ -62,12 +62,16 @@ class Footer extends React.Component {
     render() {
         const errorFeedbackQuery =  this.createErrorFeedbackQuery();
 
+        const {location} = this.props;
+        const onDiscoveryPage = location && location.pathname.indexOf('/discovery-page/') !== -1;
+
         return (
             <footer id="page-footer" role="contentinfo">
                 <Translated tag="a" href="#" className="go-up" id="footer__takaisin_ylös" onClick={this.scrollToTop}/>
                 <div id="footer-content" className={'container'}>
                   <span className="site-logo">
                       <TranslatedImage srcKey="header__logo" altKey="header__suomifi-tunnistaminen" />
+                      { (onDiscoveryPage) ? <Translated tag="p" id="valinta__suomifi-tunnistaminen-roadmap" className="small" /> : '' }
                   </span>
                   <div className="footer-links">
                     <ul className="footer-links-info">

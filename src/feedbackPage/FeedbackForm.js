@@ -105,10 +105,12 @@ class FeedbackForm extends React.Component {
         this.props.onFormAbort();
     }
     render() {
+        const {disruptionUrl} = window.IdentificationConfig;
+
         return (
             <div className="col-xs-12 col-md-8 feedback-page">
                 <Translated tag="h1" id="palaute__otsikko"/>
-                <Disruption />
+                <Disruption path={disruptionUrl}/>
                 <div className="feedback-form-wrapper">
                     <div className="col-xs-12 col-md-10">
                         <div className="form-group" ref="messageValidationError">
